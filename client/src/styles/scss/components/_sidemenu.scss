@@ -1,0 +1,34 @@
+.sidemenu {
+  width: 100%;
+  height: 100%;
+  background: black;
+  position: fixed;
+  z-index: 20;
+  top: 80px;
+  right: -100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: transform 0.5s ease-in-out;
+  li {
+    padding: 1rem 2rem;
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: white;
+    }
+  }
+
+  &.open {
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sidemenu {
+    display: none;
+  }
+}
