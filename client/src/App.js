@@ -13,7 +13,7 @@ import Footer from './components/Footer'
 const App = () => {
   return (
       <Router>
-        {/*<Header />
+        <Header />
         <Switch>
           <Route path='/' exact component={HomeScreen}/>
           <Route path='/login'  component={LoginScreen}/>
@@ -22,7 +22,7 @@ const App = () => {
           <Route path='/providers' component={ProvidersListScreen}/>
           <Route path='/offer' component={OfferScreen}/>
           <Route component={ErrorScreen}/>
-        </Switch>*/}
+        </Switch>
         <Footer />
       </Router>
   );
