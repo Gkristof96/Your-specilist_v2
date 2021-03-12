@@ -34,30 +34,30 @@
     list-style: none;
 
     li {
-      font-weight: 400;
-      padding: 10px 20px;
-      position: relative;
-      text-decoration: none;
-      color: #fff;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-size: clamp(0.6rem, 1.8vw, 1rem);
-      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      &:hover {
-        text-shadow: 0 0 5px 3px color(light);
-        font-weight: bold;
-        transform: translateY(-3px);
-      }
-      &.active {
-        &::after {
-          content: "";
-          width: 90%;
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          height: 3px;
-          background: #fff;
+      a {
+        font-weight: 400;
+        padding: 10px 20px;
+        position: relative;
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-size: clamp(0.6rem, 1.8vw, 1rem);
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover {
+          font-weight: bold;
+        }
+        &.active {
+          &::after {
+            content: "";
+            width: 90%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 3px;
+            background: #fff;
+          }
         }
       }
     }

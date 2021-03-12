@@ -1,0 +1,17 @@
+.offer-content {
+  width: 100vw;
+
+  position: relative;
+
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    height: 300px;
+    background-color: white;
+
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

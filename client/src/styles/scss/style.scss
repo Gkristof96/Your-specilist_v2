@@ -1,7 +1,12 @@
 @use './abstracts' as *;
 @use './components/index';
+@use './screens/contact-screen';
+@use './screens/login-screen';
+@use './screens/register-screen';
+@use './screens/offer-screen';
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
   margin: 0;
@@ -9,7 +14,10 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 body {
-  background-color: red;
+  background: #e3e3e3;
+}
+img {
+  width: 100px;
+  height: 100px;
 }

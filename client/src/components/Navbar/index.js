@@ -11,10 +11,9 @@ const index = ({isMenuOpen, handleOpen}) => {
             </Link>
 
             <ul>
-                <li>Szakemberek</li>
-                <li>Ajánlatkérés</li>
-                <li>Kapcsolat</li>
-                <li>Bejelentkezés</li>
+                <li><Link to='/offer'>Ajánlatkérés</Link></li>
+                <li><Link to='/contact'>Kapcsolat</Link></li>
+                <li><Link to='/login'>Bejelenkezés</Link></li>
             </ul>
 
             <div className='navbar__toggle'>
