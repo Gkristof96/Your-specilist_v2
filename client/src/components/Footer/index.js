@@ -13,9 +13,9 @@ const Footer = () => {
                 </div>
                 <div className='navigation'>
                     <ul>
-                        <li><AiFillFacebook /></li>
-                        <li><AiFillInstagram /></li>
-                        <li><AiFillTwitterSquare /></li>
+                        <li><AiFillFacebook className='icon'/></li>
+                        <li><AiFillInstagram className='icon'/></li>
+                        <li><AiFillTwitterSquare className='icon'/></li>
                     </ul>
                     <ul>
                         <li>Szakmák</li>
@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='footer-bottom'>
-                <span>Terms of usage | CopyRight © Kristof - 2020</span>
+                <h1>Terms of usage | CopyRight © Kristof - 2020</h1>
             </div>
         </footer>
     )
