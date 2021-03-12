@@ -18,8 +18,8 @@
     h1 {
       font-style: normal;
       font-weight: 600;
-      font-size: 64px;
-      line-height: 80px;
+      font-size: clamp(32px, 5vw, 64px);
+      line-height: clamp(50px, 5vw, 80px);
       /* or 125% */
 
       color: #ffffff;
@@ -28,8 +28,8 @@
     p {
       font-style: normal;
       font-weight: 500;
-      font-size: 32px;
-      line-height: 55px;
+      font-size: clamp(18px, 3vw, 32px);
+      line-height: clamp(25px, 5vw, 55px);
       /* or 153% */
 
       color: #ffffff;
@@ -45,5 +45,16 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: -75px;
+  }
+}
+
+@media screen and(max-width: 1450px) {
+  .hero {
+    .text-container {
+      padding: 0 25px;
+    }
+    .search-bar {
+      max-width: calc(100% - 50px);
+    }
   }
 }

@@ -13,11 +13,13 @@ const ProviderCard = ({provider}) => {
                         <h1>{`${provider.firstname} ${provider.lastname}`}</h1>
                         <Rating value={provider.rate} text={provider.rate} />
                     </div>
-                    <h2><FaMapMarkerAlt />{provider.city}</h2>
+                    <h2><FaMapMarkerAlt className='icon'/>{provider.city}</h2>
                     <p>{provider.bio}</p>
-                    {provider.professions.map((profession,index) => (
-                        <ProfessionBadge profession={profession} key={index} />
-                    ))}
+                    <div className='professions-bar'>
+                        {provider.professions.map((profession,index) => (
+                            <ProfessionBadge profession={profession} key={index} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </>

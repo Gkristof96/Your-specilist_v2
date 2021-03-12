@@ -28,7 +28,7 @@ const AutocompleteInput = ({ value, placeholder, setInput, items}) => {
     }
 
     return (
-       <div>
+       <div className='auto-input'>
           <input
             onFocus={() => setInput('')}
             type='text'

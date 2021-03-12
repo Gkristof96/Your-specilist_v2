@@ -1,0 +1,63 @@
+.auto-input {
+  width: calc((100% - 75px) / 2);
+  height: 75px;
+  padding-right: 12px;
+  position: relative;
+  input {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: #f7f7f7;
+    border: 1px solid #aaa;
+    padding: 15px;
+    font-size: 20px;
+    outline: none;
+  }
+  ul {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    z-index: 20;
+    width: calc(100% - 12px);
+    list-style: none;
+    border-radius: 10px;
+    background: #eee;
+    padding: 5px 0;
+    border: 1px solid #aaa;
+    max-height: 250px;
+    overflow-y: auto;
+    li {
+      background: #eee;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 10px;
+      &:hover {
+        background: #aaa;
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #eee;
+    border-radius: 0 10px 10px 0;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 0 10px 10px 0;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #49205c;
+  }
+}

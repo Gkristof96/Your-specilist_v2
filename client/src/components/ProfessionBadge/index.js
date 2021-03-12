@@ -2,8 +2,8 @@ import React from 'react'
 
 const ProfessionBadge = ({profession}) => {
     return (
-        <div>
-            <span>{profession}</span>
+        <div className='profession-badge'>
+            <span className='profession-badge__title'>{profession}</span>
         </div>
     )
 }

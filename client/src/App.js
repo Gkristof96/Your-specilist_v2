@@ -8,6 +8,7 @@ import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import './styles/style.css'
 import ProvidersListScreen from './screens/ProvidersListScreen'
+import ProfileScreen from './screens/ProfileScreen'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/register' component={RegisterScreen} /> 
           <Route path='/contact' component={ContactScreen}/>
           <Route path='/providers' component={ProvidersListScreen}/>
+          <Route path='/profile' component={ProfileScreen}/>
           <Route path='/offer' component={OfferScreen}/>
           <Route component={ErrorScreen}/>
         </Switch>

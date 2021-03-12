@@ -8,14 +8,13 @@
 
 .error-content {
   width: 100%;
+  padding: 0 calc((100vw - 1400px) / 2);
   .container {
     width: 100%;
-    max-width: 1400px;
     height: 750px;
     background: white;
-    margin: 0 calc((100vw - 1400px) / 2);
     padding: 0 100px;
-
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
     transform: translateY(-75px);
@@ -68,6 +67,15 @@
       img {
         width: 100%;
       }
+    }
+  }
+}
+
+@media screen and(max-width: 1450px) {
+  .error-content {
+    padding: 0 25px;
+    .container {
+      padding: 0 50px;
     }
   }
 }

@@ -6,7 +6,7 @@ const ContactScreen = () => {
         <>
             <section className='contact'>
             </section>
-            <section className='content'>
+            <section className='contact-content'>
                 <div className='container'>
                     <div className='left-bar'>
                         <h1>Írj nekünk!</h1>

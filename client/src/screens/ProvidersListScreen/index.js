@@ -35,7 +35,7 @@ const ProvidersListScreen = () => {
                     </span>
                 </div>
             </section>
-            <section className='providers'>
+            <section className='providers-content'>
                 {providersData.map((provider,index) => (
                     <ProviderCard provider={provider} key={index} />
                 ))}
