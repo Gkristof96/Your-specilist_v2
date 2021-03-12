@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const LoginScreen = () => {
@@ -8,20 +9,20 @@ const LoginScreen = () => {
             <div className='login-screen'>
                 <div className='login-card'>
                     <h1>Bejelentkezés</h1>
-                    <Link to='/'>X</Link>
+                    <Link to='/'><FaTimes className='icon'/></Link>
                     <form>
-                        <label>
+                        <label className='input-group'>
                             Email
                             <input />
                         </label>
-                        <label>
+                        <label className='input-group'>
                             Jelszó
                             <input />
                         </label>
                         <div className='login-settings'>
                             <label>
                                 <input type='checkbox' />
-                                Emlékezz rám!
+                                <span>Emlékezz rám!</span>
                             </label>
                             <Link to='/'>
                                 elfelejtett jelszó
@@ -30,7 +31,7 @@ const LoginScreen = () => {
 
                         <button type='submit'>Bejelentkezés</button>
                     </form>
-                    <span>Nincs még felhasználód? <Link to='/register'>Regisztrálj</Link> most!</span>
+                    <h2>Nincs még felhasználód? <Link to='/register'>Regisztrálj</Link> most!</h2>
                 </div>
             </div>
         </>

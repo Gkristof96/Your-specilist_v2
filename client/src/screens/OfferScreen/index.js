@@ -13,33 +13,33 @@ const OfferScreen = () => {
                 <div className='container'>
                     <h1>Töltsd ki az űrlapot, és várj a szakemberek válaszára</h1>
                     <form>
-                        <label>
+                        <label className='input-group'>
                             Keresztnév
                             <input />
                         </label>
-                        <label>
+                        <label className='input-group'>
                             Vezetéknév
                             <input />
                         </label>
-                        <label>
+                        <label className='input-group'>
                             Email
                             <input />
                         </label>
-                        <label>
+                        <label className='input-group'>
                             Város
                             <input />
                         </label>
-                        <label>
+                        <label className='input-group'>
                             Munka leírás
                             <textarea />
                         </label>
-                        <label>
+                        <label className='input-group'>
                             Szakma
                             <input />
                         </label>
-                        <label>
+                        <label className='checkbox'>
                             <input type='checkbox' />
-                            Elfogadom az <span>adatkezelési szabályzatot</span>
+                            <span>Elfogadom a <span>felhasználási feltételeket</span>!</span>
                         </label>
                         <button type='submit'>Küldés</button>
                     </form>

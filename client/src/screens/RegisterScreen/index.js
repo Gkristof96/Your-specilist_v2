@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const RegisterScreen = () => {
@@ -8,28 +9,28 @@ const RegisterScreen = () => {
             <div className='register-screen'>
                 <div className='register-card'>
                     <h1>Regisztráció</h1>
-                    <Link to='/'>X</Link>
+                    <Link to='/'><FaTimes className='icon'/></Link>
                     <form>
-                        <label>
+                        <label className='input-group'>
                             Email
                             <input />
                         </label>
-                        <label>
+                        <label className='input-group'>
                             Jelszó
                             <input />
                         </label>
-                        <label>
+                        <label className='input-group'>
                             Jelszó újra
                             <input />
                         </label>
-                        <label>
+                        <label className='checkbox'>
                             <input type='checkbox' />
-                            Elfogadom a <span>felhasználási feltételeket</span>!
+                            <span>Elfogadom a <span>felhasználási feltételeket</span>!</span>
                         </label>
 
                         <button type='submit'>Regisztráció</button>
                     </form>
-                    <span>Van már felhasználód? <Link to='/login'>Jelentkez be</Link></span>
+                    <h2>Van már felhasználód? <Link to='/login'>Jelentkez be</Link></h2>
                 </div>
             </div>
         </>

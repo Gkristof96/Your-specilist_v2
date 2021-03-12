@@ -11,7 +11,7 @@
   .container {
     width: 100%;
     max-width: 1400px;
-    height: 650px;
+    height: 750px;
     background: white;
     margin: 0 calc((100vw - 1400px) / 2);
     padding: 0 100px;
@@ -21,6 +21,7 @@
     transform: translateY(-75px);
     .leftbar {
       width: 50%;
+      padding-right: 50px;
       h1 {
         font-weight: normal;
         font-size: 48px;
