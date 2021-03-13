@@ -1,8 +1,16 @@
 .profession-badge {
-  margin-right: 10px;
+  width: 200px;
+  height: 40px;
+  background: #49205c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
   &__title {
-    background: #49205c;
-    padding: 0.5rem 2rem;
-    color: #eee;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #eeeeee;
   }
 }

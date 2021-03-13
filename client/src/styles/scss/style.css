@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @use './abstracts' as *;
 @use './components/index';
 @use './screens/contact-screen';
@@ -7,18 +9,15 @@
 @use './screens/error-screen';
 @use './screens/home-screen';
 @use './screens/providerList-screen';
-@use './screens/profile-screen';
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 body {
   background: #e3e3e3;
-  color: black;
 }
+/*# sourceMappingURL=style.css.map */

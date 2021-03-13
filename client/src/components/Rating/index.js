@@ -1,7 +1,7 @@
 import React from 'react'
 import {BsStarFill,BsStarHalf,BsStar} from 'react-icons/bs'
 
-const Rating = ({ value, text, color }) => {
+const Rating = ({ value, color }) => {
   return (
     <div className='rating'>
       <span>
@@ -19,7 +19,6 @@ const Rating = ({ value, text, color }) => {
       <span>
       {value >= 5 ? <BsStarFill color='F5D547'/> : value >= 4.5 ? <BsStarHalf color='F5D547'/> : <BsStar color='F5D547'/>}
       </span>
-      <span>{text && text}</span>
     </div>
   )
 }
