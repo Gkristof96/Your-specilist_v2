@@ -627,17 +627,23 @@ footer .footer-header .navigation {
 .login-screen .login-card h2 {
   font-weight: normal;
   font-size: 14px;
-  line-height: 55px;
   text-align: center;
+  margin: 10px 0;
   color: #212121;
 }
 .login-screen .login-card h2 a {
   font-weight: 600;
   font-size: 14px;
-  line-height: 55px;
   color: #49205c;
 }
 
+@media screen and (max-width: 450px) {
+  .login-screen .login-card {
+    width: 100%;
+    margin: 0 25px;
+    padding: 0 25px;
+  }
+}
 .background {
   width: 100%;
   height: 100vh;
@@ -728,18 +734,27 @@ footer .footer-header .navigation {
 .register-screen .register-card h2 {
   font-weight: normal;
   font-size: 14px;
-  line-height: 55px;
   text-align: center;
   margin: 10px 0;
+  margin-bottom: 50px;
   color: #212121;
 }
 .register-screen .register-card h2 a {
   font-weight: 600;
   font-size: 14px;
-  line-height: 55px;
   color: #49205c;
 }
 
+@media screen and (max-width: 450px) {
+  .register-screen .register-card {
+    width: 100%;
+    margin: 0 25px;
+    padding: 0 25px;
+  }
+  .register-screen .register-card h2 {
+    margin-bottom: 50px;
+  }
+}
 .offer-content {
   width: 100%;
   padding: 0 calc((100vw - 1400px) / 2);

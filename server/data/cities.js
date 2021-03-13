@@ -1,0 +1,33 @@
+const cityData = [
+    "Budapest",
+    "Kecskemét",
+    "Győr",
+    "Marcali",
+    "Pécs",
+    "Zalaegerszeg",
+    "Debrecen",
+    "LajosMizse",
+    "Szeged",
+    "Esztergom",
+    "Sopron",
+    "Tatabánya",
+    "Tata",
+    "Pápa",
+    "Keszthely",
+    "Szekszárd",
+    "Gyula",
+    "Szolnok",
+    "BékésCsaba",
+    "Salgótarján",
+    "Siófok",
+    "Nagykanizsa",
+    "Szombathely",
+    "Székesfehérvár",
+    "Nyíregyháza",
+    "Eger",
+    "Miskolc",
+    "Szentendre",
+    "Veszprém"
+]
+
+export default cityData

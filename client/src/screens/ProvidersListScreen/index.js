@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ProviderCard from '../../components/ProviderCard'
-import providersData from '../../data/providers'
 import cityData from '../../data/cities'
 import professionData from '../../data/professions'
 import AutocompleteInput from '../../components/AutocompleteInput'
 import { FaSearch } from 'react-icons/fa'
+import axios from 'axios'
 
 const ProvidersListScreen = () => {
     const [input, setInput] = useState('')
     const [profession, setProfession] = useState('')
+    const [providers, setProviders] = useState([])
+
+    useEffect(() => {
+        const fetchProviders = async() => {
+            const {data} = await axios.get('/api/providers')
+
+            setProviders(data)
+        }
+        fetchProviders()
+    },[])
 
     return (
         <>
@@ -36,7 +46,7 @@ const ProvidersListScreen = () => {
                 </div>
             </section>
             <section className='providers-content'>
-                {providersData.map((provider,index) => (
+                {providers.map((provider,index) => (
                     <ProviderCard provider={provider} key={index} />
                 ))}
             </section>

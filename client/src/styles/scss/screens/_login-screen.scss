@@ -104,17 +104,24 @@
     h2 {
       font-weight: normal;
       font-size: 14px;
-      line-height: 55px;
       text-align: center;
-
+      margin: 10px 0;
       color: #212121;
       a {
         font-weight: 600;
         font-size: 14px;
-        line-height: 55px;
 
         color: #49205c;
       }
+    }
+  }
+}
+@media screen and(max-width: 450px) {
+  .login-screen {
+    .login-card {
+      width: 100%;
+      margin: 0 25px;
+      padding: 0 25px;
     }
   }
 }
