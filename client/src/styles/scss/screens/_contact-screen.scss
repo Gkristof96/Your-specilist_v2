@@ -23,8 +23,7 @@
         font-family: Poppins;
         font-style: normal;
         font-weight: normal;
-        font-size: 48px;
-        line-height: 72px;
+        font-size: clamp(24px, 5vw, 48px);
 
         color: #212121;
         margin-bottom: 20px;
@@ -34,8 +33,7 @@
         font-family: Poppins;
         font-style: normal;
         font-weight: normal;
-        font-size: 22px;
-        line-height: 33px;
+        font-size: clamp(16px, 2vw, 22px);
         text-align: justify;
 
         color: #000000;
@@ -46,8 +44,7 @@
         font-family: Montserrat;
         font-style: normal;
         font-weight: 600;
-        font-size: 22px;
-        line-height: 27px;
+        font-size: clamp(12px, 2vw, 24px);
         display: flex;
         align-items: center;
 
@@ -55,7 +52,7 @@
 
         .icon {
           margin-right: 25px;
-          font-size: 2rem;
+          font-size: clamp(1rem, 2vw, 2rem);
         }
       }
     }
@@ -91,6 +88,29 @@
     padding: 0 25px;
     .container {
       padding: 0 50px;
+    }
+  }
+}
+
+@media screen and(max-width: 450px) {
+  .contact-content {
+    .container {
+      flex-direction: column;
+      padding: 50px 25px;
+      align-items: flex-start;
+      height: auto;
+      .left-bar,
+      .right-bar {
+        width: 100%;
+      }
+
+      .left-bar {
+        li {
+          .icon {
+            margin-right: 5px;
+          }
+        }
+      }
     }
   }
 }

@@ -12,6 +12,10 @@ const RegisterScreen = () => {
                     <Link to='/'><FaTimes className='icon'/></Link>
                     <form>
                         <label className='input-group'>
+                            Név
+                            <input />
+                        </label>
+                        <label className='input-group'>
                             Email
                             <input />
                         </label>

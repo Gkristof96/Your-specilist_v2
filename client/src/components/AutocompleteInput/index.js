@@ -36,7 +36,7 @@ const AutocompleteInput = ({ value, placeholder, setInput, items}) => {
             onChange={changeSuggestions}
             placeholder={placeholder}
           />
-          {showSuggestions &&
+          {(showSuggestions && suggestions.length > 0 )&&
           <ul>
             {suggestions.map((suggestion,index) => (
               <li key={index} onClick={(e) => suggestionChanged(suggestion)}>

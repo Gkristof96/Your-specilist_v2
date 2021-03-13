@@ -31,7 +31,7 @@ const ProvidersListScreen = () => {
                         value={profession}
                     />
                     <span>
-                        <FaSearch />
+                        <FaSearch className='icon'/>
                     </span>
                 </div>
             </section>
