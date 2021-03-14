@@ -25,7 +25,7 @@ const ProfileScreen = () => {
                     <div className='leftbar'>
                         <img src={provider.image} alt={provider.name} />
                         <div className='data-container'>
-                            <Rating value={provider.rate}/>
+                            <Rating value={provider.rating}/>
                             <div className='contact-data'>
                                 <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2>
                                 <h2><FaEnvelope className='icon'/> {provider.email}</h2>
@@ -43,7 +43,7 @@ const ProfileScreen = () => {
                         </div>
                     </div>
                     <div className='rightbar'>
-                        <h1>{provider.lastname} {provider.firstname}</h1>
+                        <h1>{provider.name}</h1>
                         <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
 
                         <h3>Bemutatkozás</h3>

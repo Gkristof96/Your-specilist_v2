@@ -1,8 +1,9 @@
 import express from 'express'
 import colors from 'colors'
 import dotenv from 'dotenv'
-import providersData from './data/providers.js'
 import connectDB from './config/db.js'
+import userRoutes from './routes/userRoutes.js'
+import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 dotenv.config()
 
@@ -10,18 +11,11 @@ connectDB()
 
 const app = express()
 
-app.get('/', (req,res) => {
-    res.send('Api is running')
-})
+app.use('/api/providers', userRoutes)
 
-app.get('/api/providers', (req,res) => {
-    res.json(providersData)
-})
+app.use(notFound)
 
-app.get('/api/providers/:id', (req,res) => {
-    const provider = providersData.find((p) => p.id === req.params.id)
-    res.json(provider)
-})
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 50000
 
