@@ -9,6 +9,7 @@
 @use './screens/error-screen';
 @use './screens/home-screen';
 @use './screens/providerList-screen';
+@use './screens/profile-screen';
 * {
   margin: 0;
   padding: 0;
@@ -19,5 +20,6 @@
 
 body {
   background: #e3e3e3;
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */
