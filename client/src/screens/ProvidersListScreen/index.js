@@ -5,19 +5,10 @@ import cityData from '../../data/cities'
 import professionData from '../../data/professions'
 import AutocompleteInput from '../../components/AutocompleteInput'
 import { FaSearch } from 'react-icons/fa'
-import { listProviders } from '../../actions/userActions'
 
 const ProvidersListScreen = () => {
     const [input, setInput] = useState('')
     const [profession, setProfession] = useState('')
-
-    const dispatch = useDispatch()
-
-    const providerList = useSelector(state => state.providerList)
-    const { loading, error, providers } = providerList
-    useEffect(() => {
-        dispatch(listProviders())
-    },[dispatch])
 
     return (
         <>
@@ -45,14 +36,7 @@ const ProvidersListScreen = () => {
                 </div>
             </section>
             <section className='providers-content'>
-                {loading ? 
-                    <h1>Loading</h1> 
-                    : <>
-                    {providers.map((provider,index) => (
-                        <ProviderCard provider={provider} key={index} />
-                    ))}
-                </>
-            }
+                
             </section>
         </>
     )

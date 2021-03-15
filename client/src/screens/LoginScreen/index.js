@@ -1,8 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { login } from '../../actions/userActions'
 
-const LoginScreen = () => {
+const LoginScreen = ({location,history}) => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const dispatch = useDispatch()
+
+    const userLogin = useSelector((state) => state.userLogin)
+  const { loading, error, userInfo } = userLogin
+
+    const redirect = location.search ? location.search.split('=')[1] : '/' 
+
+    useEffect(() => {
+        if (userInfo) {
+          history.push(redirect)
+        }
+      }, [history, userInfo, redirect])
+
+      const submitHandler = (e) => {
+        e.preventDefault()
+        dispatch(login(email, password))
+      }
     return (
         <>
             <div className='background'></div>
@@ -10,14 +32,14 @@ const LoginScreen = () => {
                 <div className='login-card'>
                     <h1>Bejelentkezés</h1>
                     <Link to='/'><FaTimes className='icon'/></Link>
-                    <form>
+                    <form onSubmit={submitHandler}>
                         <label className='input-group'>
                             Email
-                            <input />
+                            <input name='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </label>
                         <label className='input-group'>
                             Jelszó
-                            <input />
+                            <input name='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </label>
                         <div className='login-settings'>
                             <label>

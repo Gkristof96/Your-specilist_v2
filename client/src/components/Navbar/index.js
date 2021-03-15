@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Hamburger from '../Hamburger'
 import { Link } from 'react-router-dom'
 
-const index = ({isMenuOpen, handleOpen}) => {
+const Navbar = ({isMenuOpen, handleOpen}) => {
+    const dispatch = useDispatch()
+
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin
     return (
         <nav className={`navbar ${isMenuOpen && 'open'}`}>
             <Link to='/' className='navbar__logo'>
@@ -13,7 +18,13 @@ const index = ({isMenuOpen, handleOpen}) => {
             <ul>
                 <li><Link to='/offer'>Ajánlatkérés</Link></li>
                 <li><Link to='/contact'>Kapcsolat</Link></li>
-                <li><Link to='/login'>Bejelenkezés</Link></li>
+                {userInfo ? (
+                    <li className='profile-button'><Link to='/profile'><img src={userInfo.image} alt={userInfo.name}/>{userInfo.name}</Link></li>
+                    ) : (
+                    <>
+                        <li><Link to='/login'>Bejelenkezés</Link></li>
+                    </>
+                    )}
             </ul>
 
             <div className='navbar__toggle'>
@@ -23,4 +34,4 @@ const index = ({isMenuOpen, handleOpen}) => {
     )
 }
 
-export default index
+export default Navbar

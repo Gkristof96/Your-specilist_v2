@@ -1,26 +1,28 @@
 import {
-    PRODUCT_LIST_REQUEST,
-    PRODUCT_LIST_SUCCESS,
-    PRODUCT_LIST_FAIL
+    USER_LOGIN_REQUEST,
+    USER_LOGIN_SUCCESS,
+    USER_LOGIN_FAIL,
+    USER_LOGOUT
 } from '../constants/userConstants'
 
-export const providerListReducer = (state = { providers: []}, action) => {
+export const userLoginReducer = (state = {}, action) => {
     switch(action.type) {
-        case PRODUCT_LIST_REQUEST: 
+        case USER_LOGIN_REQUEST: 
             return {
                 loading: true,
-                products: []
             }
-        case PRODUCT_LIST_SUCCESS:
+        case USER_LOGIN_SUCCESS: 
             return {
                 loading: false,
-                providers: action.payload
+                userInfo: action.payload
             }
-        case PRODUCT_LIST_FAIL:
+        case USER_LOGIN_FAIL: 
             return {
                 loading: false,
                 error: action.payload
             }
+        case USER_LOGOUT: 
+            return {}
         default:
             return state
     }
