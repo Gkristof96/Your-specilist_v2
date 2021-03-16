@@ -1,8 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector} from 'react-redux'
 import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { register } from '../../actions/userActions'
 
-const RegisterScreen = () => {
+const RegisterScreen = ({history, location}) => {
+    const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [cpassword, setCpassword] = useState('')
+  const [message, setMessage] = useState(null)
+
+  const dispatch = useDispatch()
+
+  const userRegister = useSelector((state) => state.userRegister)
+  const { loading, error, userInfo } = userRegister
+
+  const redirect = location.search ? location.search.split('=')[1] : '/'
+
+  useEffect(() => {
+    if (userInfo) {
+      history.push(redirect)
+    }
+  }, [history, userInfo, redirect])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (password !== cpassword) {
+      setMessage('Passwords do not match')
+    } else {
+      dispatch(register(name, email, password))
+    }
+  }
     return (
         <>
             <div className='background'></div>
@@ -10,22 +39,23 @@ const RegisterScreen = () => {
                 <div className='register-card'>
                     <h1>Regisztráció</h1>
                     <Link to='/'><FaTimes className='icon'/></Link>
-                    <form>
+                    {message && <h1>{message}</h1>}
+                    <form onSubmit={handleSubmit}>
                         <label className='input-group'>
                             Név
-                            <input />
+                            <input name='name' value={name} onChange={(e) => setName(e.target.value)}/>
                         </label>
                         <label className='input-group'>
                             Email
-                            <input />
+                            <input name='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </label>
                         <label className='input-group'>
                             Jelszó
-                            <input />
+                            <input name='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </label>
                         <label className='input-group'>
                             Jelszó újra
-                            <input />
+                            <input name='cpassword' value={cpassword} onChange={(e) => setCpassword(e.target.value)}/>
                         </label>
                         <label className='checkbox'>
                             <input type='checkbox' />

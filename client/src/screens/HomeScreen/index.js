@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import AutocompleteInput from '../../components/AutocompleteInput'
-import cityData from '../../data/cities'
-import professionData from '../../data/professions'
-import categoryData from '../../data/categories'
 import { FaSearch } from 'react-icons/fa'
 import CategoryCard from '../../components/CategoryCard'
 
@@ -19,7 +16,7 @@ const HomeScreen = () => {
                     <p>Tégy egy probát nálunk, garantáljuk hogy itt megtalálod azt mester akire most szükséged van</p>
                 </div>
                     <div className='search-bar'>
-                        <AutocompleteInput
+                        {/*<AutocompleteInput
                             setInput={setInput}
                             items={cityData}
                             placeholder='Települések'
@@ -30,7 +27,7 @@ const HomeScreen = () => {
                             items={professionData}
                             placeholder='Szakma'
                             value={profession}
-                        />
+                        />*/}
                         <span>
                             <FaSearch className='icon'/>
                         </span>
@@ -40,9 +37,9 @@ const HomeScreen = () => {
                     <h1 className='category-content__title'>Szakma Kategóriák</h1>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     <div className='profession-container'>
-                      {categoryData.map((category, index) => (
+                      {/*{categoryData.map((category, index) => (
                           <CategoryCard key={index} category={category} />
-                      ))}
+                      ))}*/}
                     </div>
             </section>
         </>

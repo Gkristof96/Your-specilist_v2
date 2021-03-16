@@ -53,6 +53,7 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(201).json({
         _id: user._id,
         name: provider.name,
+        image: provider.image,
         email: user.email,
         haveProvider: user.haveProvider,
         token: generateToken(user._id)
