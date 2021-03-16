@@ -4,7 +4,7 @@ import colors from 'colors'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
 
-
+import searchRoutes from './routes/searchRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
@@ -16,6 +16,7 @@ const app = express()
 app.use(express.json())
 
 app.use('/api/users', userRoutes)
+app.use('/api/search', searchRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
