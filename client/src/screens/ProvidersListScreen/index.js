@@ -3,10 +3,24 @@ import { useDispatch, useSelector } from 'react-redux'
 import ProviderCard from '../../components/ProviderCard'
 import AutocompleteInput from '../../components/AutocompleteInput'
 import { FaSearch } from 'react-icons/fa'
+import { listProviders } from '../../actions/providerActions'
+import Paginate from '../../components/Paginate'
 
-const ProvidersListScreen = () => {
+const ProvidersListScreen = ({ match, location }) => {
     const [input, setInput] = useState('')
     const [profession, setProfession] = useState('')
+
+    const pageNumber = Number(location.search.split('')[1]) || 1
+    console.log(pageNumber)
+
+    const dispatch = useDispatch()
+
+    const providerList = useSelector(state => state.providerList)
+    const { loading, error, providers, pages, page } = providerList
+
+    useEffect(() => {
+        dispatch(listProviders(pageNumber))
+    },[dispatch,pageNumber])
 
     return (
         <>
@@ -34,8 +48,10 @@ const ProvidersListScreen = () => {
                 </div>
             </section>
             <section className='providers-content'>
-                
+                {loading ? <h1>Loading</h1> : error ? <h1>{error}</h1> : <>{providers.map((provider,index) => <ProviderCard key={index} provider={provider}/>)}</>}
+                <Paginate pages={pages} page={page}/>
             </section>
+            
         </>
     )
 }

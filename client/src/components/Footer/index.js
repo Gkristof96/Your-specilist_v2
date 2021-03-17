@@ -5,7 +5,7 @@ const Footer = () => {
         <footer>
             <div className='footer-header'>
                 <div className='logo'>
-                    <img src='images/logo.png' alt='logo' />
+                    <img src='/images/logo.png' alt='logo' />
                     <div className='text'>
                         <h1>Your Specialist</h1>
                         <h2>The best professionist’s</h2>

@@ -4,7 +4,7 @@ import ProfessionList from '../../components/ProfessionList'
 import { useDispatch, useSelector } from 'react-redux'
 import { FaSearch } from 'react-icons/fa'
 import CategoryCard from '../../components/CategoryCard'
-import { getCityData, getProfessionData, getCategoryData } from '../../actions/searchAction' 
+import { getCityData, getProfessionData, getCategoryData } from '../../actions/searchActions' 
 
 const HomeScreen = () => {
     const [input, setInput] = useState('')

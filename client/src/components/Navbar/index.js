@@ -11,11 +11,12 @@ const Navbar = ({isMenuOpen, handleOpen}) => {
     return (
         <nav className={`navbar ${isMenuOpen && 'open'}`}>
             <Link to='/' className='navbar__logo'>
-                <img src='images/logo.png' alt='logo'/>
+                <img src='/images/logo.png' alt='logo'/>
                 <h1>Your Specialist</h1>
             </Link>
 
             <ul>
+                <li><Link to='/providers'>Szakemberek</Link></li>
                 <li><Link to='/offer'>Ajánlatkérés</Link></li>
                 <li><Link to='/contact'>Kapcsolat</Link></li>
                 {userInfo ? (

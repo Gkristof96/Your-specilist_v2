@@ -6,6 +6,7 @@ import connectDB from './config/db.js'
 
 import searchRoutes from './routes/searchRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import providerRoutes from './routes/providerRoutes.js'
 
 dotenv.config()
 
@@ -17,6 +18,7 @@ app.use(express.json())
 
 app.use('/api/users', userRoutes)
 app.use('/api/search', searchRoutes)
+app.use('/api/provider', providerRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
