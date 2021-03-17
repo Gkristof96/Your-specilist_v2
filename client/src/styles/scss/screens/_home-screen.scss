@@ -40,11 +40,13 @@
   }
 
   .profession-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: center;
     margin-bottom: 150px;
-    position: relative;
+    //position: relative;
   }
 }
 

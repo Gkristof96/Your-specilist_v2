@@ -33,7 +33,7 @@ const getProfessionData = asyncHandler(async (req, res) => {
 // @route   GET /api/search/categories
 // @access  Public
 const getCategoryData = asyncHandler(async (req, res) => {
-    const professions = await Profession.find({}).select('-_id')
+    const professions = await Profession.find({})
 
     res.json(professions)
 })

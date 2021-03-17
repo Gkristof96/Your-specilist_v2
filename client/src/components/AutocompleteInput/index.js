@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 const AutocompleteInput = ({ value, placeholder, setInput, items}) => {
     const [suggestions,setSuggestions] = useState([])
     const [showSuggestions, setShowSuggestions] = useState(false)
-
     // input onChnage method to update the suggestions state
     const changeSuggestions = (e) => {
         const value = e.target.value
