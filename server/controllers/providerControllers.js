@@ -13,5 +13,18 @@ const getProviders = asyncHandler(async (req, res) => {
     res.json({providers, page, pages: Math.ceil(5 / pageSize)})
 })
 
+// @desc    get Provider by id
+// @route   GET /api/providers/
+// @access  Public
+const getProviderById = asyncHandler(async (req, res) => {
+    const provider = await Provider.findById(req.params.id)
 
-export { getProviders }
+    if(provider) {
+        res.json(provider)
+    } else {
+        res.status(404)
+        throw new Error('A szakember nem található!')
+    }
+})
+
+export { getProviders, getProviderById }

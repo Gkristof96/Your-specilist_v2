@@ -1,12 +1,13 @@
 import React from 'react'
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaRProject } from 'react-icons/fa'
 import ProfessionBadge from '../ProfessionBadge'
 import Rating from '../Rating'
+import { Link } from 'react-router-dom'
 
 const ProviderCard = ({provider}) => {
     return (
         <>
-            <div className='provider-card'>
+            <Link  to={`/provider/${provider._id}`} className='provider-card'>
                 <img className='provider-image' src={provider.image} alt={`${provider.firstname} ${provider.lastname}`} />
                 <div className='provider-info'>
                     <div className='header'>
@@ -21,7 +22,7 @@ const ProviderCard = ({provider}) => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </Link>
         </>
     )
 }

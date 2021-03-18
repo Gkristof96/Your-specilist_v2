@@ -9,6 +9,7 @@ import RegisterScreen from './screens/RegisterScreen'
 import './styles/style.css'
 import ProvidersListScreen from './screens/ProvidersListScreen'
 import ProfileScreen from './screens/ProfileScreen'
+import ProviderScreen from './screens/ProviderScreen'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/contact' component={ContactScreen}/>
           <Route path='/providers' component={ProvidersListScreen}/>
           <Route path='/providers/page/:pageNumber' component={ProvidersListScreen}/>
+          <Route path='/provider/:id' component={ProviderScreen} />
           <Route path='/profile' component={ProfileScreen}/>
           <Route path='/offer' component={OfferScreen}/>
           <Route component={ErrorScreen}/>

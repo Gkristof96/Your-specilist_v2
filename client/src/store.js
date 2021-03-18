@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { userLoginReducer, userRegisterReducer } from './reducers/userReducers'
 import { getCityDataReducer, getProfessionDataReducer, getCategoryDataReducer } from './reducers/searchReducer'
-import { providerListReducer } from './reducers/providerReducer'
+import { providerListReducer, providerDataReducer } from './reducers/providerReducer'
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
@@ -11,7 +11,8 @@ const reducer = combineReducers({
     getCity: getCityDataReducer,
     getProfession: getProfessionDataReducer,
     getCategory: getCategoryDataReducer,
-    providerList: providerListReducer
+    providerList: providerListReducer,
+    providerData: providerDataReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
