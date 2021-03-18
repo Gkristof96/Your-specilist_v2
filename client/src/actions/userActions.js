@@ -6,7 +6,10 @@ import {
     USER_LOGOUT,
     USER_REGISTER_REQUEST,
     USER_REGISTER_SUCCESS,
-    USER_REGISTER_FAIL
+    USER_REGISTER_FAIL,
+    USER_DETAIL_REQUEST,
+    USER_DETAIL_SUCCESS,
+    USER_DETAIL_FAIL
 } from '../constants/userConstants'
 
 export const login = (email, password) => async (dispatch) => {
@@ -70,6 +73,35 @@ export const register = (name, email, password) => async(dispatch) => {
   } catch(error) {
     dispatch({
       type: USER_REGISTER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem('userInfo')
+  dispatch({ type: USER_LOGOUT })
+  document.location.href = '/login'
+}
+
+export const getUserData = (id) => async(dispatch) => {
+  try {
+    dispatch({
+      type: USER_DETAIL_REQUEST
+    })
+    const { data } = await axios.get(`/api/users/profile/${id}`)
+
+    dispatch({
+      type: USER_DETAIL_SUCCESS,
+      payload: data
+    })
+
+  } catch(error) {
+    dispatch({
+      type: USER_DETAIL_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

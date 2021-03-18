@@ -3,6 +3,7 @@ import { useDispatch, useSelector} from 'react-redux'
 import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { register } from '../../actions/userActions'
+import Loader from '../../components/Loader'
 
 const RegisterScreen = ({history, location}) => {
     const [name, setName] = useState('')
@@ -40,6 +41,8 @@ const RegisterScreen = ({history, location}) => {
                     <h1>Regisztráció</h1>
                     <Link to='/'><FaTimes className='icon'/></Link>
                     {message && <h1>{message}</h1>}
+                    {error && <h1>{error}</h1>}
+                    {loading && <Loader />}
                     <form onSubmit={handleSubmit}>
                         <label className='input-group'>
                             Név

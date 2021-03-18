@@ -20,7 +20,7 @@ const providerSchema = mongoose.Schema({
     image: {
         type: String,
         required: true,
-        default: "images/profile/default-profile.png"
+        default: "/images/profile/default-profile.png"
     },
     tel: {
         type: String

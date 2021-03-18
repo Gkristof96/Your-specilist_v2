@@ -6,9 +6,8 @@ const Paginate = ({pages, page}) => {
         <ul className='pagination'>
             <li>Előző</li>
             {[...Array(pages).keys()].map((number) => (
-              <Link to={`/providers/page?${number+1}`}>
+              <Link key={number} to={`/providers/page?${number+1}`}>
                 <li
-                  key={number}
                   className={`${page === number && "active"}`}
                 >
                   {number +1}

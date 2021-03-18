@@ -55,7 +55,6 @@ const registerUser = asyncHandler(async (req, res) => {
         name: provider.name,
         image: provider.image,
         email: user.email,
-        haveProvider: user.haveProvider,
         token: generateToken(user._id)
     })
   } else {
@@ -64,17 +63,17 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc    Get user profile
+// @desc    Get user profile by Id
 // @route   GET /api/users/profile
 // @access  Public
-const getUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id)
+const getUserProfileById = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id)
+  const provider = await Provider.findOne({user: req.params.id})
 
   if(user) {
     res.json({
-      _id: user._id,
-      email: user.email,
-      haveProvider: user.haveProvider
+      provider,
+      email: user.email
     })
   } else {
     res.status(404)
@@ -84,6 +83,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
 
 export {
     authUser,
-    getUserProfile,
+    getUserProfileById,
     registerUser
 }

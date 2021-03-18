@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Hamburger from '../Hamburger'
 import { Link } from 'react-router-dom'
+import ProfileButton from '../ProfileButton'
+import { logout } from '../../actions/userActions'
 
 const Navbar = ({isMenuOpen, handleOpen}) => {
     const dispatch = useDispatch()
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
+
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
     return (
         <nav className={`navbar ${isMenuOpen && 'open'}`}>
             <Link to='/' className='navbar__logo'>
@@ -20,7 +26,7 @@ const Navbar = ({isMenuOpen, handleOpen}) => {
                 <li><Link to='/offer'>Ajánlatkérés</Link></li>
                 <li><Link to='/contact'>Kapcsolat</Link></li>
                 {userInfo ? (
-                    <li className='profile-button'><Link to='/profile'><img src={userInfo.image} alt={userInfo.name}/>{userInfo.name}</Link></li>
+                    <li><ProfileButton userInfo={userInfo} logoutHandler={logoutHandler}/></li>
                     ) : (
                     <>
                         <li><Link to='/login'>Bejelenkezés</Link></li>

@@ -28,6 +28,7 @@ const HomeScreen = () => {
         dispatch(getProfessionData())
         dispatch(getCategoryData())
     },[dispatch])
+    
     const openList = (id) => {
         setShowList(true);
         const data = categories.find((data) => data._id === id);

@@ -45,25 +45,6 @@
         color: #ffffff;
       }
     }
-    .profile-button {
-      background: white;
-      border-radius: 10px;
-      border: 3px solid #49205c;
-
-      a {
-        height: 50px;
-        display: flex;
-        align-items: center;
-        img {
-          width: 30px;
-          height: 30px;
-          border-radius: 15px;
-          margin-right: 5px;
-        }
-        color: #49205c;
-        font-weight: bold;
-      }
-    }
   }
 
   &__toggle {

@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import Rating from '../../components/Rating'
 import ProfessionBadge from '../../components/ProfessionBadge'
-import { listProviderData } from '../../actions/providerActions' 
+import { listProviderData } from '../../actions/providerActions'
+import Loader from '../../components/Loader'
 
 const ProviderScreen = ({match}) => {
     const dispatch = useDispatch()
@@ -15,7 +16,7 @@ const ProviderScreen = ({match}) => {
         if (!provider._id || provider._id !== match.params.id) {
             dispatch(listProviderData(match.params.id))
         }
-    },[])
+    },[dispatch,match.params.id,provider._id])
 
 
     return (
@@ -23,6 +24,8 @@ const ProviderScreen = ({match}) => {
             <section className='profile-background'></section>
             <section className='profile-content'>
                 <div className='container'>
+                    {loading && <Loader />}
+                    {error && <h1>{error}</h1>}
                     <div className='leftbar'>
                         <img src={provider.image} alt={provider.name} />
                         <div className='data-container'>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { login } from '../../actions/userActions'
+import Loader from '../../components/Loader'
 
 const LoginScreen = ({location,history}) => {
     const [email, setEmail] = useState('')
@@ -32,6 +33,8 @@ const LoginScreen = ({location,history}) => {
                 <div className='login-card'>
                     <h1>Bejelentkezés</h1>
                     <Link to='/'><FaTimes className='icon'/></Link>
+                    {error && <h1>{error}</h1>}
+                    {loading && <Loader />}
                     <form onSubmit={submitHandler}>
                         <label className='input-group'>
                             Email
