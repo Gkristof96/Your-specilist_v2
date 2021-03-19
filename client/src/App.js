@@ -9,7 +9,13 @@ import RegisterScreen from './screens/RegisterScreen'
 import './styles/style.css'
 import ProvidersListScreen from './screens/ProvidersListScreen'
 import ProfileScreen from './screens/ProfileScreen'
+import ProfileEditScreen from './screens/ProfileEditScreen'
 import ProviderScreen from './screens/ProviderScreen'
+import ProviderRatingScreen from './screens/ProviderRatingScreen'
+import PasswordChangeScreen from './screens/PasswordChangeScreen'
+import GalleryUploadScreen from './screens/GalleryUploadScreen'
+import AddProfessionScreen from './screens/AddProfessionScreen'
+import DeleteProfileScreen from './screens/DeleteProfileScreen'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -21,10 +27,16 @@ const App = () => {
           <Route path='/login'  component={LoginScreen}/>
           <Route path='/register' component={RegisterScreen} /> 
           <Route path='/contact' component={ContactScreen}/>
-          <Route path='/providers' component={ProvidersListScreen}/>
-          <Route path='/providers/page/:pageNumber' component={ProvidersListScreen}/>
-          <Route path='/provider/:id' component={ProviderScreen} />
-          <Route path='/profile' component={ProfileScreen}/>
+          <Route path='/providers' exact component={ProvidersListScreen}/>
+          <Route path='/providers/page/:pageNumber' exact component={ProvidersListScreen}/>
+          <Route path='/provider/:id' exact component={ProviderScreen} />
+          <Route path='/provider/:id/rating' component={ProviderRatingScreen} />
+          <Route path='/profile' exact component={ProfileScreen}/>
+          <Route path='/profile/edit' component={ProfileEditScreen}/>
+          <Route path='/profile/password/change' component={PasswordChangeScreen}/>
+          <Route path='/profile/gallery/upload' component={GalleryUploadScreen}/>
+          <Route path='/profile/professions' component={AddProfessionScreen}/>
+          <Route path='/profile/delete' component={DeleteProfileScreen}/>
           <Route path='/offer' component={OfferScreen}/>
           <Route component={ErrorScreen}/>
         </Switch>

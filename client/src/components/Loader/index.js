@@ -2,7 +2,9 @@ import React from 'react'
 
 const Loader = () => {
     return (
-        <img src='/images/loader.gif' alt='loader' />
+        <div className='loader-container'>
+            <img src='/images/loader.gif' alt='loader' />
+        </div>
     )
 }
 

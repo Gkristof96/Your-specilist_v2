@@ -87,12 +87,22 @@ export const logout = () => (dispatch) => {
   document.location.href = '/login'
 }
 
-export const getUserData = (id) => async(dispatch) => {
+export const getUserData = (id) => async(dispatch,getState) => {
   try {
     dispatch({
       type: USER_DETAIL_REQUEST
     })
-    const { data } = await axios.get(`/api/users/profile/${id}`)
+    
+    const {
+      userLogin: { userInfo }
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`
+      }
+    }
+    const { data } = await axios.get(`/api/users/profile/${id}`,config)
 
     dispatch({
       type: USER_DETAIL_SUCCESS,
@@ -100,12 +110,16 @@ export const getUserData = (id) => async(dispatch) => {
     })
 
   } catch(error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout())
+    }
     dispatch({
       type: USER_DETAIL_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: message,
     })
   }
 }

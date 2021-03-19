@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { FaPhoneAlt, FaEnvelope, FaAward,  FaMapMarkerAlt } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import Rating from '../../components/Rating'
 import ProfessionBadge from '../../components/ProfessionBadge'
 import { listProviderData } from '../../actions/providerActions'
@@ -9,14 +10,16 @@ import Loader from '../../components/Loader'
 const ProviderScreen = ({match}) => {
     const dispatch = useDispatch()
 
+    const id = match.params.id
+
     const providerData = useSelector(state => state.providerData)
     const { loading, error, provider } = providerData
 
     useEffect(() => {
-        if (!provider._id || provider._id !== match.params.id) {
-            dispatch(listProviderData(match.params.id))
+        if (!provider._id || provider._id !== id) {
+            dispatch(listProviderData(id))
         }
-    },[dispatch,match.params.id,provider._id])
+    },[dispatch,id,provider._id])
 
 
     return (
@@ -38,6 +41,9 @@ const ProviderScreen = ({match}) => {
                                 {provider.professions.map((profession,index) => (
                                     <ProfessionBadge profession={profession} key={index} />
                                 ))}
+                            </div>
+                            <div className='action-buttons'>
+                                    <Link to={`/provider/${id}/rating`}>Értékeld a munkám <FaAward className='icon'/></Link>
                             </div>
                         </div>
                     </div>

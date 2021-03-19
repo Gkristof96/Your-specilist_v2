@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import Provider from '../models/providerModel.js'
+import User from '../models/userModel.js'
 
 // @desc    get Providers
 // @route   GET /api/providers/
@@ -18,9 +19,22 @@ const getProviders = asyncHandler(async (req, res) => {
 // @access  Public
 const getProviderById = asyncHandler(async (req, res) => {
     const provider = await Provider.findById(req.params.id)
+    const user = await User.findById(provider.user)
 
     if(provider) {
-        res.json(provider)
+        res.json({
+            id: user._id,
+            email: user.email,
+            name: provider.name,
+            image: provider.image,
+            rating: provider.rating,
+            bio: provider.bio,
+            tel: provider.tel,
+            city: provider.city,
+            numReviews: provider.numReviews,
+            gallery: provider.gallery,
+            professions: provider.professions
+        })
     } else {
         res.status(404)
         throw new Error('A szakember nem található!')

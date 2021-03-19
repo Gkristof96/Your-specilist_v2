@@ -72,8 +72,18 @@ const getUserProfileById = asyncHandler(async (req, res) => {
 
   if(user) {
     res.json({
-      provider,
-      email: user.email
+      id: user._id,
+      email: user.email,
+      name: provider.name,
+      image: provider.image,
+      rating: provider.rating,
+      bio: provider.bio,
+      tel: provider.tel,
+      city: provider.city,
+      numReviews: provider.numReviews,
+      reviews: provider.reviews,
+      gallery: provider.gallery,
+      professions: provider.professions
     })
   } else {
     res.status(404)

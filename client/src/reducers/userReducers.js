@@ -65,8 +65,7 @@ export const userDetailReducer = (state = { provider: { reviews: [], gallery: []
         case USER_DETAIL_SUCCESS: 
             return {
                 loading: false,
-                provider: action.payload.provider,
-                email: action.payload.email
+                provider: action.payload
             }
         case USER_DETAIL_FAIL:
             return {

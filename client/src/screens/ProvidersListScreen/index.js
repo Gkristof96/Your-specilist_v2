@@ -7,12 +7,12 @@ import { listProviders } from '../../actions/providerActions'
 import Paginate from '../../components/Paginate'
 import { getCityData, getProfessionData } from '../../actions/searchActions'
 
-const ProvidersListScreen = ({ match, location }) => {
+const ProvidersListScreen = ({ match }) => {
     const [input, setInput] = useState('')
     const [profession, setProfession] = useState('')
 
-    const pageNumber = Number(location.search.split('')[1]) || 1
-    console.log(pageNumber)
+
+    const pageNumber = match.params.pageNumber
 
     const dispatch = useDispatch()
 
