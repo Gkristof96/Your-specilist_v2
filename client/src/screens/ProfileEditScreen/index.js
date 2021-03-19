@@ -22,10 +22,10 @@ const ProfileEditScreen = ({match}) => {
             <section className='edit-background'></section>
             <section className='edit-content'>
                 <div className='container'>
-                        <div className='leftbar'>
+                        <div className='edit-menu'>
                             <EditMenu match={match}/>
                         </div>
-                        <div className='rightbar'>
+                        <div className='edit-card'>
                             <form>
                                 <img src={provider.image} alt={provider.name} />
                                 <label className='picture'>
@@ -40,7 +40,7 @@ const ProfileEditScreen = ({match}) => {
                                 <input type='text' />
                                 <label>Email</label>
                                 <input type='text' />
-                                <label>Bemutatkozás</label>
+                                <label className='bio'>Bemutatkozás</label>
                                 <textarea></textarea>
 
                                 <button type='submit'>Mentés</button>

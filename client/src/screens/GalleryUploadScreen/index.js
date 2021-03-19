@@ -20,10 +20,10 @@ const GalleryUploadScreen = ({match}) => {
             <section className='edit-background'></section>
             <section className='edit-content'>
                 <div className='container'>
-                        <div className='leftbar'>
+                        <div className='edit-menu'>
                             <EditMenu match={match}/>
                         </div>
-                        <div className='rightbar'>
+                        <div className='gallery-upload-card'>
                             <p>Lehetőséged van képeket feltölteni korábbi munkáidról, illetve itt tudod törölni a már feltöltött képeidet is.</p>
                             <div className='gallery-container'>
                                 <h1>Feltöltött képek</h1>

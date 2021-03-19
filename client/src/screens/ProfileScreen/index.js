@@ -56,9 +56,16 @@ const ProfileScreen = () => {
                             <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
 
                             <h3>Bemutatkozás</h3>
-                            <p>{provider.bio}</p>
+                            {provider.bio ? <p>{provider.bio}</p> : 
+                            (<div>
+                                <h1>Még nem adtál meg bemutató szöveget. Kattints <Link to='/profile/edit'>ide</Link> hogy beállítsd!</h1>
+                            </div>)}
 
                             <h3>Galléria</h3>
+                            {provider.gallery.length > 0 ? <p>Galléria</p> : 
+                            (<div>
+                                <h1>Még nem töltöttél fel képeket. Kattints <Link to='/profile/gallery/upload'>ide</Link> hogy pótold a képek hiányát!</h1>
+                            </div>)}
                         </div>
                     </>}
                 </div>

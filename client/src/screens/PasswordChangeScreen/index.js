@@ -21,10 +21,10 @@ const PasswordChangeScreen = ({match}) => {
             <section className='edit-background'></section>
             <section className='edit-content'>
                 <div className='container'>
-                        <div className='leftbar'>
+                        <div className='edit-menu'>
                             <EditMenu match={match}/>
                         </div>
-                        <div className='rightbar'>
+                        <div className='password-change-card'>
                             <form>
                                 <img src={provider.image} alt={provider.name} />
                                 <h1>{provider.name}</h1>

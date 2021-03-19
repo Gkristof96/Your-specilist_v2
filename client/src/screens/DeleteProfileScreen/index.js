@@ -7,10 +7,10 @@ const DeleteProfileScreen = ({match}) => {
             <section className='edit-background'></section>
             <section className='edit-content'>
                 <div className='container'>
-                        <div className='leftbar'>
+                        <div className='edit-menu'>
                             <EditMenu match={match}/>
                         </div>
-                        <div className='rightbar'>
+                        <div className='delete-card'>
                             <p>Ha törölni szeretnéd a fiókod megvan rá a lehetőséged. De mielőtt ezt megtennéd arra kérünk jól fontold meg a döntésed mert ha ezt megteszed a felhasználod végleg törlésre kerül.</p>
                             <p>A felhasználód törléséhez kérlek ad meg a jelszavad biztonsági okolból</p>
                             <form>

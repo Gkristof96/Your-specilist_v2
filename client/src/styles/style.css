@@ -577,6 +577,315 @@ footer .footer-header .navigation {
   height: 25px;
 }
 
+.edit-menu {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit-menu a {
+  text-decoration: none;
+  width: 100%;
+  height: 50px;
+  font-weight: normal;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #49205c;
+  border-radius: 10px;
+  color: #49205c;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.edit-menu a:hover {
+  border: none;
+  background: #49205c;
+  color: #eee;
+}
+.edit-menu a.active {
+  border: none;
+  background: #49205c;
+  color: #eee;
+}
+
+.rating-card h3 {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 10px;
+  color: #49205c;
+}
+.rating-card form {
+  display: flex;
+  flex-direction: column;
+}
+.rating-card form label {
+  display: flex;
+  flex-direction: column;
+}
+.rating-card form label input {
+  width: 70%;
+  height: 30px;
+  margin: 10px 0;
+  outline: none;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+.rating-card form select,
+.rating-card form textarea {
+  width: 70%;
+  margin: 10px 0;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+.rating-card form textarea {
+  height: 100px;
+  resize: none;
+}
+.rating-card form button {
+  width: 200px;
+  height: 40px;
+  border: none;
+  background: #49205c;
+  color: #eee;
+  margin-top: 25px;
+  margin-bottom: 100px;
+}
+
+.edit-card {
+  width: 70%;
+  padding-left: 50px;
+}
+.edit-card form {
+  width: calc(100% - 25px);
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+}
+.edit-card form img {
+  width: 50px;
+  border-radius: 25px;
+  align-self: center;
+  justify-self: flex-end;
+}
+.edit-card form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: center;
+  font-weight: bold;
+}
+.edit-card form .bio {
+  align-self: flex-start;
+}
+.edit-card form input,
+.edit-card form textarea {
+  height: 40px;
+  width: 70%;
+  border: 1px solid #aaa;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.edit-card form textarea {
+  resize: none;
+  height: 100px;
+}
+.edit-card form input[type=file] {
+  height: fit-content;
+  width: fit-content;
+}
+.edit-card form .picture {
+  align-items: flex-start;
+  font-weight: 500;
+}
+.edit-card form button {
+  grid-column: 2/3;
+  width: 200px;
+  height: 40px;
+  border: none;
+  background: #49205c;
+  color: #eee;
+  margin-top: 25px;
+}
+
+.password-change-card {
+  width: 70%;
+  padding-left: 50px;
+}
+.password-change-card form {
+  width: calc(100% - 25px);
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+}
+.password-change-card form img {
+  width: 50px;
+  border-radius: 25px;
+  align-self: center;
+  justify-self: flex-end;
+}
+.password-change-card form h1 {
+  align-self: center;
+}
+.password-change-card form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: center;
+  font-weight: bold;
+}
+.password-change-card form input {
+  height: 40px;
+  width: 70%;
+  border: 1px solid #aaa;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.password-change-card form button {
+  grid-column: 2/3;
+  width: 200px;
+  height: 40px;
+  border: none;
+  background: #49205c;
+  color: #eee;
+  margin-top: 25px;
+}
+
+.delete-card {
+  width: 70%;
+  padding-left: 50px;
+}
+.delete-card p {
+  color: #212121;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+.delete-card form {
+  width: calc(100% - 25px);
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-column-gap: 25px;
+  grid-row-gap: 10px;
+}
+.delete-card form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: center;
+  font-weight: bold;
+}
+.delete-card form input {
+  height: 40px;
+  width: 70%;
+  border: 1px solid #aaa;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.delete-card form button {
+  grid-column: 2/3;
+  width: 200px;
+  height: 40px;
+  border: none;
+  background: #49205c;
+  color: #eee;
+  margin-top: 25px;
+}
+
+.gallery-upload-card {
+  width: 70%;
+  padding-left: 50px;
+}
+.gallery-upload-card p {
+  color: #212121;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+.gallery-upload-card form {
+  width: calc(100% - 25px);
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+}
+.gallery-upload-card form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: center;
+  font-weight: bold;
+}
+.gallery-upload-card form input {
+  height: 40px;
+  width: 70%;
+  border: 1px solid #aaa;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.gallery-upload-card form button {
+  grid-column: 2/3;
+  width: 200px;
+  height: 40px;
+  border: none;
+  background: #49205c;
+  color: #eee;
+  margin-top: 25px;
+}
+
+.add-profession-card {
+  width: 70%;
+  padding-left: 50px;
+}
+.add-profession-card p {
+  color: #212121;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+.add-profession-card h1 {
+  margin-bottom: 25px;
+}
+.add-profession-card form {
+  width: calc(100% - 25px);
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+}
+.add-profession-card form label {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  align-self: center;
+  font-weight: bold;
+}
+.add-profession-card form input {
+  height: 40px;
+  width: 70%;
+  border: 1px solid #aaa;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.add-profession-card form button {
+  grid-column: 2/3;
+  width: 200px;
+  height: 40px;
+  border: none;
+  background: #49205c;
+  color: #eee;
+  margin-top: 25px;
+}
+
 .contact {
   width: 100%;
   height: 25vh;
@@ -1195,7 +1504,8 @@ footer .footer-header .navigation {
 }
 .profile-content .container {
   width: 100%;
-  height: 900px;
+  min-height: 600px;
+  height: auto;
   transform: translateY(-75px);
   background: white;
   padding: 0 50px;
@@ -1328,57 +1638,8 @@ footer .footer-header .navigation {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
 }
-.edit-content .container .leftbar {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.edit-content .container .leftbar a {
-  text-decoration: none;
-  width: 100%;
-  height: 50px;
-  font-weight: normal;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid #49205c;
-  border-radius: 10px;
-  color: #49205c;
-  margin-bottom: 15px;
-  cursor: pointer;
-  transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-.edit-content .container .leftbar a:hover {
-  border: none;
-  background: #49205c;
-  color: #eee;
-}
-.edit-content .container .leftbar a.active {
-  border: none;
-  background: #49205c;
-  color: #eee;
-}
 .edit-content .container .rightbar {
   width: 70%;
-}
-.edit-content .container .rightbar form {
-  width: 100%;
-  padding-left: 50px;
-  display: grid;
-  grid-template-columns: 30% 70%;
-}
-.edit-content .container .rightbar form img {
-  width: 25px;
-}
-.edit-content .container .rightbar form label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.edit-content .container .rightbar form .picture {
-  align-items: flex-start;
 }
 
 @media screen and (max-width: 1450px) {

@@ -43,31 +43,33 @@ const ProviderEditScreen = ({ match }) => {
                         <div className='rightbar'>
                             <h1>{provider.name}</h1>
                             <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
-                            <h3>Értékelés</h3>
-                            <form>
-                                <label>
-                                        Név
-                                        <input type='email' />
-                                </label>
-                                <label>
-                                        Email
-                                        <input type='email' />
-                                </label>
+                            <div className='rating-card'>
+                                <h3>Értékelés</h3>
+                                <form>
+                                    <label>
+                                            Név
+                                            <input type='email' />
+                                    </label>
+                                    <label>
+                                            Email
+                                            <input type='email' />
+                                    </label>
 
-                                <select id="cars" name="cars">
-                                    <option value="1">1 csillag </option>
-                                    <option value="2">2 csillag </option>
-                                    <option value="3">3 csillag </option>
-                                    <option value="4">4 csillag </option>
-                                    <option value="5">5 csillag </option>
-                                </select>
+                                    <select id="cars" name="cars">
+                                        <option value="1">1 csillag </option>
+                                        <option value="2">2 csillag </option>
+                                        <option value="3">3 csillag </option>
+                                        <option value="4">4 csillag </option>
+                                        <option value="5">5 csillag </option>
+                                    </select>
 
-                                <label>
-                                        Üzenet
-                                        <textarea />
-                                </label>
-                                <button type='submit'>Küldés</button>
-                            </form>
+                                    <label>
+                                            Üzenet
+                                            <textarea />
+                                    </label>
+                                    <button type='submit'>Küldés</button>
+                                </form>
+                            </div>   
                         </div>
                 </div>
             </section>

@@ -7,10 +7,10 @@ const AddProfessionScreen = ({match}) => {
             <section className='edit-background'></section>
             <section className='edit-content'>
                 <div className='container'>
-                        <div className='leftbar'>
+                        <div className='edit-menu'>
                             <EditMenu match={match}/>    
                         </div>
-                        <div className='rightbar'>
+                        <div className='add-profession-card'>
                             <p>Itt tudsz hozzáadni új szakmákat a profilodhoz, vagy törölni is tudod a már mentett szakmáidat ha azt szeretnéd.</p>
                             <div className='profession-container'>
                                 <h1>Szakmák</h1>
