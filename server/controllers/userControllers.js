@@ -91,8 +91,28 @@ const getUserProfileById = asyncHandler(async (req, res) => {
   }
 })
 
+// @desc    Change usr password
+// @route   PUT /api/users/profile
+// @access  Private
+const changeUserPassword = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id)
+
+  if(user) {
+    if(req.body.password) {
+      user.password = req.body.password
+    }
+    await user.save()
+
+    res.json({ message: 'Password changed'})
+  } else {
+    res.status(404)
+    throw new Error('User not found')
+  }
+})
+
 export {
     authUser,
     getUserProfileById,
-    registerUser
+    registerUser,
+    changeUserPassword
 }
