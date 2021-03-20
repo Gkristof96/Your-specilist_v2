@@ -17,9 +17,9 @@ const ProviderCard = ({provider}) => {
                     <h2><FaMapMarkerAlt className='icon'/> Hungary, {provider.city}</h2>
                     <p>{provider.bio}</p>
                     <div className='professions-bar'>
-                        {provider.professions.map((profession,index) => (
+                        {/*{provider.professions.map((profession,index) => (
                             <ProfessionBadge profession={profession} key={index} />
-                        ))}
+                        ))}*/}
                     </div>
                 </div>
             </Link>

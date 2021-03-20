@@ -24,6 +24,7 @@ const ProfileScreen = () => {
     const handleLogout = () => {
         dispatch(logout())
     }
+
     return (
         <>
             <section className='profile-background'></section>
@@ -41,9 +42,9 @@ const ProfileScreen = () => {
                                     <h2><FaEnvelope className='icon'/> {provider.email}</h2>
                                 </div>
                                 <div className='professions'> 
-                                    {provider.professions.map((profession,index) => (
+                                    {/*{provider.professions.map((profession,index) => (
                                         <ProfessionBadge profession={profession} key={index} />
-                                    ))}
+                                    ))}*/}
                                 </div>
                                 <div className='action-buttons'>
                                     <Link to='/profile/edit'>Beállítások <FaCog className='icon'/></Link>

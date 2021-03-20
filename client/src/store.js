@@ -1,19 +1,36 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { userLoginReducer, userRegisterReducer, userDetailReducer } from './reducers/userReducers'
+import { 
+    userLoginReducer, 
+    userRegisterReducer, 
+    userDetailReducer, 
+    userDeleteReducer, 
+    userChangePasswordReducer 
+} from './reducers/userReducers'
 import { getCityDataReducer, getProfessionDataReducer, getCategoryDataReducer } from './reducers/searchReducer'
-import { providerListReducer, providerDataReducer } from './reducers/providerReducer'
+import { 
+    providerListReducer, 
+    providerDataReducer, 
+    providerAddProfessionReducer, 
+    providerUpdateReducer, 
+    providerReviewCreateReducer 
+} from './reducers/providerReducer'
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
     userDetail: userDetailReducer,
+    userChangePassword: userChangePasswordReducer,
+    userDelete: userDeleteReducer,
     getCity: getCityDataReducer,
     getProfession: getProfessionDataReducer,
     getCategory: getCategoryDataReducer,
     providerList: providerListReducer,
-    providerData: providerDataReducer
+    providerData: providerDataReducer,
+    providerUpdate: providerUpdateReducer,
+    providerReviewCreate: providerReviewCreateReducer,
+    providerAddProfession: providerAddProfessionReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
