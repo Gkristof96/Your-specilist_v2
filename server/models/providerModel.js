@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 
 const reviewSchema = mongoose.Schema({
     name: { type: String, required: true },
+    email: { type: String, requied: true },
     rating: { type: Number, required: true },
     message: { type: String, required: true },
 }, { timestamps: true })

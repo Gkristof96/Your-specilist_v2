@@ -41,4 +41,42 @@ const getProviderById = asyncHandler(async (req, res) => {
     }
 })
 
-export { getProviders, getProviderById }
+// @desc    Create new review
+// @route   GET /api/providers/:id/reviews
+// @access  Public
+const createProviderReview = asyncHandler(async (req, res) => {
+    const { name, email, rating, message } = req.body
+
+    const provider = await Provider.findById(req.params.id)
+    if(provider) {
+        const alreadyReviewed = provider.reviews.find(
+            (r) => r.email === email
+        )
+
+        if(alreadyReviewed) {
+            res.status(400)
+            throw new Error('Provider already reviewed')
+        }
+
+        const review = {
+            name,
+            email,
+            rating: Number(rating),
+            message
+        }
+
+        provider.reviews.push(review)
+
+        provider.numReviews = provider.reviews.length
+
+        provider.rating = provider.reviews.reduce((acc,item) => item.rating + acc, 0) / provider.reviews.length
+
+        await provider.save()
+        res.status(201).json({ message: 'Review added' })
+    } else {
+        res.status(404)
+        throw new Error('Provider not found')
+    }
+})
+
+export { getProviders, getProviderById, createProviderReview }
