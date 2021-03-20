@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { FaPhoneAlt, FaEnvelope, FaAward,  FaMapMarkerAlt } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import Rating from '../../components/Rating'
-import ProfessionBadge from '../../components/ProfessionBadge'
 import { listProviderData } from '../../actions/providerActions'
 import Loader from '../../components/Loader'
 
@@ -38,9 +37,9 @@ const ProviderScreen = ({match}) => {
                                 <h2><FaEnvelope className='icon'/> {provider.email}</h2>
                             </div>
                             <div className='professions'> 
-                                {provider.professions.map((profession,index) => (
+                                {/*{provider.professions.map((profession,index) => (
                                     <ProfessionBadge profession={profession} key={index} />
-                                ))}
+                                ))}*/}
                             </div>
                             <div className='action-buttons'>
                                     <Link to={`/provider/${id}/rating`}>Értékeld a munkám <FaAward className='icon'/></Link>

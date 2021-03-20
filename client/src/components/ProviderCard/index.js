@@ -1,6 +1,5 @@
 import React from 'react'
 import { FaMapMarkerAlt} from 'react-icons/fa'
-import ProfessionBadge from '../ProfessionBadge'
 import Rating from '../Rating'
 import { Link } from 'react-router-dom'
 

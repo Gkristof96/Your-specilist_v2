@@ -162,7 +162,7 @@ export const addProfession = (profession) => async(dispatch,getState) => {
             dispatch(logout())
         }
         dispatch({
-            type: PROVIDER_UPDATE_FAIL,
+            type: PROVIDER_ADD_PROFESSION_FAIL,
             payload: message,
         })
 

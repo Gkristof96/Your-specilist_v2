@@ -10,13 +10,9 @@ import {
     USER_DETAIL_REQUEST,
     USER_DETAIL_SUCCESS,
     USER_DETAIL_FAIL,
-    USER_DELETE_REQUEST,
-    USER_DELETE_SUCCESS,
-    USER_DELETE_FAIL,
     USER_CHANGE_PASSWORD_REQUEST,
     USER_CHANGE_PASSWORD_SUCCESS,
-    USER_CHANGE_PASSWORD_FAIL,
-    USER_CHANGE_PASSWORD_RESET
+    USER_CHANGE_PASSWORD_FAIL
 } from '../constants/userConstants'
 
 export const login = (email, password) => async (dispatch) => {

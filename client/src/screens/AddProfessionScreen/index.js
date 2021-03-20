@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import EditMenu from '../../components/EditMenu'
 import { addProfession } from '../../actions/providerActions'
-import { PROVIDER_ADD_PROFESSION_RESET } from '../../constants/providerConstans'
 
 const AddProfessionScreen = ({match}) => {
     const [profession, setProfession] = useState('')

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import EditMenu from '../../components/EditMenu'
-import Loader from '../../components/Loader'
 import { getUserData, changePassword } from '../../actions/userActions'
 
 const PasswordChangeScreen = ({match}) => {
@@ -12,7 +11,7 @@ const PasswordChangeScreen = ({match}) => {
     const dispatch = useDispatch()
 
     const userDetail = useSelector(state => state.userDetail)
-    const { loading, error, provider } = userDetail
+    const { provider } = userDetail
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { FaPhoneAlt, FaEnvelope, FaSignOutAlt, FaAward, FaCog, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import Rating from '../../components/Rating'
 import ProfessionBadge from '../../components/ProfessionBadge'
 import { listProviderData, createProviderReview } from '../../actions/providerActions'
@@ -18,12 +17,10 @@ const ProviderEditScreen = ({ match }) => {
     const id = match.params.id
 
     const providerData = useSelector(state => state.providerData)
-    const { loading, error, provider } = providerData
+    const { provider } = providerData
 
     const providerReviewCreate = useSelector(state => state.providerReviewCreate)
     const {
-        loading: loadingProviderReview,
-        error: errorProviderReview,
         success: successProviderReview
     } = providerReviewCreate
 
@@ -63,9 +60,9 @@ const ProviderEditScreen = ({ match }) => {
                                     <h2><FaEnvelope className='icon'/> {provider.email}</h2>
                                 </div>
                                 <div className='professions'> 
-                                    {provider.professions.map((profession,index) => (
+                                    {/*{provider.professions.map((profession,index) => (
                                         <ProfessionBadge profession={profession} key={index} />
-                                    ))}
+                                    ))}*/}
                                 </div>
                             </div>
                         </div>

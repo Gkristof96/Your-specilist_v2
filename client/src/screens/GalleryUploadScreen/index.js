@@ -6,9 +6,6 @@ import { getUserData } from '../../actions/userActions'
 const GalleryUploadScreen = ({match}) => {
     const dispatch = useDispatch()
 
-    const userDetail = useSelector(state => state.userDetail)
-    const { loading, error, provider } = userDetail
-
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FaSignOutAlt, FaCog} from 'react-icons/fa'
 import EditMenu from '../../components/EditMenu'
-import Loader from '../../components/Loader'
 import { getUserData } from '../../actions/userActions'
 import { updateProvider } from '../../actions/providerActions'
 import { PROVIDER_UPDATE_RESET } from '../../constants/providerConstans'
@@ -17,7 +15,7 @@ const ProfileEditScreen = ({match, history}) => {
     const dispatch = useDispatch()
 
     const userDetail = useSelector(state => state.userDetail)
-    const { loading, error, provider } = userDetail
+    const { provider } = userDetail
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
@@ -40,7 +38,7 @@ const ProfileEditScreen = ({match, history}) => {
                 setBio(provider.bio)
             }
         }
-    },[dispatch, userInfo, history, success])
+    },[dispatch, userInfo, history, success, provider])
 
     const submitHandler = (e) => {
         e.preventDefault()
