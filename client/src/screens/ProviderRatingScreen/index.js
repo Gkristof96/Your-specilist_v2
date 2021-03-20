@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import Rating from '../../components/Rating'
-import ProfessionBadge from '../../components/ProfessionBadge'
 import { listProviderData, createProviderReview } from '../../actions/providerActions'
 import { PROVIDER_CREATE_REVIEW_RESET } from '../../constants/providerConstans'
 

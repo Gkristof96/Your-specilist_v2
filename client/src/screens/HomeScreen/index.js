@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import AutocompleteInput from '../../components/AutocompleteInput'
 import ProfessionList from '../../components/ProfessionList'
 import { useDispatch, useSelector } from 'react-redux'
@@ -55,9 +56,9 @@ const HomeScreen = () => {
                             placeholder='Szakma'
                             value={profession}
                         />
-                        <span>
+                        <Link to={`/providers/?city=${input}&profession=${profession}`}>
                             <FaSearch className='icon'/>
-                        </span>
+                        </Link>
                 </div>
             </section>
             <section className='category-content'>
