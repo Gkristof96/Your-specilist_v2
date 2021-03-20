@@ -11,7 +11,6 @@ const authUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ email: email })
   const provider = await Provider.findOne({ user: user._id})
-  console.log(provider)
 
   if(user && (await user.matchPassword(password))) {
     res.json({
@@ -91,7 +90,7 @@ const getUserProfileById = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc    Change usr password
+// @desc    Change user password
 // @route   PUT /api/users/profile
 // @access  Private
 const changeUserPassword = asyncHandler(async (req, res) => {
@@ -110,9 +109,28 @@ const changeUserPassword = asyncHandler(async (req, res) => {
   }
 })
 
+// @desc    delete user and contain provider
+// @route   DELETE /api/users/profile/delete
+// @access  Private
+const deleteUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id)
+  console.log(user)
+  const provider = await Provider.findOne({ user: user._id})
+
+  if(user && provider) {
+    await user.remove()
+    await provider.remove()
+    res.json({ message: 'User removed' })
+  } else {
+    res.status(404)
+    throw new Error('User not found')
+  }
+})
+
 export {
     authUser,
     getUserProfileById,
     registerUser,
-    changeUserPassword
+    changeUserPassword,
+    deleteUser
 }

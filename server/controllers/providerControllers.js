@@ -113,5 +113,32 @@ const updateProviderProfile = asyncHandler(async (req, res) => {
         throw new Error('Provider not found')
     }
 })
+// @desc    Add profession to provider profile
+// @route   PUT /api/provider/profile
+// @access  Private
+const AddProfessionToProvider = asyncHandler(async (req, res) => {
+    const provider = await Provider.findOne({ user: req.user._id})
 
-export { getProviders, getProviderById, createProviderReview, updateProviderProfile }
+    if(provider) {
+        const alreadyAdded = provider.professions.find((r) => r.name === req.body.profession)
+
+        if(alreadyAdded) {
+            res.status(400)
+            throw new Error('Professions already added')
+        }
+
+        const profession = {
+            name: req.body.profession
+        }
+
+        provider.professions.push(profession)
+
+        await provider.save()
+        res.status(201).json({ message: 'Profession added' })
+    } else {
+        res.status(404)
+        throw new Error('Provider not found')
+    }
+})
+
+export { getProviders, getProviderById, createProviderReview, updateProviderProfile, AddProfessionToProvider }
