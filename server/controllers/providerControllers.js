@@ -1,9 +1,10 @@
 import asyncHandler from 'express-async-handler'
 import Provider from '../models/providerModel.js'
 import User from '../models/userModel.js'
+import generateToken from '../utils/generateToken.js'
 
 // @desc    get Providers
-// @route   GET /api/providers/
+// @route   GET /api/provider/
 // @access  Public
 const getProviders = asyncHandler(async (req, res) => {
     const pageSize = 2
@@ -15,7 +16,7 @@ const getProviders = asyncHandler(async (req, res) => {
 })
 
 // @desc    get Provider by id
-// @route   GET /api/providers/
+// @route   GET /api/provider/
 // @access  Public
 const getProviderById = asyncHandler(async (req, res) => {
     const provider = await Provider.findById(req.params.id)
@@ -42,7 +43,7 @@ const getProviderById = asyncHandler(async (req, res) => {
 })
 
 // @desc    Create new review
-// @route   GET /api/providers/:id/reviews
+// @route   GET /api/provider/:id/reviews
 // @access  Public
 const createProviderReview = asyncHandler(async (req, res) => {
     const { name, email, rating, message } = req.body
@@ -79,4 +80,38 @@ const createProviderReview = asyncHandler(async (req, res) => {
     }
 })
 
-export { getProviders, getProviderById, createProviderReview }
+// @desc    Update provider profile
+// @route   PUT /api/provider/profile
+// @access  Private
+const updateProviderProfile = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id)
+    const provider = await Provider.findOne({ user: user._id})
+
+    if(provider && user) {
+        user.email = req.body.email || user.email
+        provider.name = req.body.name || provider.name
+        provider.city = req.body.city || provider.city
+        provider.tel = req.body.tel || provider.tel
+        provider.bio = req.body.bio || provider.bio
+        provider.image = req.body.image || provider.image
+
+        const updatedUser = await user.save()
+        const updatedProvider = await provider.save()
+
+        res.json({
+          _id: updatedUser._id,
+          name: updatedProvider.name,
+          email: updatedUser.email,
+          city: updatedProvider.city,
+          tel: updatedProvider.tel,
+          bio: updatedProvider.bio,
+          image: updatedProvider.image,
+          token: generateToken(updatedUser._id),
+        })
+    } else {
+        res.status(404)
+        throw new Error('Provider not found')
+    }
+})
+
+export { getProviders, getProviderById, createProviderReview, updateProviderProfile }
