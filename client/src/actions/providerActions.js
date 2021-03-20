@@ -8,15 +8,12 @@ import {
     PROVIDER_ADD_PROFESSION_REQUEST,
     PROVIDER_ADD_PROFESSION_SUCCESS,
     PROVIDER_ADD_PROFESSION_FAIL,
-    PROVIDER_ADD_PROFESSION_RESET,
     PROVIDER_CREATE_REVIEW_REQUEST,
     PROVIDER_CREATE_REVIEW_SUCCESS,
     PROVIDER_CREATE_REVIEW_FAIL,
-    PROVIDER_CREATE_REVIEW_RESET,
     PROVIDER_UPDATE_REQUEST,
     PROVIDER_UPDATE_SUCCESS,
     PROVIDER_UPDATE_FAIL,
-    PROVIDER_UPDATE_RESET,
 } from '../constants/providerConstans'
 import axios from 'axios'
 import { logout } from './userActions'
@@ -126,10 +123,48 @@ export const updateProvider = (provider) => async(dispatch,getState) => {
                 : error.message
         if (message === 'Not authorized, token failed') {
             dispatch(logout())
-            }
-            dispatch({
+        }
+        dispatch({
             type: PROVIDER_UPDATE_FAIL,
             payload: message,
         })
+    }
+}
+
+export const addProfession = (profession) => async(dispatch,getState) => {
+    try {
+        dispatch({
+            type: PROVIDER_ADD_PROFESSION_REQUEST
+        })
+        
+        const {
+            userLogin: { userInfo }
+        } = getState()
+
+        const config = {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        await axios.post('/api/provider/profile/professions',profession,config)
+
+        dispatch({
+            type: PROVIDER_ADD_PROFESSION_SUCCESS
+        })
+    } catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: PROVIDER_UPDATE_FAIL,
+            payload: message,
+        })
+
     }
 }

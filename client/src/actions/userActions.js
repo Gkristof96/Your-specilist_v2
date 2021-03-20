@@ -9,7 +9,14 @@ import {
     USER_REGISTER_FAIL,
     USER_DETAIL_REQUEST,
     USER_DETAIL_SUCCESS,
-    USER_DETAIL_FAIL
+    USER_DETAIL_FAIL,
+    USER_DELETE_REQUEST,
+    USER_DELETE_SUCCESS,
+    USER_DELETE_FAIL,
+    USER_CHANGE_PASSWORD_REQUEST,
+    USER_CHANGE_PASSWORD_SUCCESS,
+    USER_CHANGE_PASSWORD_FAIL,
+    USER_CHANGE_PASSWORD_RESET
 } from '../constants/userConstants'
 
 export const login = (email, password) => async (dispatch) => {
@@ -119,6 +126,42 @@ export const getUserData = (id) => async(dispatch,getState) => {
     }
     dispatch({
       type: USER_DETAIL_FAIL,
+      payload: message,
+    })
+  }
+}
+
+export const changePassword = (password) => async(dispatch,getState) => {
+  try {
+    dispatch({
+      type: USER_CHANGE_PASSWORD_REQUEST
+    })
+
+    const {
+      userLogin: { userInfo }
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`
+      }
+    }
+
+    await axios.put('/api/users/profile', password, config)
+
+    dispatch({
+      type: USER_CHANGE_PASSWORD_SUCCESS
+    })
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout())
+    }
+    dispatch({
+      type: USER_CHANGE_PASSWORD_FAIL,
       payload: message,
     })
   }
