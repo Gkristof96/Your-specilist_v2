@@ -4,6 +4,8 @@ import EditMenu from '../../components/EditMenu'
 import { getUserData } from '../../actions/userActions'
 import { updateProvider } from '../../actions/providerActions'
 import { PROVIDER_UPDATE_RESET } from '../../constants/providerConstans'
+import { getCityData } from '../../actions/searchActions' 
+import AutocompleteInput from '../../components/AutocompleteInput'
 
 const ProfileEditScreen = ({match, history}) => {
     const [name, setName] = useState('')
@@ -13,6 +15,9 @@ const ProfileEditScreen = ({match, history}) => {
     const [bio, setBio] = useState('')
 
     const dispatch = useDispatch()
+
+    const getCity = useSelector(state => state.getCity)
+    const { cities } = getCity
 
     const userDetail = useSelector(state => state.userDetail)
     const { provider } = userDetail
@@ -30,6 +35,7 @@ const ProfileEditScreen = ({match, history}) => {
             if(!provider || success) {
                 dispatch({ type: PROVIDER_UPDATE_RESET })
                 dispatch(getUserData(userInfo._id))
+                dispatch(getCityData())
             } else {
                 setName(provider.name)
                 setTel(provider.tel)
@@ -62,7 +68,12 @@ const ProfileEditScreen = ({match, history}) => {
                                 <label>Név</label>
                                 <input type='text' value={name} onChange={(e) => setName(e.target.value)}/>
                                 <label>Város</label>
-                                <input type='text' value={city} onChange={(e) => setCity(e.target.value)}/>
+                                <AutocompleteInput
+                                    setInput={setCity}
+                                    items={cities}
+                                    placeholder='Települések'
+                                    value={city}
+                                />
                                 <label>Telefonszám</label>
                                 <input type='text' value={tel} onChange={(e) => setTel(e.target.value)}/>
                                 <label>Email</label>

@@ -62,7 +62,8 @@
     padding: calc(75px / 2);
     align-items: center;
     justify-content: space-between;
-    a {
+    a,
+    span {
       text-decoration: none;
       width: 75px;
       height: 75px;

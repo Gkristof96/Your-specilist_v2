@@ -1445,7 +1445,9 @@ footer .footer-header .navigation {
   align-items: center;
   justify-content: space-between;
 }
+.hero .search-bar a,
 .hero .search-bar span {
+  text-decoration: none;
   width: 75px;
   height: 75px;
   background: #49205c;
@@ -1454,6 +1456,7 @@ footer .footer-header .navigation {
   align-items: center;
   border-radius: 10px;
 }
+.hero .search-bar a .icon,
 .hero .search-bar span .icon {
   font-size: 40px;
   color: #eee;

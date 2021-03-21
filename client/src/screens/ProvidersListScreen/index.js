@@ -8,9 +8,9 @@ import Paginate from '../../components/Paginate'
 import { getCityData, getProfessionData } from '../../actions/searchActions'
 
 const ProvidersListScreen = ({ match }) => {
-    const [input, setInput] = useState('')
+    const [city, setCity] = useState('')
     const [profession, setProfession] = useState('')
-
+    const [keyword, setKeyword] = useState({})
 
     const pageNumber = match.params.pageNumber
 
@@ -26,11 +26,17 @@ const ProvidersListScreen = ({ match }) => {
     const { professions } = getProfession
 
     useEffect(() => {
+        dispatch(listProviders(pageNumber))
         dispatch(getCityData())
         dispatch(getProfessionData())
-        dispatch(listProviders(pageNumber))
+        setCity(match.params.city)
+        setProfession(match.params.profession)
+        setKeyword({city: match.params.city, profession: match.params.profession})
     },[dispatch,pageNumber])
 
+    const handleSearch = () => {
+        setKeyword({city: city, profession: profession})
+    }
     return (
         <>
             <section className='hero'>
@@ -40,10 +46,10 @@ const ProvidersListScreen = ({ match }) => {
                 </div>
                 <div className='search-bar'>
                     <AutocompleteInput
-                        setInput={setInput}
+                        setInput={setCity}
                         items={cities}
                         placeholder='Települések'
-                        value={input}
+                        value={city}
                     />
                     <AutocompleteInput
                         setInput={setProfession}
@@ -51,14 +57,14 @@ const ProvidersListScreen = ({ match }) => {
                         placeholder='Szakma'
                         value={profession}
                     />
-                    <span>
+                    <span onClick={handleSearch}>
                         <FaSearch className='icon'/>
                     </span>
                 </div>
             </section>
             <section className='providers-content'>
                 {loading ? <h1>Loading</h1> : error ? <h1>{error}</h1> : <>{providers.map((provider,index) => <ProviderCard key={index} provider={provider}/>)}</>}
-                <Paginate pages={pages} page={page}/>
+                <Paginate pages={pages} page={page} keyword={keyword}/>
             </section>
             
         </>

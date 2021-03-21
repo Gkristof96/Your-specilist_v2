@@ -28,7 +28,9 @@ const App = () => {
           <Route path='/register' component={RegisterScreen} /> 
           <Route path='/contact' component={ContactScreen}/>
           <Route path='/providers' exact component={ProvidersListScreen}/>
+          <Route path='/providers/search/:profession?/:city?' exact component={ProvidersListScreen}/>
           <Route path='/providers/page/:pageNumber' exact component={ProvidersListScreen}/>
+          <Route path='/providers/search/:profession?/:city?/page/:pageNumber' exact component={ProvidersListScreen}/>
           <Route path='/provider/:id' exact component={ProviderScreen} />
           <Route path='/provider/:id/rating' component={ProviderRatingScreen} />
           <Route path='/profile' exact component={ProfileScreen}/>

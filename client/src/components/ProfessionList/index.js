@@ -16,7 +16,7 @@ const ProfessionList = ({ data, setShowList }) => {
           {professionList.map((data, i) => (
             <Link
               className="profession-item"
-              to={`/providerslist?profession=${data}`}
+              to={`/providers/search/${data}`}
               key={i}
             >
               {data}

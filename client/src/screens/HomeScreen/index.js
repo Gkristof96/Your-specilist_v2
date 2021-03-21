@@ -8,7 +8,7 @@ import CategoryCard from '../../components/CategoryCard'
 import { getCityData, getProfessionData, getCategoryData } from '../../actions/searchActions' 
 
 const HomeScreen = () => {
-    const [input, setInput] = useState('')
+    const [city, setCity] = useState('')
     const [profession, setProfession] = useState('')
     const [showList, setShowList] = useState(false)
     const [listData, setListData] = useState({})
@@ -33,7 +33,6 @@ const HomeScreen = () => {
     const openList = (id) => {
         setShowList(true);
         const data = categories.find((data) => data._id === id);
-        console.log(data)
         setListData(data)
     }   
     return (
@@ -45,10 +44,10 @@ const HomeScreen = () => {
                 </div>
                     <div className='search-bar'>
                         <AutocompleteInput
-                            setInput={setInput}
+                            setInput={setCity}
                             items={cities}
                             placeholder='Települések'
-                            value={input}
+                            value={city}
                         />
                         <AutocompleteInput
                             setInput={setProfession}
@@ -56,7 +55,7 @@ const HomeScreen = () => {
                             placeholder='Szakma'
                             value={profession}
                         />
-                        <Link to={`/providers/?city=${input}&profession=${profession}`}>
+                        <Link to={`/providers/search/${profession}/${city}`}>
                             <FaSearch className='icon'/>
                         </Link>
                 </div>
