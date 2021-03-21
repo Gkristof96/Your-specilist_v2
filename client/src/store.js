@@ -8,7 +8,11 @@ import {
     userDeleteReducer, 
     userChangePasswordReducer 
 } from './reducers/userReducers'
-import { getCityDataReducer, getProfessionDataReducer, getCategoryDataReducer } from './reducers/searchReducer'
+import { 
+    getCityDataReducer,
+    getProfessionDataReducer, 
+    getCategoryDataReducer 
+} from './reducers/searchReducer'
 import { 
     providerListReducer, 
     providerDataReducer, 
@@ -16,6 +20,7 @@ import {
     providerUpdateReducer, 
     providerReviewCreateReducer 
 } from './reducers/providerReducer'
+import { offerCreateReducer } from './reducers/offerReducer'
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
@@ -31,6 +36,7 @@ const reducer = combineReducers({
     providerUpdate: providerUpdateReducer,
     providerReviewCreate: providerReviewCreateReducer,
     providerAddProfession: providerAddProfessionReducer,
+    offerCreate: offerCreateReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null

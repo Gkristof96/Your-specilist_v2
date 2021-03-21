@@ -945,6 +945,89 @@ footer .footer-header .navigation {
   margin-right: 5px;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 25;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-container {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background: #eee;
+  padding: 10px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+}
+.modal .modal-container .content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.modal .modal-container .content .envelope {
+  font-size: 2rem;
+  color: #212121;
+}
+.modal .modal-container .content h1 {
+  position: relative;
+  font-size: 1rem;
+  color: color(darkest-gray);
+  margin-bottom: 15px;
+}
+.modal .modal-container .content h1::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: -70px;
+  right: -170px;
+  background: #49205c;
+}
+.modal .modal-container .content h1::before {
+  content: "";
+  width: 180%;
+  height: 3px;
+  position: absolute;
+  bottom: -90px;
+  right: -150px;
+  background: #49205c;
+}
+.modal .modal-container .content .icon {
+  cursor: pointer;
+  color: color(primary);
+  font-size: 18px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.modal .modal-container::before {
+  content: "";
+  width: 80%;
+  height: 3px;
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  background: #49205c;
+}
+.modal .modal-container::after {
+  content: "";
+  width: 40%;
+  height: 3px;
+  position: absolute;
+  top: 40px;
+  left: -40px;
+  background: #49205c;
+}
+
 .contact {
   width: 100%;
   height: 25vh;
