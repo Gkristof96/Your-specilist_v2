@@ -10,9 +10,9 @@ const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
 
   const user = await User.findOne({ email: email })
-  const provider = await Provider.findOne({ user: user._id})
 
   if(user && (await user.matchPassword(password))) {
+    const provider = await Provider.findOne({ user: user._id})
     res.json({
         _id: user._id,
         name: provider.name,
@@ -22,7 +22,7 @@ const authUser = asyncHandler(async (req, res) => {
     })
   } else {
       res.status(401)
-      throw new Error('Invalid email or password')
+      throw new Error('Érvénytelen email vagy jelszó!')
   }
 })
 

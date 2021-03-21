@@ -4,6 +4,7 @@ import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { login } from '../../actions/userActions'
 import Loader from '../../components/Loader'
+import Message from '../../components/Message'
 
 const LoginScreen = ({location,history}) => {
     const [email, setEmail] = useState('')
@@ -33,18 +34,18 @@ const LoginScreen = ({location,history}) => {
                 <div className='login-card'>
                     <h1>Bejelentkezés</h1>
                     <Link to='/'><FaTimes className='icon'/></Link>
-                    {error && <h1>{error}</h1>}
+                    {error && <Message type='error' message={error}/>}
                     {loading && <Loader />}
                     <form onSubmit={submitHandler}>
                         <label className='input-group'>
                             Email
-                            <input name='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input  type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
                         </label>
                         <label className='input-group'>
                             Jelszó
-                            <input name='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
                         </label>
-                        <div className='login-settings'>
+                        {/*<div className='login-settings'>
                             <label>
                                 <input type='checkbox' />
                                 <span>Emlékezz rám!</span>
@@ -52,8 +53,8 @@ const LoginScreen = ({location,history}) => {
                             <Link to='/'>
                                 elfelejtett jelszó
                             </Link>
-                        </div>
-
+                        </div>*/}
+                        
                         <button type='submit'>Bejelentkezés</button>
                     </form>
                     <h2>Nincs még felhasználód? <Link to='/register'>Regisztrálj</Link> most!</h2>
