@@ -12,10 +12,10 @@ const ProviderCard = ({provider}) => {
                 <div className='provider-info'>
                     <div className='header'>
                         <h1>{provider.name}</h1>
-                        <Rating value={provider.rating} text={provider.rate} />
+                        <Rating value={provider.rating} numReviews={provider.numReviews} />
                     </div>
                     <h2><FaMapMarkerAlt className='icon'/> Hungary, {provider.city}</h2>
-                    <p>{provider.bio}</p>
+                    {provider.bio ? <p>{provider.bio}</p> : <p>Ez a szakember még nem töltött fel bemutatkozó szöveget.</p>}
                     <div className='professions-bar'>
                         {provider.professions.map((profession,index) => (
                             <ProfessionBadge profession={profession} key={index} />

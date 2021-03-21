@@ -297,6 +297,7 @@ footer .footer-header .navigation {
 }
 
 .provider-card {
+  text-decoration: none;
   margin: 50px 0;
   width: calc(100% - 150px);
   background: #ffffff;
@@ -311,7 +312,7 @@ footer .footer-header .navigation {
   height: 300px;
   border-radius: 50%;
   transform: translateX(-150px);
-  border: 5px solid #fff;
+  border: 5px solid rgba(72, 32, 91, 0.5);
 }
 .provider-card .provider-info {
   width: 100%;
@@ -320,6 +321,13 @@ footer .footer-header .navigation {
 .provider-card .provider-info .header {
   display: flex;
   align-items: center;
+}
+.provider-card .provider-info .header .rating {
+  display: flex;
+  flex-direction: row;
+}
+.provider-card .provider-info .header .rating .rating-stars {
+  margin-right: 5px;
 }
 .provider-card .provider-info .header h1 {
   font-weight: 500;
@@ -333,7 +341,7 @@ footer .footer-header .navigation {
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #3a0088;
+  color: #212121;
   margin-bottom: 20px;
 }
 .provider-card .provider-info h2 .icon {
@@ -348,13 +356,11 @@ footer .footer-header .navigation {
 }
 .provider-card .provider-info .professions-bar {
   display: flex;
+  flex-wrap: wrap;
   margin: 25px 0;
 }
 
 .profession-badge {
-  width: 200px;
-  height: 40px;
-  background: #49205c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -362,6 +368,8 @@ footer .footer-header .navigation {
   margin-bottom: 15px;
 }
 .profession-badge__title {
+  padding: 0.5rem 2rem;
+  background: #49205c;
   font-weight: 600;
   font-size: 18px;
   line-height: 27px;
@@ -857,6 +865,7 @@ footer .footer-header .navigation {
 }
 .add-profession-card .profession-container {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 25px;
   position: relative;
 }
@@ -1678,8 +1687,16 @@ footer .footer-header .navigation {
   align-items: center;
 }
 .profile-content .container .leftbar .data-container .rating {
-  font-size: 2rem;
   margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-content .container .leftbar .data-container .rating span {
+  font-size: 18px;
+}
+.profile-content .container .leftbar .data-container .rating .rating-stars span {
+  font-size: 32px;
 }
 .profile-content .container .leftbar .data-container .contact-data {
   display: flex;
@@ -1693,12 +1710,6 @@ footer .footer-header .navigation {
   font-size: 18px;
   line-height: 27px;
   color: #000000;
-}
-.profile-content .container .leftbar .data-container .professions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 15px;
 }
 .profile-content .container .leftbar .data-container .action-buttons {
   display: flex;
@@ -1733,6 +1744,12 @@ footer .footer-header .navigation {
   margin-left: 50px;
   padding-top: 50px;
 }
+.profile-content .container .rightbar .professions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 50px;
+}
 .profile-content .container .rightbar h1 {
   font-weight: 600;
   font-size: 48px;
@@ -1744,7 +1761,7 @@ footer .footer-header .navigation {
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   color: #49205c;
 }
 .profile-content .container .rightbar h2 .icon {

@@ -32,8 +32,18 @@
         flex-direction: column;
         align-items: center;
         .rating {
-          font-size: 2rem;
           margin-bottom: 15px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          span {
+            font-size: 18px;
+          }
+          .rating-stars {
+            span {
+              font-size: 32px;
+            }
+          }
         }
         .contact-data {
           display: flex;
@@ -48,13 +58,7 @@
             color: #000000;
           }
         }
-        .professions {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
 
-          margin-bottom: 15px;
-        }
         .action-buttons {
           display: flex;
           flex-direction: column;
@@ -89,7 +93,12 @@
       height: 100%;
       margin-left: 50px;
       padding-top: 50px;
-
+      .professions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 50px;
+      }
       h1 {
         font-weight: 600;
         font-size: 48px;
@@ -102,7 +111,7 @@
         font-weight: 500;
         font-size: 24px;
         line-height: 36px;
-        margin-bottom: 50px;
+        margin-bottom: 25px;
         color: #49205c;
         .icon {
           font-size: 24px;

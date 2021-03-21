@@ -37,11 +37,7 @@ const ProviderScreen = ({match}) => {
                                 <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2>
                                 <h2><FaEnvelope className='icon'/> {provider.email}</h2>
                             </div>
-                            <div className='professions'> 
-                                {provider.professions.map((profession,index) => (
-                                    <ProfessionBadge profession={profession} key={index} />
-                                ))}
-                            </div>
+                           
                             <div className='action-buttons'>
                                     <Link to={`/provider/${id}/rating`}>Értékeld a munkám <FaAward className='icon'/></Link>
                             </div>
@@ -50,7 +46,11 @@ const ProviderScreen = ({match}) => {
                     <div className='rightbar'>
                         <h1>{provider.name}</h1>
                         <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
-
+                        <div className='professions'> 
+                            {provider.professions.map((profession,index) => (
+                                <ProfessionBadge profession={profession} key={index} />
+                            ))}
+                        </div>
                         <h3>Bemutatkozás</h3>
                         <p>{provider.bio}</p>
 

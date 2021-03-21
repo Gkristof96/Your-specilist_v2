@@ -1,13 +1,12 @@
 .profession-badge {
-  width: 200px;
-  height: 40px;
-  background: #49205c;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 15px;
   margin-bottom: 15px;
   &__title {
+    padding: 0.5rem 2rem;
+    background: #49205c;
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;

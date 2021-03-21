@@ -38,16 +38,12 @@ const ProfileScreen = () => {
                         <div className='leftbar'>
                             <img src={provider.image} alt={provider.name} />
                             <div className='data-container'>
-                                <Rating value={provider.rating}/>
+                                <Rating value={provider.rating} numReviews={provider.numReviews}/>
                                 <div className='contact-data'>
-                                    <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2>
+                                    {provider.tel ? <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2> : <h2><FaPhoneAlt className='icon'/> Nincs telefonszám megadva!</h2>}
                                     <h2><FaEnvelope className='icon'/> {provider.email}</h2>
                                 </div>
-                                <div className='professions'> 
-                                    {provider.professions.map((profession,index) => (
-                                        <ProfessionBadge profession={profession} key={index} />
-                                    ))}
-                                </div>
+                                
                                 <div className='action-buttons'>
                                     <Link to='/profile/edit'>Beállítások <FaCog className='icon'/></Link>
                                     <button onClick={() => handleLogout()}>Kijelentkezés <FaSignOutAlt className='icon'/></button>
@@ -57,17 +53,21 @@ const ProfileScreen = () => {
                         <div className='rightbar'>
                             <h1>{provider.name}</h1>
                             <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
-
+                            <div className='professions'> 
+                                {provider.professions.map((profession,index) => (
+                                    <ProfessionBadge profession={profession} key={index} />
+                                ))}
+                            </div>
                             <h3>Bemutatkozás</h3>
                             {provider.bio ? <p>{provider.bio}</p> : 
                             (<div>
-                                <h1>Még nem adtál meg bemutató szöveget. Kattints <Link to='/profile/edit'>ide</Link> hogy beállítsd!</h1>
+                                <p>Még nem adtál meg bemutatkozó szöveget. Kattints <Link to='/profile/edit'>ide</Link> hogy pótold ezt!</p>
                             </div>)}
 
                             <h3>Galléria</h3>
                             {provider.gallery.length > 0 ? <p>Galléria</p> : 
                             (<div>
-                                <h1>Még nem töltöttél fel képeket. Kattints <Link to='/profile/gallery/upload'>ide</Link> hogy pótold a képek hiányát!</h1>
+                                <p>Még nem töltöttél fel képeket. Kattints <Link to='/profile/gallery/upload'>ide</Link> hogy pótold a képek hiányát!</p>
                             </div>)}
                         </div>
                     </>}
