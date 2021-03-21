@@ -932,6 +932,7 @@ footer .footer-header .navigation {
   text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .message-container .error {
   font-size: 18px;
@@ -1312,6 +1313,13 @@ footer .footer-header .navigation {
   color: #eee;
   border: none;
   padding: 0.75rem 3rem;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  outline: none;
+}
+.register-screen .register-card form button:hover {
+  transform: scale(1.1);
 }
 .register-screen .register-card h2 {
   font-weight: normal;

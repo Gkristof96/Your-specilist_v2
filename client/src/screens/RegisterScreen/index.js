@@ -4,6 +4,7 @@ import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { register } from '../../actions/userActions'
 import Loader from '../../components/Loader'
+import Message from '../../components/Message'
 
 const RegisterScreen = ({history, location}) => {
     const [name, setName] = useState('')
@@ -31,6 +32,7 @@ const RegisterScreen = ({history, location}) => {
       setMessage('Passwords do not match')
     } else {
       dispatch(register(name, email, password))
+      setMessage('')
     }
   }
     return (
@@ -40,28 +42,28 @@ const RegisterScreen = ({history, location}) => {
                 <div className='register-card'>
                     <h1>Regisztráció</h1>
                     <Link to='/'><FaTimes className='icon'/></Link>
-                    {message && <h1>{message}</h1>}
-                    {error && <h1>{error}</h1>}
+                    {message && <Message type='error' message={message} />}
+                    {error && <Message type='error' message={error} />}
                     {loading && <Loader />}
                     <form onSubmit={handleSubmit}>
                         <label className='input-group'>
                             Név
-                            <input name='name' value={name} onChange={(e) => setName(e.target.value)}/>
+                            <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)} required/>
                         </label>
                         <label className='input-group'>
                             Email
-                            <input name='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
                         </label>
                         <label className='input-group'>
                             Jelszó
-                            <input name='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
                         </label>
                         <label className='input-group'>
                             Jelszó újra
-                            <input name='cpassword' value={cpassword} onChange={(e) => setCpassword(e.target.value)}/>
+                            <input  type='password' name='cpassword' value={cpassword} onChange={(e) => setCpassword(e.target.value)} required/>
                         </label>
                         <label className='checkbox'>
-                            <input type='checkbox' />
+                            <input type='checkbox' required/>
                             <span>Elfogadom a <span>felhasználási feltételeket</span>!</span>
                         </label>
 
