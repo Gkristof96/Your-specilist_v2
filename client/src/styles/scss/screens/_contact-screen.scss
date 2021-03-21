@@ -59,6 +59,7 @@
     .right-bar {
       width: 50%;
       form {
+        margin-top: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -69,14 +70,77 @@
           width: 200px;
           color: white;
           border: none;
+          margin: 30px 0;
         }
 
         .input-group {
-          input {
+          position: relative;
+          width: 60%;
+          overflow: hidden;
+          margin: 10px 0;
+
+          input,
+          textarea {
+            width: 100%;
+            height: 50px;
             border: none;
-            border-bottom: 1px solid red;
+            color: #212121;
+            padding-top: 20px;
+            outline: none;
           }
-          margin-bottom: 25px;
+
+          textarea {
+            height: 100px;
+            resize: none;
+          }
+
+          input:focus + .label-name .content-name,
+          input:valid + .label-name .content-name {
+            transform: translateY(-25px);
+            font-size: 14px;
+            color: #49205c;
+          }
+
+          textarea:focus + .label-name .content-name,
+          textarea:valid + .label-name .content-name {
+            transform: translateY(-80px);
+            font-size: 14px;
+            color: #49205c;
+          }
+
+          input:focus + .label-name::after,
+          textarea:focus + .label-name::after {
+            transform: translateX(0);
+          }
+
+          label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-bottom: 1px solid #212121;
+
+            &::after {
+              content: "";
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 0px;
+              bottom: -1px;
+              border-bottom: 3px solid #49205c;
+              transform: translateX(-100%);
+              transition: transform 0.5s ease;
+            }
+
+            .content-name {
+              position: absolute;
+              left: 0;
+              bottom: 5px;
+              transition: transform 0.5s ease;
+            }
+          }
         }
       }
     }

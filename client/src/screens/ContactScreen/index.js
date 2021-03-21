@@ -21,18 +21,24 @@ const ContactScreen = () => {
                     </div>
                     <div className='right-bar'>
                         <form>
-                            <label>
-                                Név
-                                <input />
-                            </label>
-                            <label>
-                                Email
-                                <input />
-                            </label>
-                            <label>
-                                Üzenet
-                                <textarea />
-                            </label>
+                            <div className='input-group'>
+                                <input type='text' name='name' autoComplete='off' required/>
+                                <label for='name' className='label-name'>
+                                    <span className='content-name'>Név</span>
+                                </label>
+                            </div>
+                            <div className='input-group'>
+                                <input type='text' name='email' required autoComplete='off' />
+                                <label for='email' className='label-name'>
+                                    <span className='content-name'>Email</span>
+                                </label>
+                            </div>
+                            <div className='input-group'>
+                                <textarea name='message' required autoComplete='off' />
+                                <label for='message' className='label-name'>
+                                    <span className='content-name'>Üzenet</span>
+                                </label>
+                            </div>
                             <button type='submit'>Küldés</button>
                         </form>
                     </div>

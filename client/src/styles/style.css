@@ -946,6 +946,7 @@ footer .footer-header .navigation {
   width: 50%;
 }
 .contact-content .container .right-bar form {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -956,13 +957,68 @@ footer .footer-header .navigation {
   width: 200px;
   color: white;
   border: none;
+  margin: 30px 0;
 }
 .contact-content .container .right-bar form .input-group {
-  margin-bottom: 25px;
+  position: relative;
+  width: 60%;
+  overflow: hidden;
+  margin: 10px 0;
 }
-.contact-content .container .right-bar form .input-group input {
+.contact-content .container .right-bar form .input-group input,
+.contact-content .container .right-bar form .input-group textarea {
+  width: 100%;
+  height: 50px;
   border: none;
-  border-bottom: 1px solid red;
+  color: #212121;
+  padding-top: 20px;
+  outline: none;
+}
+.contact-content .container .right-bar form .input-group textarea {
+  height: 100px;
+  resize: none;
+}
+.contact-content .container .right-bar form .input-group input:focus + .label-name .content-name,
+.contact-content .container .right-bar form .input-group input:valid + .label-name .content-name {
+  transform: translateY(-25px);
+  font-size: 14px;
+  color: #49205c;
+}
+.contact-content .container .right-bar form .input-group textarea:focus + .label-name .content-name,
+.contact-content .container .right-bar form .input-group textarea:valid + .label-name .content-name {
+  transform: translateY(-80px);
+  font-size: 14px;
+  color: #49205c;
+}
+.contact-content .container .right-bar form .input-group input:focus + .label-name::after,
+.contact-content .container .right-bar form .input-group textarea:focus + .label-name::after {
+  transform: translateX(0);
+}
+.contact-content .container .right-bar form .input-group label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid #212121;
+}
+.contact-content .container .right-bar form .input-group label::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  border-bottom: 3px solid #49205c;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.contact-content .container .right-bar form .input-group label .content-name {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  transition: transform 0.5s ease;
 }
 
 @media screen and (max-width: 1450px) {
@@ -1235,29 +1291,97 @@ footer .footer-header .navigation {
   font-weight: normal;
   font-size: clamp(24px, 4vw, 36px);
   line-height: 54px;
-  margin: 50px 0;
   color: #212121;
+  margin: 25px 0;
 }
 .offer-content .container form {
   display: grid;
+  position: relative;
   grid-column-gap: 40px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 140px 1fr;
 }
 .offer-content .container form .input-group {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.offer-content .container form .input-group.text {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  height: 100px;
+}
+.offer-content .container form .input-group input,
+.offer-content .container form .input-group textarea {
+  width: 100%;
+  height: 50px;
+  border: none;
+  color: #212121;
+  padding-top: 20px;
+  outline: none;
+}
+.offer-content .container form .input-group textarea {
+  height: 100px;
+  resize: none;
+}
+.offer-content .container form .input-group input:focus + .label-name .content-name,
+.offer-content .container form .input-group input:valid + .label-name .content-name {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #49205c;
+}
+.offer-content .container form .input-group textarea:focus + .label-name .content-name,
+.offer-content .container form .input-group textarea:valid + .label-name .content-name {
+  transform: translateY(-70px);
+  font-size: 14px;
+  color: #49205c;
+}
+.offer-content .container form .input-group input:focus + .label-name::after,
+.offer-content .container form .input-group textarea:focus + .label-name::after {
+  transform: translateX(0);
+}
+.offer-content .container form .input-group label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid #212121;
+}
+.offer-content .container form .input-group label::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  border-bottom: 3px solid #49205c;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.offer-content .container form .input-group label .content-name {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  transition: transform 0.5s ease;
 }
 .offer-content .container form button {
   width: 200px;
+  grid-row: 4/5;
+  grid-column: 2/3;
   align-self: center;
   justify-self: center;
   background: #49205c;
   color: #eee;
   border: none;
   padding: 0.75rem 3rem;
+  margin: 25px 0;
 }
 .offer-content .container form .checkbox {
+  align-self: center;
   width: 100%;
   font-size: clamp(12px, 2vw, 18px);
   color: #212121;

@@ -13,32 +13,38 @@ const OfferScreen = () => {
                 <div className='container'>
                     <h1>Töltsd ki az űrlapot, és várj a szakemberek válaszára</h1>
                     <form>
-                        <label className='input-group'>
-                            Keresztnév
-                            <input />
-                        </label>
-                        <label className='input-group'>
-                            Vezetéknév
-                            <input />
-                        </label>
-                        <label className='input-group'>
-                            Email
-                            <input />
-                        </label>
-                        <label className='input-group'>
-                            Város
-                            <input />
-                        </label>
-                        <label className='input-group'>
-                            Munka leírás
-                            <textarea />
-                        </label>
-                        <label className='input-group'>
-                            Szakma
-                            <input />
-                        </label>
+                        <div className='input-group'>
+                            <input type='text' name='name' autoComplete='off' required/>
+                            <label for='name' className='label-name'>
+                                <span className='content-name'>Név</span>
+                            </label>
+                        </div>
+                        <div className='input-group'>
+                            <input type='text' name='email' autoComplete='off' required/>
+                            <label className='label-name' for='email'>
+                                <span className='content-name'>Email</span>
+                            </label>
+                        </div>
+                        <div className='input-group'>
+                            <input type='text' name='city' autoComplete='off' required/>
+                            <label className='label-name' for='city'>
+                                <span className='content-name'>Város</span>
+                            </label>
+                        </div>
+                        <div className='input-group'>
+                            <input type='text' name='profession' autoComplete='off' required/>
+                            <label className='label-name' for='profession'>
+                                <span className='content-name'>Szakma</span>
+                            </label>
+                        </div>
+                        <div className='input-group text'>
+                            <textarea name='description' autoComplete='off' required/>
+                            <label className='label-name' for='description'>
+                                <span className='content-name'>Munka leírása</span>
+                            </label>
+                        </div>
                         <label className='checkbox'>
-                            <input type='checkbox' />
+                            <input type='checkbox' required/>
                             <span>Elfogadom a <span>felhasználási feltételeket</span>!</span>
                         </label>
                         <button type='submit'>Küldés</button>
