@@ -11,19 +11,32 @@
   h1 {
     margin-bottom: 25px;
   }
+  .profession-container {
+    display: flex;
+    margin-bottom: 25px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 3px solid #49205c;
+    }
+  }
 
   form {
     width: calc(100% - 25px);
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 35% 65%;
     grid-column-gap: 25px;
     grid-row-gap: 25px;
 
     label {
       display: flex;
       flex-direction: column;
-      justify-self: flex-end;
-      align-self: center;
+      justify-self: center;
+      align-self: flex-start;
       font-weight: bold;
     }
     input {
@@ -35,6 +48,11 @@
       padding: 5px;
     }
 
+    .auto-input {
+      justify-self: center;
+      width: 100%;
+    }
+
     button {
       grid-column: 2/3;
       width: 200px;
@@ -42,7 +60,13 @@
       border: none;
       background: #49205c;
       color: #eee;
-      margin-top: 25px;
+      cursor: pointer;
+      outline: none;
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

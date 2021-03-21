@@ -5,6 +5,7 @@ import { FaPhoneAlt, FaEnvelope, FaSignOutAlt, FaCog, FaMapMarkerAlt } from 'rea
 import Rating from '../../components/Rating'
 import { getUserData } from '../../actions/userActions'
 import Loader from '../../components/Loader'
+import ProfessionBadge from '../../components/ProfessionBadge'
 import { logout } from '../../actions/userActions'
 
 const ProfileScreen = () => {
@@ -24,6 +25,8 @@ const ProfileScreen = () => {
         dispatch(logout())
     }
 
+    console.log(provider)
+
     return (
         <>
             <section className='profile-background'></section>
@@ -41,9 +44,9 @@ const ProfileScreen = () => {
                                     <h2><FaEnvelope className='icon'/> {provider.email}</h2>
                                 </div>
                                 <div className='professions'> 
-                                    {/*{provider.professions.map((profession,index) => (
+                                    {provider.professions.map((profession,index) => (
                                         <ProfessionBadge profession={profession} key={index} />
-                                    ))}*/}
+                                    ))}
                                 </div>
                                 <div className='action-buttons'>
                                     <Link to='/profile/edit'>Beállítások <FaCog className='icon'/></Link>

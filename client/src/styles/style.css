@@ -358,6 +358,7 @@ footer .footer-header .navigation {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 15px;
   margin-bottom: 15px;
 }
 .profession-badge__title {
@@ -854,18 +855,31 @@ footer .footer-header .navigation {
 .add-profession-card h1 {
   margin-bottom: 25px;
 }
+.add-profession-card .profession-container {
+  display: flex;
+  margin-bottom: 25px;
+  position: relative;
+}
+.add-profession-card .profession-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 3px solid #49205c;
+}
 .add-profession-card form {
   width: calc(100% - 25px);
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 35% 65%;
   grid-column-gap: 25px;
   grid-row-gap: 25px;
 }
 .add-profession-card form label {
   display: flex;
   flex-direction: column;
-  justify-self: flex-end;
-  align-self: center;
+  justify-self: center;
+  align-self: flex-start;
   font-weight: bold;
 }
 .add-profession-card form input {
@@ -876,6 +890,10 @@ footer .footer-header .navigation {
   border-radius: 5px;
   padding: 5px;
 }
+.add-profession-card form .auto-input {
+  justify-self: center;
+  width: 100%;
+}
 .add-profession-card form button {
   grid-column: 2/3;
   width: 200px;
@@ -883,7 +901,12 @@ footer .footer-header .navigation {
   border: none;
   background: #49205c;
   color: #eee;
-  margin-top: 25px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.add-profession-card form button:hover {
+  transform: scale(1.1);
 }
 
 .contact {

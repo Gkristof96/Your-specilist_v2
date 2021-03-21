@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const ProfessionList = ({ data, setShowList }) => {
+const ProfessionList = ({ data, setShowList = false }) => {
   const { category, professionList } = data;
   return (
     <>

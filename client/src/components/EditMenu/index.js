@@ -9,6 +9,7 @@ const EditMenu = ({match}) => {
             <Link className={(match.path === '/profile/professions') ? 'active' : null} to='/profile/professions'>Szakmai adatok</Link>
             <Link className={(match.path === '/profile/gallery/upload') ? 'active' : null} to='/profile/gallery/upload'>Galléria feltöltése</Link>
             <Link className={(match.path === '/profile/delete') ? 'active' : null} to='/profile/delete'>Felhasználó törlése</Link>
+            <Link to='/profile'>Vissza a profilodhoz</Link>
         </>
     )
 }
