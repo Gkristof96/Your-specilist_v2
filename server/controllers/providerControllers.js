@@ -8,11 +8,18 @@ import generateToken from '../utils/generateToken.js'
 // @access  Public
 const getProviders = asyncHandler(async (req, res) => {
     const pageSize = 2
+    const keyword = req.query.city && req.query.profession ? {"city": req.query.city, "professions.name": { $eq:req.query.profession}} : req.query.profession ? {"professions.name": { $eq: req.query.profession}} : {}
     const page = Number(req.query.pageNumber) || 1
-    
-    const providers = await Provider.find({}).limit(pageSize).skip(pageSize * (page - 1))
 
-    res.json({providers, page, pages: Math.ceil(5 / pageSize)})
+    const count = await Provider.countDocuments(keyword)
+    const providers = await Provider.find(keyword).limit(pageSize).skip(pageSize * (page - 1))
+   if(providers.length > 0) {
+        res.json({providers, page, pages: Math.ceil(count / pageSize)})
+   } else {
+       res.status(404)
+       throw new Error('Nem található szakember a keresési feltételek alapján!')
+   }
+    
 })
 
 // @desc    get Provider by id

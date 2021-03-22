@@ -18,13 +18,13 @@ import {
 import axios from 'axios'
 import { logout } from './userActions'
 
-export const listProviders = (pageNumber = '') => async(dispatch) => {
+export const listProviders = (pageNumber = '', keyword = {}) => async(dispatch) => {
     try {
         dispatch({
             type: PROVIDER_LIST_REQUEST
         })
-
-        const { data } = await axios.get(`/api/provider?pageNumber=${pageNumber}`)
+        console.log("action: ",keyword)
+        const { data } = await axios.get(`/api/provider?pageNumber=${pageNumber}&city=${keyword.city}&profession=${keyword.profession}`)
 
         dispatch({
             type: PROVIDER_LIST_SUCCESS,

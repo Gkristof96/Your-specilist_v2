@@ -31,7 +31,7 @@ const AddProfessionScreen = ({match}) => {
         if(success) {
             setProfession('')
         }
-    }, [success, dispatch])
+    }, [success, dispatch, userInfo])
 
     const submitHandler = (e) => {
         e.preventDefault()

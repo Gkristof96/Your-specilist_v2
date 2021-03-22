@@ -584,14 +584,17 @@ footer .footer-header .navigation {
 .loader-container .small {
   width: 25px;
   height: 25px;
+  margin: 5px 0;
 }
 .loader-container .medium {
   width: 50px;
   height: 50px;
+  margin: 25px 0;
 }
 .loader-container .large {
   width: 100px;
   height: 100px;
+  margin: 50px 0;
 }
 
 .edit-menu {
@@ -928,7 +931,6 @@ footer .footer-header .navigation {
 
 .message-container {
   width: 100%;
-  margin: 10px 0;
   text-align: center;
   display: flex;
   align-items: center;
@@ -943,6 +945,15 @@ footer .footer-header .navigation {
   font-size: 18px;
   color: #ff3333;
   margin-right: 5px;
+}
+.message-container .small {
+  margin: 10px 0;
+}
+.message-container .medium {
+  margin: 25px 0;
+}
+.message-container .large {
+  margin: 50px 0;
 }
 
 .modal {

@@ -25,8 +25,6 @@ const ProfileScreen = () => {
         dispatch(logout())
     }
 
-    console.log(provider)
-
     return (
         <>
             <section className='profile-background'></section>

@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { FaSearch } from 'react-icons/fa'
+
+import Paginate from '../../components/Paginate'
 import ProviderCard from '../../components/ProviderCard'
 import AutocompleteInput from '../../components/AutocompleteInput'
-import { FaSearch } from 'react-icons/fa'
+import Loader from '../../components/Loader'
+import Message from '../../components/Message'
+
 import { listProviders } from '../../actions/providerActions'
-import Paginate from '../../components/Paginate'
 import { getCityData, getProfessionData } from '../../actions/searchActions'
 
 const ProvidersListScreen = ({ match }) => {
-    const [city, setCity] = useState('')
-    const [profession, setProfession] = useState('')
-    const [keyword, setKeyword] = useState({})
-
+    const [city, setCity] = useState(match.params.city ? match.params.city : '')
+    const [profession, setProfession] = useState(match.params.profession ? match.params.profession : '')
+    const [keyword, setKeyword] = useState({city: city, profession: profession})
+    console.log('keyword', keyword)
+    console.log('city', city)
+    console.log('profession', profession)
+   
     const pageNumber = match.params.pageNumber
 
     const dispatch = useDispatch()
@@ -25,14 +32,15 @@ const ProvidersListScreen = ({ match }) => {
     const getProfession = useSelector(state => state.getProfession)
     const { professions } = getProfession
 
+    console.log('providers', providers)
+
     useEffect(() => {
-        dispatch(listProviders(pageNumber))
+        console.log('call')
         dispatch(getCityData())
         dispatch(getProfessionData())
-        setCity(match.params.city)
-        setProfession(match.params.profession)
-        setKeyword({city: match.params.city, profession: match.params.profession})
-    },[dispatch,pageNumber])
+        dispatch(listProviders(pageNumber,keyword))
+        // eslint-disable-next-line
+    },[dispatch,pageNumber, keyword])
 
     const handleSearch = () => {
         setKeyword({city: city, profession: profession})
@@ -63,7 +71,7 @@ const ProvidersListScreen = ({ match }) => {
                 </div>
             </section>
             <section className='providers-content'>
-                {loading ? <h1>Loading</h1> : error ? <h1>{error}</h1> : <>{providers.map((provider,index) => <ProviderCard key={index} provider={provider}/>)}</>}
+                {loading ? <Loader size='large' /> : error ? <Message margin='large' type='error' message={error} /> : <>{providers.map((provider,index) => <ProviderCard key={index} provider={provider}/>)}</>}
                 <Paginate pages={pages} page={page} keyword={keyword}/>
             </section>
             

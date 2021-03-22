@@ -8,33 +8,33 @@ import Message from '../../components/Message'
 
 const RegisterScreen = ({history, location}) => {
     const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [cpassword, setCpassword] = useState('')
-  const [message, setMessage] = useState(null)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [cpassword, setCpassword] = useState('')
+    const [message, setMessage] = useState(null)
 
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-  const userRegister = useSelector((state) => state.userRegister)
-  const { loading, error, userInfo } = userRegister
+    const userRegister = useSelector((state) => state.userRegister)
+    const { loading, error, userInfo } = userRegister
 
-  const redirect = location.search ? location.search.split('=')[1] : '/'
+    const redirect = location.search ? location.search.split('=')[1] : '/'
 
-  useEffect(() => {
-    if (userInfo) {
-      history.push(redirect)
+    useEffect(() => {
+      if (userInfo) {
+        history.push(redirect)
+      }
+    }, [history, userInfo, redirect])
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      if (password !== cpassword) {
+        setMessage('Passwords do not match')
+      } else {
+        dispatch(register(name, email, password))
+        setMessage('')
+      }
     }
-  }, [history, userInfo, redirect])
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (password !== cpassword) {
-      setMessage('Passwords do not match')
-    } else {
-      dispatch(register(name, email, password))
-      setMessage('')
-    }
-  }
     return (
         <>
             <div className='background'></div>

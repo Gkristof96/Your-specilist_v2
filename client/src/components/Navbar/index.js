@@ -22,6 +22,7 @@ const Navbar = ({isMenuOpen, handleOpen}) => {
             </Link>
 
             <ul>
+                <li><Link to='/'>Főoldal</Link></li>
                 <li><Link to='/providers'>Szakemberek</Link></li>
                 <li><Link to='/offer'>Ajánlatkérés</Link></li>
                 <li><Link to='/contact'>Kapcsolat</Link></li>

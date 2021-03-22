@@ -1,6 +1,5 @@
 .message-container {
   width: 100%;
-  margin: 10px 0;
   text-align: center;
   display: flex;
   align-items: center;
@@ -15,5 +14,17 @@
     font-size: 18px;
     color: #ff3333;
     margin-right: 5px;
+  }
+
+  .small {
+    margin: 10px 0;
+  }
+
+  .medium {
+    margin: 25px 0;
+  }
+
+  .large {
+    margin: 50px 0;
   }
 }

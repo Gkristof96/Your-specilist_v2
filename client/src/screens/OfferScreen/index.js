@@ -17,7 +17,6 @@ const OfferScreen = () => {
     const { success } = offerCreate
 
     useEffect(() => {
-        console.log(success)
         if(success) {
             setName('')
             setEmail('')
@@ -28,7 +27,6 @@ const OfferScreen = () => {
             setModalOpen(true)
         }
     },[success, dispatch])
-    console.log(success)
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createOffer({name, email, city, profession, description}))
