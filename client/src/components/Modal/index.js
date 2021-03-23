@@ -8,7 +8,7 @@ const Modal = ({isModalOpen, closeModal}) => {
                 <div className='modal-container'>
                     <div className='content'>
                         <FaTimes className='icon' onClick={closeModal}/>
-                        <h1>Köszönjük a bizalmat!</h1>
+                        <h1>Köszönjük a bizalmát!</h1>
                         <p>Hamarosan felkeresnek a szakemberek</p>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ const ErrorScreen = () => {
                         <Link to='/'>Főoldalra</Link>
                     </div>
                     <div className='rightbar'>
-                        <img src='images/error.svg' alt='404' />
+                        <img src='/images/error.svg' alt='404' />
                     </div>
                 </div>
             </section>

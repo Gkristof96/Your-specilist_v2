@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { FaPhoneAlt, FaEnvelope, FaAward,  FaMapMarkerAlt } from 'react-icons/fa'
+import { 
+    FaPhoneAlt, 
+    FaEnvelope, 
+    FaAward,  
+    FaMapMarkerAlt 
+} from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Rating from '../../components/Rating'
@@ -30,35 +35,49 @@ const ProviderScreen = ({match}) => {
             <section className='profile-content'>
                 <div className='container'>
                     {error && <Message message={error} type='error'/> }
-                    {loading ? <Loader size='large'/> :
-                        <>
+                    {loading 
+                        ? <Loader size='large'/> 
+                        : <>
                             <div className='leftbar'>
                                 <img src={provider.image} alt={provider.name} />
                                 <div className='data-container'>
-                                    <Rating value={provider.rating} numReviews={provider.numReviews}/>
+                                    <Rating 
+                                        value={provider.rating} 
+                                        numReviews={provider.numReviews}
+                                    />
                                     <div className='contact-data'>
                                         <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2>
                                         <h2><FaEnvelope className='icon'/> {provider.email}</h2>
                                     </div>
                                 
                                     <div className='action-buttons'>
-                                            <Link to={`/provider/${id}/rating`}>Értékeld a munkám <FaAward className='icon'/></Link>
+                                        <Link to={`/provider/${id}/rating`}>
+                                            Értékeld a munkám <FaAward className='icon'/>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
                             <div className='rightbar'>
                                 <h1>{provider.name}</h1>
-                                <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
+                                <h2>
+                                    <FaMapMarkerAlt className='icon'/>
+                                    Hungary, {provider.city}
+                                </h2>
                                 <div className='professions'> 
                                     {provider.professions.map((profession,index) => (
                                         <ProfessionBadge profession={profession} key={index} />
                                     ))}
                                 </div>
                                 <h3>Bemutatkozás</h3>
-                                {provider.bio ? <p>{provider.bio}</p> : <p>Ez a szakember még nem töltött fel bemutatkozást</p>}
-
+                                {provider.bio 
+                                    ? <p>{provider.bio}</p> 
+                                    : <p>Ez a szakember még nem töltött fel bemutatkozást</p>
+                                }
                                 <h3>Galléria</h3>
-                                {provider.gallery.length > 0 ? <p>{provider.bio}</p> : <p>Ez a szakember még nem töltött fel bemutatkozást</p>}
+                                {provider.gallery.length > 0 
+                                    ? <p>{provider.bio}</p> 
+                                    : <p>Ez a szakember még nem töltött fel bemutatkozást</p>
+                                }
                             </div>
                         </>
                     }

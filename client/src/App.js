@@ -1,12 +1,17 @@
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { 
+  BrowserRouter as Router, 
+  Route, 
+  Switch
+} from 'react-router-dom'
 import Header from './components/Header'
+import Footer from './components/Footer'
+
 import ContactScreen from './screens/ContactScreen'
 import ErrorScreen from './screens/ErrorScreen'
 import HomeScreen from './screens/HomeScreen'
 import OfferScreen from './screens/OfferScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
-import './styles/style.css'
 import ProvidersListScreen from './screens/ProvidersListScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import ProfileEditScreen from './screens/ProfileEditScreen'
@@ -16,7 +21,8 @@ import PasswordChangeScreen from './screens/PasswordChangeScreen'
 import GalleryUploadScreen from './screens/GalleryUploadScreen'
 import AddProfessionScreen from './screens/AddProfessionScreen'
 import DeleteProfileScreen from './screens/DeleteProfileScreen'
-import Footer from './components/Footer'
+
+import './styles/style.css'
 
 const App = () => {
   return (

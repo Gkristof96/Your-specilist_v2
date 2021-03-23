@@ -11,7 +11,7 @@ export const createOffer = (offer) => async(dispatch) => {
             type: OFFER_CREATE_REQUEST
         })
 
-        await axios.post('/api/offer',offer)
+        await axios.post('/api/offer', offer)
 
         dispatch({
             type: OFFER_CREATE_SUCCESS

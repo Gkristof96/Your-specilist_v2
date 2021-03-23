@@ -1,14 +1,22 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { FaPhoneAlt, FaEnvelope, FaSignOutAlt, FaCog, FaMapMarkerAlt } from 'react-icons/fa'
+import { 
+    FaPhoneAlt, 
+    FaEnvelope, 
+    FaSignOutAlt, 
+    FaCog, 
+    FaMapMarkerAlt 
+} from 'react-icons/fa'
+
 import Rating from '../../components/Rating'
-import { getUserData } from '../../actions/userActions'
 import Loader from '../../components/Loader'
 import ProfessionBadge from '../../components/ProfessionBadge'
-import { logout } from '../../actions/userActions'
 
-const ProfileScreen = () => {
+import { logout } from '../../actions/userActions'
+import { getUserData } from '../../actions/userActions'
+
+const ProfileScreen = ({history}) => {
     const dispatch = useDispatch()
 
     const userDetail = useSelector(state => state.userDetail)
@@ -18,8 +26,13 @@ const ProfileScreen = () => {
     const { userInfo } = userLogin
 
     useEffect(() => {
-        dispatch(getUserData(userInfo._id))
-    },[dispatch, userInfo._id])
+        if(!userInfo){
+            history.push('/login')
+        } else  {
+            dispatch(getUserData(userInfo._id))
+        }
+        
+    },[dispatch, userInfo, history])
     
     const handleLogout = () => {
         dispatch(logout())
@@ -38,13 +51,21 @@ const ProfileScreen = () => {
                             <div className='data-container'>
                                 <Rating value={provider.rating} numReviews={provider.numReviews}/>
                                 <div className='contact-data'>
-                                    {provider.tel ? <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2> : <h2><FaPhoneAlt className='icon'/> Nincs telefonszám megadva!</h2>}
+                                    {provider.tel 
+                                        ? <h2>
+                                            <FaPhoneAlt className='icon'/> {provider.tel}
+                                        </h2> 
+                                        : <h2>
+                                            <FaPhoneAlt className='icon'/> Nincs telefonszám megadva!
+                                        </h2>}
                                     <h2><FaEnvelope className='icon'/> {provider.email}</h2>
                                 </div>
                                 
                                 <div className='action-buttons'>
                                     <Link to='/profile/edit'>Beállítások <FaCog className='icon'/></Link>
-                                    <button onClick={() => handleLogout()}>Kijelentkezés <FaSignOutAlt className='icon'/></button>
+                                    <button onClick={() => handleLogout()}>
+                                        Kijelentkezés <FaSignOutAlt className='icon'/>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -59,13 +80,21 @@ const ProfileScreen = () => {
                             <h3>Bemutatkozás</h3>
                             {provider.bio ? <p>{provider.bio}</p> : 
                             (<div>
-                                <p>Még nem adtál meg bemutatkozó szöveget. Kattints <Link to='/profile/edit'>ide</Link> hogy pótold ezt!</p>
+                                <p>
+                                    Még nem adtál meg bemutatkozó szöveget. Kattints 
+                                        <Link to='/profile/edit'> ide </Link> 
+                                    hogy pótold ezt!
+                                </p>
                             </div>)}
 
                             <h3>Galléria</h3>
                             {provider.gallery.length > 0 ? <p>Galléria</p> : 
                             (<div>
-                                <p>Még nem töltöttél fel képeket. Kattints <Link to='/profile/gallery/upload'>ide</Link> hogy pótold a képek hiányát!</p>
+                                <p>
+                                    Még nem töltöttél fel képeket. Kattints 
+                                    <Link to='/profile/gallery/upload'> ide </Link>
+                                    hogy pótold a képek hiányát!
+                                 </p>
                             </div>)}
                         </div>
                     </>}

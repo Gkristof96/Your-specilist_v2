@@ -7,10 +7,18 @@ const ProfileButton = ({userInfo, logoutHandler}) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false)
     return (
         <div className='profile-button' onClick={() => setDropdownOpen(!isDropdownOpen)}>
-            <div className='button' ><img src={userInfo.image} alt={userInfo.name} /><span>{userInfo.name}</span>{isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown/>}</div>
+            <div className='button' >
+                <img src={userInfo.image} alt={userInfo.name} />
+                <span>
+                    {userInfo.name}
+                </span>
+                {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown/>}
+            </div>
             <div className={`dropdown ${isDropdownOpen && 'open'}`}>
                 <Link to='/profile'>Profil<IoPersonSharp className='icon'/></Link>
-                <span onClick={() => logoutHandler()}>Kijelentkezés<IoLogOutOutline  className='icon'/></span>
+                <span onClick={() => logoutHandler()}>
+                    Kijelentkezés<IoLogOutOutline  className='icon'/>
+                </span>
             </div>
         </div>
     )

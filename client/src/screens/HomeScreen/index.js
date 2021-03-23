@@ -68,9 +68,10 @@ const HomeScreen = () => {
             <section className='category-content'>
                     <h1 className='category-content__title'>Szakma Kategóriák</h1>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    {loading ?
-                        <Loader size='large' />
-                        : showList ? <ProfessionList data={listData} setShowList={setShowList} />
+                    {loading 
+                        ? <Loader size='large' />
+                        : showList 
+                        ? <ProfessionList data={listData} setShowList={setShowList} />
                         : <div className='profession-container'>
                             {categories.map((data, index) => 
                                 <CategoryCard openProfessionList={openProfessionList} category={data} key={index} />

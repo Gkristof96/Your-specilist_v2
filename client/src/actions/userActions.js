@@ -27,11 +27,7 @@ export const login = (email, password) => async (dispatch) => {
         },
       }
   
-      const { data } = await axios.post(
-        '/api/users/login',
-        { email, password },
-        config
-      )
+      const { data } = await axios.post('/api/users/login', { email, password },config)
   
       dispatch({
         type: USER_LOGIN_SUCCESS,
@@ -68,10 +64,12 @@ export const register = (name, email, password) => async(dispatch) => {
       type: USER_REGISTER_SUCCESS,
       payload: data
     })
+
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
     })
+
     localStorage.setItem('userInfo', JSON.stringify(data))
   } catch(error) {
     dispatch({
@@ -105,7 +103,8 @@ export const getUserData = (id) => async(dispatch,getState) => {
         Authorization: `Bearer ${userInfo.token}`
       }
     }
-    const { data } = await axios.get(`/api/users/profile/${id}`,config)
+
+    const { data } = await axios.get(`/api/users/profile/${id}`, config)
 
     dispatch({
       type: USER_DETAIL_SUCCESS,

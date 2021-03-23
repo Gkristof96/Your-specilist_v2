@@ -23,8 +23,10 @@ export const listProviders = (pageNumber = '', keyword = {}) => async(dispatch) 
         dispatch({
             type: PROVIDER_LIST_REQUEST
         })
-        console.log("action: ",keyword)
-        const { data } = await axios.get(`/api/provider?pageNumber=${pageNumber}&city=${keyword.city}&profession=${keyword.profession}`)
+        
+        const { data } = await axios.get(
+            `/api/provider?pageNumber=${pageNumber}&city=${keyword.city}&profession=${keyword.profession}`
+        )
 
         dispatch({
             type: PROVIDER_LIST_SUCCESS,
@@ -109,7 +111,7 @@ export const updateProvider = (provider) => async(dispatch,getState) => {
             },
         }
 
-        const { data } = await axios.put('/api/provider/profile',provider, config)
+        const { data } = await axios.put('/api/provider/profile', provider, config)
 
         dispatch({
             type: PROVIDER_UPDATE_SUCCESS,
@@ -148,7 +150,7 @@ export const addProfession = (profession) => async(dispatch,getState) => {
             },
         }
 
-        await axios.post('/api/provider/profile/professions',profession,config)
+        await axios.post('/api/provider/profile/professions', profession, config)
 
         dispatch({
             type: PROVIDER_ADD_PROFESSION_SUCCESS

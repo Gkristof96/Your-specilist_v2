@@ -1,7 +1,7 @@
 import React from 'react'
 import {BsStarFill,BsStarHalf,BsStar} from 'react-icons/bs'
 
-const Rating = ({ value, color, numReviews }) => {
+const Rating = ({ value, numReviews }) => {
   return (
     <div className='rating'>
       <div className='rating-stars'>
@@ -24,10 +24,6 @@ const Rating = ({ value, color, numReviews }) => {
       <span>{numReviews} vélemény alapján</span>
     </div>
   )
-}
-
-Rating.defaultProps = {
-  color: '#f8e825',
 }
 
 export default Rating

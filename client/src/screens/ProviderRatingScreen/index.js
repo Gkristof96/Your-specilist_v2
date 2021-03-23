@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import { 
+    FaPhoneAlt, 
+    FaEnvelope, 
+    FaMapMarkerAlt 
+} from 'react-icons/fa'
+
 import Rating from '../../components/Rating'
+import ProfessionBadge from '../../components/ProfessionBadge'
+
 import { listProviderData, createProviderReview } from '../../actions/providerActions'
 import { PROVIDER_CREATE_REVIEW_RESET } from '../../constants/providerConstans'
 
@@ -53,34 +60,47 @@ const ProviderEditScreen = ({ match }) => {
                         <div className='leftbar'>
                             <img src={provider.image} alt={provider.name} />
                             <div className='data-container'>
-                                <Rating value={provider.rating}/>
+                                <Rating value={provider.rating} numReviews={provider.numReviews}/>
                                 <div className='contact-data'>
                                     <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2>
                                     <h2><FaEnvelope className='icon'/> {provider.email}</h2>
-                                </div>
-                                <div className='professions'> 
-                                    {/*{provider.professions.map((profession,index) => (
-                                        <ProfessionBadge profession={profession} key={index} />
-                                    ))}*/}
                                 </div>
                             </div>
                         </div>
                         <div className='rightbar'>
                             <h1>{provider.name}</h1>
                             <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
+                            <div className='professions'>
+                                    {provider.professions.map((profession,index) => (
+                                        <ProfessionBadge profession={profession} key={index} />
+                                    ))}
+                                </div>
                             <div className='rating-card'>
                                 <h3>Értékelés</h3>
                                 <form onSubmit={submitHandler}>
                                     <label>
                                             Név
-                                            <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
+                                            <input 
+                                                type='text'
+                                                value={name} 
+                                                onChange={(e) => setName(e.target.value)} 
+                                            />
                                     </label>
                                     <label>
                                             Email
-                                            <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                                            <input 
+                                                type='email' 
+                                                value={email} 
+                                                onChange={(e) => setEmail(e.target.value)}
+                                            />
                                     </label>
 
-                                    <select id="cars" name="cars" value={rating} onChange={(e) => setRating(e.target.value)}>
+                                    <select 
+                                        id="cars" 
+                                        name="cars" 
+                                        value={rating} 
+                                        onChange={(e) => setRating(e.target.value)}
+                                    >
                                         <option value="1">1 csillag </option>
                                         <option value="2">2 csillag </option>
                                         <option value="3">3 csillag </option>
@@ -90,7 +110,10 @@ const ProviderEditScreen = ({ match }) => {
 
                                     <label>
                                             Üzenet
-                                            <textarea value={message} onChange={(e) => setMessage(e.target.value)}/>
+                                            <textarea 
+                                                value={message} 
+                                                onChange={(e) => setMessage(e.target.value)}
+                                            />
                                     </label>
                                     <button type='submit'>Küldés</button>
                                 </form>

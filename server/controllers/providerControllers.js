@@ -7,7 +7,7 @@ import generateToken from '../utils/generateToken.js'
 // @route   GET /api/provider/
 // @access  Public
 const getProviders = asyncHandler(async (req, res) => {
-    const pageSize = 2
+    const pageSize = 5
     const keyword = req.query.city && req.query.profession ? {"city": req.query.city, "professions.name": { $eq:req.query.profession}} : req.query.profession ? {"professions.name": { $eq: req.query.profession}} : {}
     const page = Number(req.query.pageNumber) || 1
 

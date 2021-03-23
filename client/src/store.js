@@ -39,7 +39,9 @@ const reducer = combineReducers({
     offerCreate: offerCreateReducer
 })
 
-const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
+const userInfoFromStorage = localStorage.getItem('userInfo') 
+    ? JSON.parse(localStorage.getItem('userInfo')) 
+    : null
 
 const middleware = [thunk]
 
@@ -47,6 +49,10 @@ const initialState = {
     userLogin: { userInfo: userInfoFromStorage }
 }
 
-const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)))
+const store = createStore(
+    reducer, 
+    initialState, 
+    composeWithDevTools(applyMiddleware(...middleware))
+)
 
 export default store

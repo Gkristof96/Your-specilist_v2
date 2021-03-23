@@ -1,5 +1,10 @@
 import React from 'react'
-import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare} from 'react-icons/ai'
+import { 
+    AiFillFacebook, 
+    AiFillInstagram, 
+    AiFillTwitterSquare
+} from 'react-icons/ai'
+
 const Footer = () => {
     return (
         <footer>

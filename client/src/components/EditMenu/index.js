@@ -1,14 +1,29 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
-const EditMenu = ({match}) => {
+const EditMenu = () => {
     return (
         <>
-            <Link className={(match.path === '/profile/edit') ? 'active' : null} to='/profile/edit'>Profil beállítása</Link>
-            <Link className={(match.path === '/profile/password/change') ? 'active' : null} to='/profile/password/change'>Jelszó csere</Link>
-            <Link className={(match.path === '/profile/professions') ? 'active' : null} to='/profile/professions'>Szakmai adatok</Link>
-            <Link className={(match.path === '/profile/gallery/upload') ? 'active' : null} to='/profile/gallery/upload'>Galléria feltöltése</Link>
-            <Link className={(match.path === '/profile/delete') ? 'active' : null} to='/profile/delete'>Felhasználó törlése</Link>
+            <NavLink 
+                to='/profile/edit'
+                activeClassName='active'
+            >Profil beállítása</NavLink>
+            <NavLink 
+                activeClassName='active'
+                to='/profile/password/change'
+            >Jelszó csere</NavLink>
+            <NavLink 
+                activeClassName='active'
+                to='/profile/professions'
+            >Szakmai adatok</NavLink>
+            <NavLink 
+                activeClassName='active'
+                to='/profile/gallery/upload'
+            >Galléria feltöltése</NavLink>
+            <NavLink 
+                activeClassName='active'
+                to='/profile/delete'
+            >Felhasználó törlése</NavLink>
             <Link to='/profile'>Vissza a profilodhoz</Link>
         </>
     )

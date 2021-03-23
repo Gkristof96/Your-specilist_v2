@@ -15,9 +15,6 @@ const ProvidersListScreen = ({ match }) => {
     const [city, setCity] = useState(match.params.city ? match.params.city : '')
     const [profession, setProfession] = useState(match.params.profession ? match.params.profession : '')
     const [keyword, setKeyword] = useState({city: city, profession: profession})
-    console.log('keyword', keyword)
-    console.log('city', city)
-    console.log('profession', profession)
    
     const pageNumber = match.params.pageNumber
 
@@ -32,14 +29,11 @@ const ProvidersListScreen = ({ match }) => {
     const getProfession = useSelector(state => state.getProfession)
     const { professions } = getProfession
 
-    console.log('providers', providers)
 
     useEffect(() => {
-        console.log('call')
         dispatch(getCityData())
         dispatch(getProfessionData())
         dispatch(listProviders(pageNumber,keyword))
-        // eslint-disable-next-line
     },[dispatch,pageNumber, keyword])
 
     const handleSearch = () => {
@@ -71,10 +65,15 @@ const ProvidersListScreen = ({ match }) => {
                 </div>
             </section>
             <section className='providers-content'>
-                {loading ? <Loader size='large' /> : error ? <Message margin='large' type='error' message={error} /> : <>{providers.map((provider,index) => <ProviderCard key={index} provider={provider}/>)}</>}
-                <Paginate pages={pages} page={page} keyword={keyword}/>
+                {loading 
+                    ? <Loader size='large' /> 
+                    : error ? <Message margin='large' type='error' message={error} /> 
+                    : <>
+                        {providers.map((provider,index) => <ProviderCard key={index} provider={provider}/>)}
+                      </>
+                    }
+                {pages > 1 && <Paginate pages={pages} page={page} keyword={keyword}/>}
             </section>
-            
         </>
     )
 }

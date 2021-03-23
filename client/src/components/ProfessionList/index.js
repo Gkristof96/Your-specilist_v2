@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const ProfessionList = ({ data, setShowList = false }) => {
   const { category, professionList } = data;
   return (
-    <>
       <div className='profession-list' >
         <FaArrowAltCircleLeft
           className="back-arrow"
@@ -24,7 +23,6 @@ const ProfessionList = ({ data, setShowList = false }) => {
           ))}
         </div>
       </div>
-    </>
   );
 };
 

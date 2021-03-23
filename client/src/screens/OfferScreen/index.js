@@ -47,31 +47,65 @@ const OfferScreen = () => {
                     <h1>Töltsd ki az űrlapot, és várj a szakemberek válaszára</h1>
                     <form onSubmit={submitHandler}>
                         <div className='input-group'>
-                            <input type='text' name='name' autoComplete='off' required value={name} onChange={(e) => setName(e.target.value)}/>
+                            <input 
+                                type='text' 
+                                name='name' 
+                                autoComplete='off' 
+                                required 
+                                value={name} 
+                                onChange={(e) => setName(e.target.value)}
+                            />
                             <label for='name' className='label-name'>
                                 <span className='content-name'>Név</span>
                             </label>
                         </div>
                         <div className='input-group'>
-                            <input type='text' name='email' autoComplete='off' required value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input 
+                                type='text' 
+                                name='email' 
+                                autoComplete='off' 
+                                required 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                             <label className='label-name' for='email'>
                                 <span className='content-name'>Email</span>
                             </label>
                         </div>
                         <div className='input-group'>
-                            <input type='text' name='city' autoComplete='off' required value={city} onChange={(e) => setCity(e.target.value)}/>
+                            <input 
+                                type='text' 
+                                name='city' 
+                                autoComplete='off' 
+                                required 
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}
+                            />
                             <label className='label-name' for='city'>
                                 <span className='content-name'>Város</span>
                             </label>
                         </div>
                         <div className='input-group'>
-                            <input type='text' name='profession' autoComplete='off' required value={profession} onChange={(e) => setProfession(e.target.value)}/>
+                            <input 
+                                type='text' 
+                                name='profession' 
+                                autoComplete='off' 
+                                required 
+                                value={profession} 
+                                onChange={(e) => setProfession(e.target.value)}
+                            />
                             <label className='label-name' for='profession'>
                                 <span className='content-name'>Szakma</span>
                             </label>
                         </div>
                         <div className='input-group text'>
-                            <textarea name='description' autoComplete='off' required value={description} onChange={(e) => setDescription(e.target.value)}/>
+                            <textarea 
+                                name='description' 
+                                autoComplete='off' 
+                                required 
+                                value={description} 
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
                             <label className='label-name' for='description'>
                                 <span className='content-name'>Munka leírása</span>
                             </label>

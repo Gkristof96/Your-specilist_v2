@@ -27,11 +27,14 @@ const Navbar = ({isMenuOpen, handleOpen}) => {
                 <li><Link to='/offer'>Ajánlatkérés</Link></li>
                 <li><Link to='/contact'>Kapcsolat</Link></li>
                 {userInfo ? (
-                    <li><ProfileButton userInfo={userInfo} logoutHandler={logoutHandler}/></li>
+                    <li>
+                        <ProfileButton 
+                            userInfo={userInfo} 
+                            logoutHandler={logoutHandler}
+                        />
+                    </li>
                     ) : (
-                    <>
                         <li><Link to='/login'>Bejelenkezés</Link></li>
-                    </>
                     )}
             </ul>
 

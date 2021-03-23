@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import EditMenu from '../../components/EditMenu'
 import { getUserData, changePassword } from '../../actions/userActions'
 
-const PasswordChangeScreen = ({match}) => {
+const PasswordChangeScreen = ({ history }) => {
     const [password, setPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -20,13 +20,17 @@ const PasswordChangeScreen = ({match}) => {
     const { success } = userChangePassword
 
     useEffect(() => {
-        if(success) {
-            setPassword('')
-            setNewPassword('')
-            setConfirmPassword('')
+        if(!userInfo){
+            history.push('/login')
+        } else {
+            dispatch(getUserData(userInfo._id))
+            if(success) {
+                setPassword('')
+                setNewPassword('')
+                setConfirmPassword('')
+            }
         }
-        dispatch(getUserData(userInfo._id))
-    },[dispatch, userInfo, success])
+    },[dispatch, userInfo, success, history])
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -41,18 +45,29 @@ const PasswordChangeScreen = ({match}) => {
             <section className='edit-content'>
                 <div className='container'>
                         <div className='edit-menu'>
-                            <EditMenu match={match}/>
+                            <EditMenu/>
                         </div>
                         <div className='password-change-card'>
                             <form onSubmit={submitHandler}>
                                 <img src={provider.image} alt={provider.name} />
                                 <h1>{provider.name}</h1>
                                 <label>Régi Jelszó</label>
-                                <input type='text' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                <input 
+                                    type='password' 
+                                    value={password} 
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
                                 <label>Új Jelszó</label>
-                                <input type='text' value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
+                                <input 
+                                    type='password' 
+                                    value={newPassword} 
+                                    onChange={(e) => setNewPassword(e.target.value)}/>
                                 <label>Új Jelszó újra</label>
-                                <input type='text' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+                                <input 
+                                    type='password' 
+                                    value={confirmPassword} 
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                />
                                 <button type='submit'>Mentés</button>
                             </form>
                         </div>

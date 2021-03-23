@@ -6,13 +6,17 @@ import { updateProvider } from '../../actions/providerActions'
 import { PROVIDER_UPDATE_RESET } from '../../constants/providerConstans'
 import { getCityData } from '../../actions/searchActions' 
 import AutocompleteInput from '../../components/AutocompleteInput'
+import Loader from '../../components/Loader'
+import axios from 'axios'
 
-const ProfileEditScreen = ({match, history}) => {
+const ProfileEditScreen = ({ history }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [city, setCity] = useState('')
     const [tel, setTel] = useState('')
     const [bio, setBio] = useState('')
+    const [image, setImage] = useState('')
+    const [isUpload, setUpload] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -46,9 +50,33 @@ const ProfileEditScreen = ({match, history}) => {
         }
     },[dispatch, userInfo, history, success, provider])
 
+    const uploadFileHandler = async (e) => {
+        const file = e.target.files[0]
+        const formData = new FormData()
+        formData.append('image', file)
+        setUpload(true)
+
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+
+            const { data } = await axios.post('/api/upload', formData, config)
+
+            setImage(data)
+            setUpload(false)
+        } catch (error) {
+            console.log(error)
+            setUpload(false)
+        }
+    }
+
+
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(updateProvider({ name, email, tel, city, bio}))
+        dispatch(updateProvider({ name, email, tel, city, bio, image}))
     }
     return (
         <>
@@ -56,14 +84,15 @@ const ProfileEditScreen = ({match, history}) => {
             <section className='edit-content'>
                 <div className='container'>
                         <div className='edit-menu'>
-                            <EditMenu match={match}/>
+                            <EditMenu/>
                         </div>
                         <div className='edit-card'>
                             <form onSubmit={submitHandler}>
                                 <img src={provider.image} alt={provider.name} />
                                 <label className='picture'>
                                     Cseréld le a profilképed
-                                    <input type='file' />
+                                    <input type='file' onChange={(e) => uploadFileHandler}/>
+                                    {isUpload && <Loader />}
                                 </label>
                                 <label>Név</label>
                                 <input type='text' value={name} onChange={(e) => setName(e.target.value)}/>

@@ -48,19 +48,43 @@ const RegisterScreen = ({history, location}) => {
                     <form onSubmit={handleSubmit}>
                         <label className='input-group'>
                             Név
-                            <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)} required/>
+                            <input 
+                                type='text' 
+                                name='name' 
+                                value={name} 
+                                onChange={(e) => setName(e.target.value)} 
+                                required
+                            />
                         </label>
                         <label className='input-group'>
                             Email
-                            <input type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                            <input 
+                                type='email' 
+                                name='email' 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)} 
+                                required
+                            />
                         </label>
                         <label className='input-group'>
                             Jelszó
-                            <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                            <input 
+                                type='password' 
+                                name='password' 
+                                value={password} 
+                                onChange={(e) => setPassword(e.target.value)} 
+                                required
+                            />
                         </label>
                         <label className='input-group'>
                             Jelszó újra
-                            <input  type='password' name='cpassword' value={cpassword} onChange={(e) => setCpassword(e.target.value)} required/>
+                            <input  
+                                type='password' 
+                                name='cpassword' 
+                                value={cpassword} 
+                                onChange={(e) => setCpassword(e.target.value)} 
+                                required
+                            />
                         </label>
                         <label className='checkbox'>
                             <input type='checkbox' required/>

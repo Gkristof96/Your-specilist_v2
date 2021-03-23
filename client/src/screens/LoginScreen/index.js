@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FaTimes } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { login } from '../../actions/userActions'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
+import { login } from '../../actions/userActions'
 
 const LoginScreen = ({location,history}) => {
     const [email, setEmail] = useState('')
@@ -39,11 +39,23 @@ const LoginScreen = ({location,history}) => {
                     <form onSubmit={submitHandler}>
                         <label className='input-group'>
                             Email
-                            <input  type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                            <input  
+                                type='email' 
+                                name='email' 
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)} 
+                                required
+                            />
                         </label>
                         <label className='input-group'>
                             Jelszó
-                            <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                            <input 
+                                type='password' 
+                                name='password' 
+                                value={password} 
+                                onChange={(e) => setPassword(e.target.value)} 
+                                required
+                            />
                         </label>
                         {/*<div className='login-settings'>
                             <label>
@@ -57,7 +69,9 @@ const LoginScreen = ({location,history}) => {
                         
                         <button type='submit'>Bejelentkezés</button>
                     </form>
-                    <h2>Nincs még felhasználód? <Link to='/register'>Regisztrálj</Link> most!</h2>
+                    <h2>
+                        Nincs még felhasználód? <Link to='/register'>Regisztrálj</Link> most!
+                    </h2>
                 </div>
             </div>
         </>
