@@ -27,7 +27,7 @@ import './styles/style.css'
 const App = () => {
   return (
       <Router>
-        {/*<Header />*/}
+        <Header />
         <Switch>
           <Route path='/' exact component={HomeScreen}/>
           <Route path='/login'  component={LoginScreen}/>

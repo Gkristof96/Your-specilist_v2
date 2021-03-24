@@ -16,19 +16,17 @@ const Footer = () => {
                         <h2>The best professionist’s</h2>
                     </div>
                 </div>
-                <div className='navigation'>
-                    <ul>
+                    <ul className='social'>
                         <li><AiFillFacebook className='icon'/></li>
                         <li><AiFillInstagram className='icon'/></li>
                         <li><AiFillTwitterSquare className='icon'/></li>
                     </ul>
-                    <ul>
+                    <ul className='menu'>
                         <li>Szakmák</li>
                         <li>Áralánlat</li>
                         <li>Kapcsolat</li>
                         <li>Bejelentkezés</li>
                     </ul>
-                </div>
             </div>
             <div className='footer-bottom'>
                 <h1>Terms of usage | CopyRight © Kristof - 2020</h1>

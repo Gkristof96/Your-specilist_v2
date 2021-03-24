@@ -46,3 +46,23 @@
     }
   }
 }
+
+@media screen and(max-width: 450px) {
+  .error .white-container {
+    padding: 50px 25px;
+    height: auto;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    .rightbar {
+      width: 100%;
+      align-self: center;
+      img {
+        width: 200px;
+      }
+    }
+    .leftbar {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}

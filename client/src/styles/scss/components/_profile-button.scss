@@ -1,12 +1,14 @@
 @use '../abstracts' as *;
 
 .profile-button {
+  width: 175px;
+  height: 50px;
   user-select: none;
-  width: 200px;
-  padding: 0.5rem 1.5rem;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
   position: relative;
+  display: flex;
+  justify-content: center;
   z-index: 1;
   -webkit-backdrop-filter: blur(40px);
   backdrop-filter: blur(40px);
@@ -15,19 +17,24 @@
   -webkit-box-shadow: 10px 10px 10px 10px rgba(46, 54, 68, 0.03);
   box-shadow: 10px 10px 10px 10px rgba(46, 54, 68, 0.03);
   color: $light-text;
-  font-weight: bold;
   cursor: pointer;
+  padding: 5px 15px;
   .button {
+    height: 100%;
     display: flex;
     align-items: center;
     img {
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       border-radius: 10px;
     }
     span {
-      margin: 0 5px;
       user-select: none;
+      margin: 0 5px;
+      font-size: clamp(10px, 1vw, 14px);
+    }
+    .icon {
+      margin: 0;
     }
   }
   .dropdown {
@@ -35,19 +42,23 @@
   }
   .dropdown.open {
     position: absolute;
-    top: 50px;
+    width: 175px;
+    top: 55px;
     left: 0;
     display: inline-block;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     background: rgba(255, 255, 255, 0.2);
-    width: 200px;
-    padding: 0.5rem 1.5rem;
+    padding: 15px;
     border-radius: 10px;
 
     span,
     a {
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: clamp(10px, 1vw, 18px);
       text-decoration: none;
       color: $light-text;
       user-select: none;
@@ -55,6 +66,10 @@
       align-items: center;
       .icon {
         margin-left: 5px;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
       }
     }
   }

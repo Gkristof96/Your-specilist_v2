@@ -28,7 +28,11 @@
     transform: scale(1.1);
   }
 }
-
+@media screen and(max-width: 1450px) {
+  .category-card {
+    margin: 15px;
+  }
+}
 @media screen and(max-width: 450px) {
   .category-card {
     margin: 5px;

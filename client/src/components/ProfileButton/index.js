@@ -12,7 +12,7 @@ const ProfileButton = ({userInfo, logoutHandler}) => {
                 <span>
                     {userInfo.name}
                 </span>
-                {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown/>}
+                {isDropdownOpen ? <IoIosArrowUp className='icon'/> : <IoIosArrowDown className='icon'/>}
             </div>
             <div className={`dropdown ${isDropdownOpen && 'open'}`}>
                 <Link to='/profile'>Profil<IoPersonSharp className='icon'/></Link>
