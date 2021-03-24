@@ -1,8 +1,10 @@
+@use '../abstracts' as *;
+
 .provider-card {
   text-decoration: none;
   margin: 50px 0;
   width: calc(100% - 150px);
-  background: #ffffff;
+  background: $container-background;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
@@ -35,7 +37,7 @@
         font-size: 24px;
         line-height: 29px;
 
-        color: #3a0088;
+        color: $purple;
         margin-right: 15px;
         margin-bottom: 5px;
       }
@@ -45,7 +47,7 @@
       font-size: 14px;
       line-height: 17px;
 
-      color: #212121;
+      color: $dark-text;
 
       .icon {
         margin-right: 5px;
@@ -59,7 +61,7 @@
       line-height: 20px;
       text-align: justify;
 
-      color: #000000;
+      color: $dark-text;
     }
     .professions-bar {
       display: flex;

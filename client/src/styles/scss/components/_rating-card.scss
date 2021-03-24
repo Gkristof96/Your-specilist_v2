@@ -1,10 +1,12 @@
+@use '../abstracts' as *;
+
 .rating-card {
   h3 {
     font-weight: normal;
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 10px;
-    color: #49205c;
+    color: $purple;
   }
 
   form {
@@ -20,7 +22,7 @@
         margin: 10px 0;
         outline: none;
         padding: 5px;
-        border: 1px solid #aaa;
+        border: 1px solid $input-border;
         border-radius: 5px;
       }
     }
@@ -32,22 +34,12 @@
       outline: none;
       padding: 5px;
       border-radius: 5px;
-      border: 1px solid #aaa;
+      border: 1px solid $input-border;
     }
 
     textarea {
       height: 100px;
       resize: none;
-    }
-
-    button {
-      width: 200px;
-      height: 40px;
-      border: none;
-      background: #49205c;
-      color: #eee;
-      margin-top: 25px;
-      margin-bottom: 100px;
     }
   }
 }

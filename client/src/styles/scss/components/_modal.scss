@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .modal {
   position: fixed;
   top: 0;
@@ -13,7 +15,7 @@
     position: relative;
     width: 400px;
     height: 200px;
-    background: #eee;
+    background: $light-text;
     padding: 10px;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
     .content {
@@ -30,7 +32,7 @@
       h1 {
         position: relative;
         font-size: 1rem;
-        color: color(darkest-gray);
+        color: $dark-text;
         margin-bottom: 15px;
 
         &::after {
@@ -40,7 +42,7 @@
           position: absolute;
           bottom: -70px;
           right: -170px;
-          background: #49205c;
+          background: $purple;
         }
         &::before {
           content: "";
@@ -49,12 +51,12 @@
           position: absolute;
           bottom: -90px;
           right: -150px;
-          background: #49205c;
+          background: $purple;
         }
       }
       .icon {
         cursor: pointer;
-        color: color(primary);
+        color: $purple;
         font-size: 18px;
         position: absolute;
         top: 15px;
@@ -69,7 +71,7 @@
       position: absolute;
       top: 20px;
       left: -20px;
-      background: #49205c;
+      background: $purple;
     }
     &::after {
       content: "";
@@ -78,7 +80,7 @@
       position: absolute;
       top: 40px;
       left: -40px;
-      background: #49205c;
+      background: $purple;
     }
   }
 }

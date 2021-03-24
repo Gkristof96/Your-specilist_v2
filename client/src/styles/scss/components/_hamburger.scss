@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .hamburger-icon {
   width: 30px;
   height: 30px;
@@ -14,7 +16,7 @@
     height: 3px;
     width: 100%;
     border-radius: 5px;
-    background: #fff;
+    background: $light-text;
     position: absolute;
     transition: transform 0.5s ease-in-out;
 

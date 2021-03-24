@@ -1,8 +1,10 @@
+@use '../abstracts' as *;
+
 footer {
   width: 100%;
   .footer-header {
     height: 150px;
-    background-color: #49205c;
+    background-color: $purple;
     padding: 0 calc((100vw - 1400px) / 2);
     display: flex;
 
@@ -18,13 +20,13 @@ footer {
         font-weight: bold;
         font-size: clamp(18px, 3vw, 36px);
 
-        color: #ffffff;
+        color: $light-text;
       }
       h2 {
         font-weight: 500;
         font-size: clamp(12px, 2vw, 30px);
 
-        color: #ffffff;
+        color: $light-text;
       }
     }
     .navigation {
@@ -42,7 +44,7 @@ footer {
           font-size: clamp(12px, 2vw, 18px);
           line-height: 22px;
 
-          color: #ffffff;
+          color: $light-text;
 
           .icon {
             font-size: 35px;
@@ -54,7 +56,7 @@ footer {
 
   .footer-bottom {
     height: 25px;
-    background-color: #e3e3e3;
+    background-color: $background;
     text-align: center;
 
     h1 {
@@ -62,7 +64,7 @@ footer {
       font-size: clamp(12px, 2vw, 16px);
       line-height: 21px;
 
-      color: #49205c;
+      color: $purple;
 
       padding: 5px 0;
     }

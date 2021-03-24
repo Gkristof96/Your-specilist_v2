@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .profile-button {
   user-select: none;
   width: 200px;
@@ -12,7 +14,7 @@
   background-clip: padding-box;
   -webkit-box-shadow: 10px 10px 10px 10px rgba(46, 54, 68, 0.03);
   box-shadow: 10px 10px 10px 10px rgba(46, 54, 68, 0.03);
-  color: #eee;
+  color: $light-text;
   font-weight: bold;
   cursor: pointer;
   .button {
@@ -47,7 +49,7 @@
     span,
     a {
       text-decoration: none;
-      color: #eee;
+      color: $light-text;
       user-select: none;
       display: flex;
       align-items: center;

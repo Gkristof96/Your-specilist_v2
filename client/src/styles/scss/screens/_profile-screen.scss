@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .profile-background {
   width: 100%;
   height: 40vh;
@@ -13,7 +15,7 @@
     min-height: 600px;
     height: auto;
     transform: translateY(-75px);
-    background: white;
+    background: $container-background;
     padding: 0 50px;
 
     display: flex;
@@ -23,7 +25,7 @@
       img {
         width: 100%;
         border-radius: 50%;
-        border: 3px solid #eee;
+        border: 3px solid $light-text;
         transform: translateY(-50%);
       }
       .data-container {
@@ -55,7 +57,7 @@
             font-weight: 600;
             font-size: 18px;
             line-height: 27px;
-            color: #000000;
+            color: $dark-text;
           }
         }
 
@@ -75,10 +77,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: white;
-            border: 3px solid #49205c;
+            background: $background;
+            border: 3px solid $purple;
             border-radius: 10px;
-            color: #49205c;
+            color: $purple;
             margin-bottom: 15px;
             cursor: pointer;
             .icon {
@@ -104,7 +106,7 @@
         font-size: 48px;
         line-height: 72px;
         margin-bottom: 5px;
-        color: #49205c;
+        color: $purple;
       }
 
       h2 {
@@ -112,10 +114,10 @@
         font-size: 24px;
         line-height: 36px;
         margin-bottom: 25px;
-        color: #49205c;
+        color: $purple;
         .icon {
           font-size: 24px;
-          color: #49205c;
+          color: $purple;
         }
       }
 
@@ -124,7 +126,7 @@
         font-size: 24px;
         line-height: 36px;
         margin-bottom: 10px;
-        color: #49205c;
+        color: $purple;
       }
 
       p {
@@ -133,7 +135,7 @@
         line-height: 22px;
         text-align: justify;
         margin-bottom: 50px;
-        color: #212121;
+        color: $dark-text;
       }
     }
   }

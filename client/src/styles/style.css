@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
 .hamburger-icon {
   width: 30px;
   height: 30px;
@@ -16,7 +15,7 @@
   height: 3px;
   width: 100%;
   border-radius: 5px;
-  background: #fff;
+  background: #eee;
   position: absolute;
   transition: transform 0.5s ease-in-out;
 }
@@ -49,7 +48,7 @@
 .sidemenu {
   width: 100%;
   height: 100%;
-  background: black;
+  background: #e3e3e3;
   position: fixed;
   z-index: 20;
   top: 80px;
@@ -59,7 +58,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: #fff;
   transition: transform 0.5s ease-in-out;
 }
 .sidemenu li {
@@ -68,7 +67,7 @@
 .sidemenu li a {
   text-decoration: none;
   text-transform: uppercase;
-  color: white;
+  color: #eee;
 }
 .sidemenu.open {
   transform: translateX(-100%);
@@ -105,7 +104,7 @@
   font-weight: bold;
   font-size: clamp(18px, 5vw, 24px);
   line-height: 36px;
-  color: #ffffff;
+  color: #eee;
 }
 .navbar ul {
   list-style: none;
@@ -119,7 +118,7 @@
   font-size: 18px;
   line-height: 22px;
   padding: 0.75rem 1.5rem;
-  color: #ffffff;
+  color: #eee;
 }
 .navbar__toggle {
   display: none;
@@ -161,7 +160,7 @@
   font-size: clamp(32px, 5vw, 64px);
   line-height: clamp(50px, 5vw, 80px);
   /* or 125% */
-  color: #ffffff;
+  color: #eee;
 }
 .hero .text-container p {
   font-style: normal;
@@ -169,7 +168,7 @@
   font-size: clamp(18px, 3vw, 32px);
   line-height: clamp(25px, 5vw, 55px);
   /* or 153% */
-  color: #ffffff;
+  color: #eee;
 }
 
 @media screen and (max-width: 1450px) {
@@ -200,12 +199,12 @@ footer .footer-header .logo img {
 footer .footer-header .logo h1 {
   font-weight: bold;
   font-size: clamp(18px, 3vw, 36px);
-  color: #ffffff;
+  color: #eee;
 }
 footer .footer-header .logo h2 {
   font-weight: 500;
   font-size: clamp(12px, 2vw, 30px);
-  color: #ffffff;
+  color: #eee;
 }
 footer .footer-header .navigation {
   width: 50%;
@@ -223,7 +222,7 @@ footer .footer-header .navigation ul li {
   font-weight: 500;
   font-size: clamp(12px, 2vw, 18px);
   line-height: 22px;
-  color: #ffffff;
+  color: #eee;
 }
 footer .footer-header .navigation ul li .icon {
   font-size: 35px;
@@ -284,7 +283,7 @@ footer .footer-header .navigation {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #eee;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -300,7 +299,7 @@ footer .footer-header .navigation {
   text-decoration: none;
   margin: 50px 0;
   width: calc(100% - 150px);
-  background: #ffffff;
+  background: #fff;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
@@ -333,7 +332,7 @@ footer .footer-header .navigation {
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
-  color: #3a0088;
+  color: #49205c;
   margin-right: 15px;
   margin-bottom: 5px;
 }
@@ -352,7 +351,7 @@ footer .footer-header .navigation {
   font-size: 16px;
   line-height: 20px;
   text-align: justify;
-  color: #000000;
+  color: #212121;
 }
 .provider-card .provider-info .professions-bar {
   display: flex;
@@ -373,7 +372,7 @@ footer .footer-header .navigation {
   font-weight: 600;
   font-size: 18px;
   line-height: 27px;
-  color: #eeeeee;
+  color: #eee;
 }
 
 .auto-input {
@@ -417,7 +416,7 @@ footer .footer-header .navigation {
   border-radius: 10px;
 }
 .auto-input ul li:hover {
-  background: #aaa;
+  background: #eee;
 }
 .auto-input ul li:first-child {
   margin-top: 0;
@@ -430,7 +429,7 @@ footer .footer-header .navigation {
   border-radius: 0 10px 10px 0;
 }
 .auto-input ::-webkit-scrollbar-thumb {
-  background: #aaa;
+  background: #f7f7f7;
   border-radius: 0 10px 10px 0;
 }
 .auto-input ::-webkit-scrollbar-thumb:hover {
@@ -471,7 +470,7 @@ footer .footer-header .navigation {
   font-size: 18px;
   line-height: 27px;
   background: #49205c;
-  color: #eeeeee;
+  color: #eee;
   margin: 10px;
   padding: 0.5rem 2rem;
   transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -484,7 +483,7 @@ footer .footer-header .navigation {
   top: 25px;
   left: 25px;
   font-size: 2rem;
-  color: black;
+  color: #212121;
   transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   cursor: pointer;
 }
@@ -667,15 +666,6 @@ footer .footer-header .navigation {
   height: 100px;
   resize: none;
 }
-.rating-card form button {
-  width: 200px;
-  height: 40px;
-  border: none;
-  background: #49205c;
-  color: #eee;
-  margin-top: 25px;
-  margin-bottom: 100px;
-}
 
 .edit-card {
   width: 70%;
@@ -727,12 +717,6 @@ footer .footer-header .navigation {
 }
 .edit-card form button {
   grid-column: 2/3;
-  width: 200px;
-  height: 40px;
-  border: none;
-  background: #49205c;
-  color: #eee;
-  margin-top: 25px;
 }
 
 .password-change-card {
@@ -772,12 +756,6 @@ footer .footer-header .navigation {
 }
 .password-change-card form button {
   grid-column: 2/3;
-  width: 200px;
-  height: 40px;
-  border: none;
-  background: #49205c;
-  color: #eee;
-  margin-top: 25px;
 }
 
 .delete-card {
@@ -813,12 +791,6 @@ footer .footer-header .navigation {
 }
 .delete-card form button {
   grid-column: 2/3;
-  width: 200px;
-  height: 40px;
-  border: none;
-  background: #49205c;
-  color: #eee;
-  margin-top: 25px;
 }
 
 .gallery-upload-card {
@@ -854,12 +826,6 @@ footer .footer-header .navigation {
 }
 .gallery-upload-card form button {
   grid-column: 2/3;
-  width: 200px;
-  height: 40px;
-  border: none;
-  background: #49205c;
-  color: #eee;
-  margin-top: 25px;
 }
 
 .add-profession-card {
@@ -867,9 +833,9 @@ footer .footer-header .navigation {
   padding-left: 50px;
 }
 .add-profession-card p {
-  color: #212121;
   font-size: 18px;
   margin-bottom: 25px;
+  color: #212121;
 }
 .add-profession-card h1 {
   margin-bottom: 25px;
@@ -916,17 +882,6 @@ footer .footer-header .navigation {
 }
 .add-profession-card form button {
   grid-column: 2/3;
-  width: 200px;
-  height: 40px;
-  border: none;
-  background: #49205c;
-  color: #eee;
-  cursor: pointer;
-  outline: none;
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-.add-profession-card form button:hover {
-  transform: scale(1.1);
 }
 
 .message-container {
@@ -991,7 +946,7 @@ footer .footer-header .navigation {
 .modal .modal-container .content h1 {
   position: relative;
   font-size: 1rem;
-  color: color(darkest-gray);
+  color: #212121;
   margin-bottom: 15px;
 }
 .modal .modal-container .content h1::after {
@@ -1014,7 +969,7 @@ footer .footer-header .navigation {
 }
 .modal .modal-container .content .icon {
   cursor: pointer;
-  color: color(primary);
+  color: #49205c;
   font-size: 18px;
   position: absolute;
   top: 15px;
@@ -1039,6 +994,33 @@ footer .footer-header .navigation {
   background: #49205c;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #e3e3e3;
+}
+
+button {
+  border: none;
+  height: 50px;
+  width: 100%;
+  max-width: 200px;
+  margin: 25px 0;
+  background: #49205c;
+  color: #eee;
+  outline: none;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
 .contact {
   width: 100%;
   height: 25vh;
@@ -1054,12 +1036,12 @@ footer .footer-header .navigation {
 .contact-content .container {
   width: 100%;
   height: 750px;
-  background: white;
   padding: 0 100px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   transform: translateY(-75px);
+  background: #fff;
 }
 .contact-content .container .left-bar {
   width: 50%;
@@ -1078,18 +1060,17 @@ footer .footer-header .navigation {
   font-weight: normal;
   font-size: clamp(16px, 2vw, 22px);
   text-align: justify;
-  color: #000000;
+  color: #212121;
   margin-bottom: 25px;
 }
 .contact-content .container .left-bar li {
   margin-bottom: 25px;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
   font-size: clamp(12px, 2vw, 24px);
   display: flex;
   align-items: center;
-  color: #000000;
+  color: #212121;
 }
 .contact-content .container .left-bar li .icon {
   margin-right: 25px;
@@ -1103,14 +1084,6 @@ footer .footer-header .navigation {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.contact-content .container .right-bar form button {
-  height: 40px;
-  background: #49205c;
-  width: 200px;
-  color: white;
-  border: none;
-  margin: 30px 0;
 }
 .contact-content .container .right-bar form .input-group {
   position: relative;
@@ -1260,7 +1233,7 @@ footer .footer-header .navigation {
   margin: 10px 0;
   height: 50px;
   border-radius: 10px;
-  background: #dbdbdb;
+  background: #f7f7f7;
   border: none;
   padding: 10px;
 }
@@ -1285,19 +1258,6 @@ footer .footer-header .navigation {
   font-size: 12px;
   line-height: 55px;
   color: #49205c;
-}
-.login-screen .login-card form button {
-  background: #49205c;
-  color: #eee;
-  border: none;
-  padding: 0.75rem 3rem;
-  margin: 10px 0;
-  cursor: pointer;
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  outline: none;
-}
-.login-screen .login-card form button:hover {
-  transform: scale(1.1);
 }
 .login-screen .login-card h2 {
   font-weight: normal;
@@ -1384,7 +1344,7 @@ footer .footer-header .navigation {
   margin-top: 5px;
   height: 50px;
   border-radius: 10px;
-  background: #dbdbdb;
+  background: #f7f7f7;
   border: none;
   padding: 10px;
 }
@@ -1401,19 +1361,6 @@ footer .footer-header .navigation {
 .register-screen .register-card form .checkbox span span {
   color: #49205c;
   font-weight: 600;
-}
-.register-screen .register-card form button {
-  background: #49205c;
-  color: #eee;
-  border: none;
-  padding: 0.75rem 3rem;
-  margin: 10px 0;
-  cursor: pointer;
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  outline: none;
-}
-.register-screen .register-card form button:hover {
-  transform: scale(1.1);
 }
 .register-screen .register-card h2 {
   font-weight: normal;
@@ -1446,7 +1393,7 @@ footer .footer-header .navigation {
 .offer-content .container {
   width: 100%;
   height: 750px;
-  background: white;
+  background: #fff;
   padding: 0 100px;
   transform: translateY(-75px);
   display: flex;
@@ -1536,16 +1483,8 @@ footer .footer-header .navigation {
   transition: transform 0.5s ease;
 }
 .offer-content .container form button {
-  width: 200px;
   grid-row: 4/5;
   grid-column: 2/3;
-  align-self: center;
-  justify-self: center;
-  background: #49205c;
-  color: #eee;
-  border: none;
-  padding: 0.75rem 3rem;
-  margin: 25px 0;
 }
 .offer-content .container form .checkbox {
   align-self: center;
@@ -1599,7 +1538,7 @@ footer .footer-header .navigation {
 .error-content .container {
   width: 100%;
   height: 750px;
-  background: white;
+  background: #fff;
   padding: 0 100px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
@@ -1628,7 +1567,7 @@ footer .footer-header .navigation {
   line-height: 27px;
   display: flex;
   align-items: center;
-  color: #000000;
+  color: #212121;
   margin-bottom: 20px;
 }
 .error-content .container .leftbar a {
@@ -1640,7 +1579,7 @@ footer .footer-header .navigation {
   font-weight: bold;
   font-size: clamp(18px, 3vw, 24px);
   line-height: 36px;
-  color: #eeeeee;
+  color: #eee;
 }
 .error-content .container .rightbar {
   width: 50%;
@@ -1711,7 +1650,7 @@ footer .footer-header .navigation {
   font-size: clamp(14px, 3vw, 18px);
   line-height: 21px;
   text-align: center;
-  color: #000000;
+  color: #212121;
   margin-bottom: 50px;
 }
 .category-content .profession-container {
@@ -1724,7 +1663,7 @@ footer .footer-header .navigation {
   width: 100%;
   max-width: 1400px;
   height: 150px;
-  background: #ffffff;
+  background: #fff;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   position: absolute;
   left: 50%;
@@ -1801,7 +1740,7 @@ footer .footer-header .navigation {
   min-height: 600px;
   height: auto;
   transform: translateY(-75px);
-  background: white;
+  background: #fff;
   padding: 0 50px;
   display: flex;
 }
@@ -1844,7 +1783,7 @@ footer .footer-header .navigation {
   font-weight: 600;
   font-size: 18px;
   line-height: 27px;
-  color: #000000;
+  color: #212121;
 }
 .profile-content .container .leftbar .data-container .action-buttons {
   display: flex;
@@ -1862,7 +1801,7 @@ footer .footer-header .navigation {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: #e3e3e3;
   border: 3px solid #49205c;
   border-radius: 10px;
   color: #49205c;
@@ -1948,17 +1887,6 @@ footer .footer-header .navigation {
   .edit-content {
     padding: 0 25px;
   }
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: #e3e3e3;
-  color: black;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .edit-menu {
   width: 30%;
   display: flex;
@@ -12,22 +14,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #49205c;
+    border: 3px solid $purple;
     border-radius: 10px;
-    color: #49205c;
+    color: $purple;
     margin-bottom: 15px;
     cursor: pointer;
     transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 
     &:hover {
       border: none;
-      background: #49205c;
-      color: #eee;
+      background: $purple;
+      color: $light-text;
     }
     &.active {
       border: none;
-      background: #49205c;
-      color: #eee;
+      background: $purple;
+      color: $light-text;
     }
   }
 }

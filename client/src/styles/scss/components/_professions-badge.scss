@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .profession-badge {
   display: flex;
   justify-content: center;
@@ -6,11 +8,11 @@
   margin-bottom: 15px;
   &__title {
     padding: 0.5rem 2rem;
-    background: #49205c;
+    background: $purple;
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;
 
-    color: #eeeeee;
+    color: $light-text;
   }
 }

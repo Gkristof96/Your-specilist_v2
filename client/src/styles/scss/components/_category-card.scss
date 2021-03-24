@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .category-card {
   position: relative;
   margin: 25px;
@@ -14,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: $light-text;
     position: absolute;
     top: 50%;
     left: 50%;
