@@ -1,155 +1,50 @@
 @use '../abstracts' as *;
 
-.offer-content {
-  width: 100%;
-  padding: 0 calc((100vw - 1400px) / 2);
-  .container {
+.offer .white-container {
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  h1 {
+    font-weight: 500;
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 54px;
+    margin: 25px 0;
+  }
+
+  form {
     width: 100%;
-    height: 750px;
-    background: $container-background;
-    padding: 0 100px;
-    transform: translateY(-75px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    h1 {
-      font-weight: normal;
-      font-size: clamp(24px, 4vw, 36px);
-      line-height: 54px;
-      color: $dark-text;
-      margin: 25px 0;
+    display: grid;
+    position: relative;
+    grid-column-gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 140px 1fr;
+
+    .flat-input {
+      width: 100%;
+    }
+    button {
+      grid-row: 4/5;
+      grid-column: 2/3;
     }
 
-    form {
-      display: grid;
-      position: relative;
-      grid-column-gap: 40px;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 140px 1fr;
+    .checkbox {
+      align-self: center;
+      width: 100%;
+      font-size: clamp(12px, 2vw, 18px);
+      margin-top: 10px;
+      margin-bottom: 25px;
 
-      .input-group {
-        position: relative;
-        width: 100%;
-        height: 50px;
-        overflow: hidden;
-        margin: 10px 0;
-
-        &.text {
-          grid-column: 2/3;
-          grid-row: 3/4;
-          height: 100px;
-        }
-
-        input,
-        textarea {
-          width: 100%;
-          height: 50px;
-          border: none;
-          color: $dark-text;
-          padding-top: 20px;
-          outline: none;
-        }
-
-        textarea {
-          height: 100px;
-          resize: none;
-        }
-
-        input:focus + .label-name .content-name,
-        input:valid + .label-name .content-name {
-          transform: translateY(-20px);
-          font-size: 14px;
-          color: $purple;
-        }
-
-        textarea:focus + .label-name .content-name,
-        textarea:valid + .label-name .content-name {
-          transform: translateY(-70px);
-          font-size: 14px;
-          color: $purple;
-        }
-
-        input:focus + .label-name::after,
-        textarea:focus + .label-name::after {
-          transform: translateX(0);
-        }
-
-        label {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          border-bottom: 1px solid $dark-text;
-
-          &::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0px;
-            bottom: -1px;
-            border-bottom: 3px solid $purple;
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-          }
-
-          .content-name {
-            position: absolute;
-            left: 0;
-            bottom: 5px;
-            transition: transform 0.5s ease;
-          }
-        }
+      input[type="checkbox"] {
+        border: 1px solid $purple;
       }
-
-      button {
-        grid-row: 4/5;
-        grid-column: 2/3;
-      }
-
-      .checkbox {
-        align-self: center;
-        width: 100%;
-        font-size: clamp(12px, 2vw, 18px);
-        color: $dark-text;
-        margin-top: 10px;
-        margin-bottom: 25px;
-
-        input[type="checkbox"] {
-          border: 1px solid $purple;
-        }
+      span {
+        margin-left: 5px;
         span {
-          margin-left: 5px;
-          span {
-            color: $purple;
-            font-weight: 600;
-          }
+          color: $purple;
+          font-weight: 600;
         }
-      }
-    }
-  }
-}
-
-@media screen and(max-width: 1450px) {
-  .offer-content {
-    padding: 0 25px;
-    .container {
-      padding: 0 50px;
-    }
-  }
-}
-
-@media screen and(max-width: 450px) {
-  .offer-content {
-    .container {
-      padding: 50px 25px;
-      height: auto;
-      form {
-        grid-template-columns: 1fr;
-        grid-column-gap: 0;
       }
     }
   }

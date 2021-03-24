@@ -1,35 +1,11 @@
 @use '../abstracts' as *;
 
-.edit-background {
-  width: 100%;
-  height: 25vh;
-  background: url("../images/background.jpg") center no-repeat;
-  background-size: cover;
-  background-position: top;
-}
-
-.edit-content {
-  width: 100%;
-  padding: 00 calc((100vw - 1400px) / 2);
-  .container {
-    width: 100%;
+.edit {
+  .white-container {
     height: 750px;
-    padding: 100px 50px;
-    transform: translateY(-75px);
-
-    background: $container-background;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-
-    display: flex;
 
     .rightbar {
       width: 70%;
     }
-  }
-}
-
-@media screen and(max-width: 1450px) {
-  .edit-content {
-    padding: 0 25px;
   }
 }

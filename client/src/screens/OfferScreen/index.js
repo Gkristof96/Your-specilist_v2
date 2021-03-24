@@ -36,17 +36,17 @@ const OfferScreen = () => {
     return (
         <>
             <Modal isModalOpen={isModalOpen} closeModal={closeModal} />
-            <section className='hero'>
+            <section className='background large-bg'>
                 <div className='text-container'>
-                    <h1>Nem akarsz keresgélni?</h1>
-                    <p>Ebben az esetben adj fel egy megbízást, és majd egy szakember megkeres az ajánlatával</p>
+                    <h1 className='text-container__title'>Nem akarsz keresgélni?</h1>
+                    <p className='text-container__subtitle'>Ebben az esetben adj fel egy megbízást, és majd egy szakember megkeres az ajánlatával</p>
                 </div>
             </section>
-            <section className='offer-content'>
-                <div className='container'>
+            <section className='offer content'>
+                <div className='white-container'>
                     <h1>Töltsd ki az űrlapot, és várj a szakemberek válaszára</h1>
                     <form onSubmit={submitHandler}>
-                        <div className='input-group'>
+                        <div className='flat-input'>
                             <input 
                                 type='text' 
                                 name='name' 
@@ -59,7 +59,7 @@ const OfferScreen = () => {
                                 <span className='content-name'>Név</span>
                             </label>
                         </div>
-                        <div className='input-group'>
+                        <div className='flat-input'>
                             <input 
                                 type='text' 
                                 name='email' 
@@ -72,7 +72,7 @@ const OfferScreen = () => {
                                 <span className='content-name'>Email</span>
                             </label>
                         </div>
-                        <div className='input-group'>
+                        <div className='flat-input'>
                             <input 
                                 type='text' 
                                 name='city' 
@@ -85,7 +85,7 @@ const OfferScreen = () => {
                                 <span className='content-name'>Város</span>
                             </label>
                         </div>
-                        <div className='input-group'>
+                        <div className='flat-input'>
                             <input 
                                 type='text' 
                                 name='profession' 
@@ -98,7 +98,7 @@ const OfferScreen = () => {
                                 <span className='content-name'>Szakma</span>
                             </label>
                         </div>
-                        <div className='input-group text'>
+                        <div className='flat-input text'>
                             <textarea 
                                 name='description' 
                                 autoComplete='off' 

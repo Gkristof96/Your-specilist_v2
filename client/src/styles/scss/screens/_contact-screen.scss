@@ -1,171 +1,48 @@
 @use '../abstracts' as *;
 
-.contact {
-  width: 100%;
-  height: 25vh;
-  background: url("../images/background.jpg") center no-repeat;
-  background-size: cover;
-  background-position: top;
-}
-.contact-content {
-  width: 100%;
-  padding: 0 calc((100vw - 1400px) / 2);
-  .container {
-    width: 100%;
-    height: 750px;
-    padding: 0 100px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
-    transform: translateY(-75px);
-    background: $container-background;
-    .left-bar {
-      width: 50%;
-      h1 {
-        font-family: Poppins;
-        font-style: normal;
-        font-weight: normal;
-        font-size: clamp(24px, 5vw, 48px);
+.contact .white-container {
+  height: 750px;
 
-        color: $dark-text;
-        margin-bottom: 20px;
-      }
+  .leftbar {
+    width: 50%;
 
-      p {
-        font-family: Poppins;
-        font-style: normal;
-        font-weight: normal;
-        font-size: clamp(16px, 2vw, 22px);
-        text-align: justify;
-
-        color: $dark-text;
-        margin-bottom: 25px;
-      }
-      li {
-        margin-bottom: 25px;
-        font-style: normal;
-        font-weight: 600;
-        font-size: clamp(12px, 2vw, 24px);
-        display: flex;
-        align-items: center;
-
-        color: $dark-text;
-
-        .icon {
-          margin-right: 25px;
-          font-size: clamp(1rem, 2vw, 2rem);
-        }
-      }
+    h1 {
+      font-weight: 500;
+      font-size: clamp(24px, 5vw, 48px);
+      margin-bottom: 20px;
     }
-    .right-bar {
-      width: 50%;
-      form {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
 
-        .input-group {
-          position: relative;
-          width: 60%;
-          overflow: hidden;
-          margin: 10px 0;
+    p {
+      font-weight: 300;
+      font-size: clamp(16px, 2vw, 22px);
+      text-align: justify;
+      margin-bottom: 25px;
+    }
 
-          input,
-          textarea {
-            width: 100%;
-            height: 50px;
-            border: none;
-            color: $dark-text;
-            padding-top: 20px;
-            outline: none;
-          }
+    li {
+      margin-bottom: 12px;
+      font-weight: 500;
+      font-size: clamp(12px, 2vw, 24px);
+      display: flex;
+      align-items: center;
 
-          textarea {
-            height: 100px;
-            resize: none;
-          }
-
-          input:focus + .label-name .content-name,
-          input:valid + .label-name .content-name {
-            transform: translateY(-25px);
-            font-size: 14px;
-            color: $purple;
-          }
-
-          textarea:focus + .label-name .content-name,
-          textarea:valid + .label-name .content-name {
-            transform: translateY(-80px);
-            font-size: 14px;
-            color: $purple;
-          }
-
-          input:focus + .label-name::after,
-          textarea:focus + .label-name::after {
-            transform: translateX(0);
-          }
-
-          label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            border-bottom: 1px solid $dark-text;
-
-            &::after {
-              content: "";
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              left: 0px;
-              bottom: -1px;
-              border-bottom: 3px solid $purple;
-              transform: translateX(-100%);
-              transition: transform 0.5s ease;
-            }
-
-            .content-name {
-              position: absolute;
-              left: 0;
-              bottom: 5px;
-              transition: transform 0.5s ease;
-            }
-          }
-        }
+      .icon {
+        margin-right: 15px;
+        font-size: clamp(18px, 2vw, 32px);
       }
     }
   }
-}
 
-@media screen and(max-width: 1450px) {
-  .contact-content {
-    padding: 0 25px;
-    .container {
-      padding: 0 50px;
-    }
-  }
-}
+  .rightbar {
+    width: 50%;
 
-@media screen and(max-width: 450px) {
-  .contact-content {
-    .container {
+    form {
+      display: flex;
       flex-direction: column;
-      padding: 50px 25px;
-      align-items: flex-start;
-      height: auto;
-      .left-bar,
-      .right-bar {
-        width: 100%;
-      }
+      align-items: center;
 
-      .left-bar {
-        li {
-          .icon {
-            margin-right: 5px;
-          }
-        }
+      .flat-input {
+        width: 60%;
       }
     }
   }

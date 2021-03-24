@@ -31,9 +31,9 @@ const ProviderScreen = ({match}) => {
 
     return (
         <>
-            <section className='profile-background'></section>
-            <section className='profile-content'>
-                <div className='container'>
+            <section className='background medium-bg'></section>
+            <section className='profile content'>
+                <div className='white-container'>
                     {error && <Message message={error} type='error'/> }
                     {loading 
                         ? <Loader size='large'/> 
@@ -51,7 +51,7 @@ const ProviderScreen = ({match}) => {
                                     </div>
                                 
                                     <div className='action-buttons'>
-                                        <Link to={`/provider/${id}/rating`}>
+                                        <Link to={`/provider/${id}/rating`} className='link-btn'>
                                             Értékeld a munkám <FaAward className='icon'/>
                                         </Link>
                                     </div>

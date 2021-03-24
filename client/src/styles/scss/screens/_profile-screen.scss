@@ -1,142 +1,108 @@
 @use '../abstracts' as *;
 
-.profile-background {
+.profile .white-container {
   width: 100%;
-  height: 40vh;
-  background: url("../images/background.jpg") center no-repeat;
-  background-size: cover;
-  background-position: top;
-}
-.profile-content {
-  width: 100%;
-  padding: 0 calc((100vw - 1400px) / 2);
-  .container {
-    width: 100%;
-    min-height: 600px;
-    height: auto;
-    transform: translateY(-75px);
-    background: $container-background;
-    padding: 0 50px;
+  min-height: 600px;
+  height: auto;
+  transform: translateY(-75px);
+  background: $container-background;
+  padding: 0 50px;
 
-    display: flex;
-    .leftbar {
-      width: 25%;
-      height: 100%;
-      img {
-        width: 100%;
-        border-radius: 50%;
-        border: 3px solid $light-text;
-        transform: translateY(-50%);
-      }
-      .data-container {
-        transform: translateY(-100px);
+  display: flex;
+  .leftbar {
+    width: 25%;
+    height: 100%;
+    img {
+      width: 100%;
+      border-radius: 50%;
+      border: 3px solid $light-text;
+      transform: translateY(-50%);
+    }
+    .data-container {
+      transform: translateY(-100px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .rating {
+        margin-bottom: 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        .rating {
-          margin-bottom: 15px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+        span {
+          font-size: 18px;
+        }
+        .rating-stars {
           span {
-            font-size: 18px;
-          }
-          .rating-stars {
-            span {
-              font-size: 32px;
-            }
+            font-size: 42px;
           }
         }
-        .contact-data {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          margin-bottom: 15px;
-          h2 {
-            margin-bottom: 5px;
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 27px;
-            color: $dark-text;
-          }
+      }
+      .contact-data {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        h2 {
+          margin-bottom: 5px;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 27px;
         }
+      }
 
-        .action-buttons {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          button,
-          a {
-            text-decoration: none;
-            width: 250px;
-            height: 50px;
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 27px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: $background;
-            border: 3px solid $purple;
-            border-radius: 10px;
-            color: $purple;
-            margin-bottom: 15px;
-            cursor: pointer;
-            .icon {
-              margin: 0 5px;
-            }
-          }
-        }
+      .action-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     }
-    .rightbar {
-      width: 70%;
-      height: 100%;
-      margin-left: 50px;
-      padding-top: 50px;
-      .professions {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        margin-bottom: 50px;
-      }
-      h1 {
-        font-weight: 600;
-        font-size: 48px;
-        line-height: 72px;
-        margin-bottom: 5px;
-        color: $purple;
-      }
+  }
+  .rightbar {
+    width: 70%;
+    height: 100%;
+    margin-left: 50px;
+    padding-top: 50px;
+    .professions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 72px;
+      margin-bottom: 5px;
+      color: $purple;
+    }
 
-      h2 {
-        font-weight: 500;
+    h2 {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 25px;
+      color: $purple;
+      .icon {
         font-size: 24px;
-        line-height: 36px;
-        margin-bottom: 25px;
-        color: $purple;
-        .icon {
-          font-size: 24px;
-          color: $purple;
-        }
-      }
-
-      h3 {
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 36px;
-        margin-bottom: 10px;
         color: $purple;
       }
+    }
 
-      p {
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 22px;
-        text-align: justify;
-        margin-bottom: 50px;
-        color: $dark-text;
-      }
+    h3 {
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 10px;
+      color: $purple;
+    }
+
+    p {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+      text-align: justify;
+      margin-bottom: 50px;
     }
   }
 }

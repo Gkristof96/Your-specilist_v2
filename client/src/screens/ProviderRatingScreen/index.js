@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { 
     FaPhoneAlt, 
     FaEnvelope, 
@@ -54,9 +55,9 @@ const ProviderEditScreen = ({ match }) => {
     }
     return (
         <>
-            <section className='profile-background'></section>
-            <section className='profile-content'>
-                <div className='container'>
+            <section className='background medium-bg'></section>
+            <section className='profile content'>
+                <div className='white-container'>
                         <div className='leftbar'>
                             <img src={provider.image} alt={provider.name} />
                             <div className='data-container'>
@@ -64,6 +65,11 @@ const ProviderEditScreen = ({ match }) => {
                                 <div className='contact-data'>
                                     <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2>
                                     <h2><FaEnvelope className='icon'/> {provider.email}</h2>
+                                </div>
+                                <div className='action-buttons'>
+                                    <Link to={`/provider/${id}`} className='link-btn'>
+                                        Vissza a szakember profiljára
+                                    </Link>
                                 </div>
                             </div>
                         </div>

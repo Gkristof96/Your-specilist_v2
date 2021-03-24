@@ -29,9 +29,9 @@ const LoginScreen = ({location,history}) => {
       }
     return (
         <>
-            <div className='background'></div>
-            <div className='login-screen'>
-                <div className='login-card'>
+            <section className='background fullsize-bg'></section>
+            <div className='auth-screen'>
+                <div className='auth-card'>
                     <h1>Bejelentkezés</h1>
                     <Link to='/'><FaTimes className='icon'/></Link>
                     {error && <Message type='error' message={error}/>}
@@ -39,7 +39,8 @@ const LoginScreen = ({location,history}) => {
                     <form onSubmit={submitHandler}>
                         <label className='input-group'>
                             Email
-                            <input  
+                            <input
+                                className='bar-input'   
                                 type='email' 
                                 name='email' 
                                 value={email}
@@ -49,7 +50,8 @@ const LoginScreen = ({location,history}) => {
                         </label>
                         <label className='input-group'>
                             Jelszó
-                            <input 
+                            <input
+                                className='bar-input'
                                 type='password' 
                                 name='password' 
                                 value={password} 
@@ -69,9 +71,9 @@ const LoginScreen = ({location,history}) => {
                         
                         <button type='submit'>Bejelentkezés</button>
                     </form>
-                    <h2>
+                    <p>
                         Nincs még felhasználód? <Link to='/register'>Regisztrálj</Link> most!
-                    </h2>
+                    </p>
                 </div>
             </div>
         </>

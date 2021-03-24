@@ -42,10 +42,10 @@ const HomeScreen = () => {
     }   
     return (
         <>
-            <section className='hero'>
+            <section className='background large-bg'>
                 <div className='text-container'>
-                    <h1>Hiába keresel nem találsz szakembert?</h1>
-                    <p>Tégy egy probát nálunk, garantáljuk hogy itt megtalálod azt mester akire most szükséged van</p>
+                    <h1 className='text-container__title'>Hiába keresel nem találsz szakembert?</h1>
+                    <p className='text-container__subtitle'>Tégy egy probát nálunk, garantáljuk hogy itt megtalálod azt mester akire most szükséged van</p>
                 </div>
                     <div className='search-bar'>
                         <AutocompleteInput
@@ -65,18 +65,20 @@ const HomeScreen = () => {
                         </Link>
                 </div>
             </section>
-            <section className='category-content'>
-                    <h1 className='category-content__title'>Szakma Kategóriák</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    {loading 
-                        ? <Loader size='large' />
-                        : showList 
-                        ? <ProfessionList data={listData} setShowList={setShowList} />
-                        : <div className='profession-container'>
-                            {categories.map((data, index) => 
-                                <CategoryCard openProfessionList={openProfessionList} category={data} key={index} />
-                            )}
-                        </div>}
+            <section className='category content'>
+                <div className='transparent-container'>
+                    <h1 className='transparent-container__title'>Szakma Kategóriák</h1>
+                        <p>Amenyiben csak szakmák szerint szeretnél keresni, itt megtalálod kategóriákba sorolva a szakmákat amiket megtalálhatsz az oldalon. A kategóriák bőveb áttekintéséért kattints a kategória képére.</p>
+                        {loading 
+                            ? <Loader size='large' />
+                            : showList 
+                            ? <ProfessionList data={listData} setShowList={setShowList} />
+                            : <div className='profession-container'>
+                                {categories.map((data, index) => 
+                                    <CategoryCard openProfessionList={openProfessionList} category={data} key={index} />
+                                )}
+                              </div>}
+                </div>
             </section>
         </>
     )

@@ -1,0 +1,86 @@
+@use '../abstracts' as *;
+
+.bar-input {
+  margin-top: 5px;
+  height: 50px;
+  border-radius: 10px;
+  background: $input-background;
+  border: none;
+  padding: 10px;
+}
+
+.flat-input {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  margin: 10px 0;
+
+  &.text {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    height: 100px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    height: 50px;
+    border: none;
+    padding-top: 20px;
+    outline: none;
+  }
+
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+
+  input:focus + .label-name .content-name,
+  input:valid + .label-name .content-name {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: $purple;
+  }
+
+  textarea:focus + .label-name .content-name,
+  textarea:valid + .label-name .content-name {
+    transform: translateY(-70px);
+    font-size: 14px;
+    color: $purple;
+  }
+
+  input:focus + .label-name::after,
+  textarea:focus + .label-name::after {
+    transform: translateX(0);
+  }
+
+  label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid $dark-text;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0px;
+      bottom: -1px;
+      border-bottom: 3px solid $purple;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .content-name {
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      transition: transform 0.5s ease;
+    }
+  }
+}

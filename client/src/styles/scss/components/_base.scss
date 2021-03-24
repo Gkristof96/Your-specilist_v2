@@ -5,7 +5,47 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  font-size: 18px;
 }
 body {
   background: $background;
+  color: $dark-text;
+}
+
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+p {
+}
+
+.content {
+  width: 100%;
+  padding: 0 calc((100vw - 1400px) / 2);
+
+  .white-container {
+    width: 100%;
+    padding: 0 100px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    transform: translateY(-75px);
+    background: $container-background;
+  }
+
+  .transparent-container {
+    width: 100%;
+    margin-top: 175px;
+  }
+}
+
+@media screen and(max-width: 1450px) {
+  .content {
+    padding: 0 25px;
+  }
 }

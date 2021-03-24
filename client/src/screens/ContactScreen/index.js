@@ -4,11 +4,10 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 const ContactScreen = () => {
     return (
         <>
-            <section className='contact'>
-            </section>
-            <section className='contact-content'>
-                <div className='container'>
-                    <div className='left-bar'>
+            <section className='background small-bg'></section>
+            <section className='contact content'>
+                <div className='white-container'>
+                    <div className='leftbar'>
                         <h1>Írj nekünk!</h1>
                         <p>
                             Ha bármi kérdésed lenne felénk, vagy csak a testszésed szeretnéd tudtunkra adni, ragad meg a lehetőséget és írj nekünk egy levelet, vagy keres meg minket a lent található elérhetőségek valamelyikén, vagy az itt található űrlap segítségével
@@ -19,21 +18,21 @@ const ContactScreen = () => {
                             <li><FaMapMarkerAlt className='icon'/>Budapest</li>
                         </ul>
                     </div>
-                    <div className='right-bar'>
+                    <div className='rightbar'>
                         <form>
-                            <div className='input-group'>
+                            <div className='flat-input'>
                                 <input type='text' name='name' autoComplete='off' required/>
                                 <label for='name' className='label-name'>
                                     <span className='content-name'>Név</span>
                                 </label>
                             </div>
-                            <div className='input-group'>
+                            <div className='flat-input'>
                                 <input type='text' name='email' required autoComplete='off' />
                                 <label for='email' className='label-name'>
                                     <span className='content-name'>Email</span>
                                 </label>
                             </div>
-                            <div className='input-group'>
+                            <div className='flat-input'>
                                 <textarea name='message' required autoComplete='off' />
                                 <label for='message' className='label-name'>
                                     <span className='content-name'>Üzenet</span>

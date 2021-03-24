@@ -41,9 +41,9 @@ const PasswordChangeScreen = ({ history }) => {
       }
     return (
         <>
-            <section className='edit-background'></section>
-            <section className='edit-content'>
-                <div className='container'>
+            <section className='background small-bg'></section>
+            <section className='edit content'>
+                <div className='white-container'>
                         <div className='edit-menu'>
                             <EditMenu/>
                         </div>

@@ -41,10 +41,10 @@ const ProvidersListScreen = ({ match }) => {
     }
     return (
         <>
-            <section className='hero'>
+            <section className='background large-bg'>
                 <div className='text-container'>
-                    <h1>Hiába keresel nem találsz szakembert?</h1>
-                    <p>Tégy egy probát nálunk, garantáljuk hogy itt megtalálod azt mester akire most szükséged van</p>
+                    <h1 className='text-container__title'>Hiába keresel nem találsz szakembert?</h1>
+                    <p className='text-container__subtitle'>Tégy egy probát nálunk, garantáljuk hogy itt megtalálod azt mester akire most szükséged van</p>
                 </div>
                 <div className='search-bar'>
                     <AutocompleteInput
@@ -64,15 +64,17 @@ const ProvidersListScreen = ({ match }) => {
                     </span>
                 </div>
             </section>
-            <section className='providers-content'>
-                {loading 
-                    ? <Loader size='large' /> 
-                    : error ? <Message margin='large' type='error' message={error} /> 
-                    : <>
-                        {providers.map((provider,index) => <ProviderCard key={index} provider={provider}/>)}
-                      </>
-                    }
-                {pages > 1 && <Paginate pages={pages} page={page} keyword={keyword}/>}
+            <section className='providers content'>
+                <div className='transparent-container'>
+                    {loading 
+                        ? <Loader size='large' /> 
+                        : error ? <Message margin='large' type='error' message={error} /> 
+                        : <>
+                            {providers.map((provider,index) => <ProviderCard key={index} provider={provider}/>)}
+                        </>
+                        }
+                    {pages > 1 && <Paginate pages={pages} page={page} keyword={keyword}/>}
+                </div>
             </section>
         </>
     )

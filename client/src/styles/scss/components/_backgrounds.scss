@@ -1,0 +1,22 @@
+.background {
+  width: 100%;
+  background: url("../images/background.jpg") center no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.large-bg {
+  height: 60vh;
+}
+
+.medium-bg {
+  height: 40vh;
+}
+
+.small-bg {
+  height: 25vh;
+}
+
+.fullsize-bg {
+  height: 100vh;
+}

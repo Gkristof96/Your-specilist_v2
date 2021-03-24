@@ -23,18 +23,18 @@
     width: calc(100% - 12px);
     list-style: none;
     border-radius: 10px;
-    background: $light-text;
+    background: $input-background;
     padding: 5px 0;
     border: 1px solid $input-border;
     max-height: 250px;
     overflow-y: auto;
     li {
-      background: $light-text;
+      background: $input-background;
       padding: 10px 20px;
       margin: 5px;
       border-radius: 10px;
       &:hover {
-        background: $light-text;
+        background: $input-border;
       }
       &:first-child {
         margin-top: 0;

@@ -40,9 +40,9 @@ const ProfileScreen = ({history}) => {
 
     return (
         <>
-            <section className='profile-background'></section>
-            <section className='profile-content'>
-                <div className='container'>
+            <section className='background medium-bg'></section>
+            <section className='profile content'>
+                <div className='white-container'>
                     {error && <h1>{error}</h1>}
                     {loading ? <Loader /> :
                     <>
@@ -62,9 +62,9 @@ const ProfileScreen = ({history}) => {
                                 </div>
                                 
                                 <div className='action-buttons'>
-                                    <Link to='/profile/edit'>Beállítások <FaCog className='icon'/></Link>
-                                    <button onClick={() => handleLogout()}>
-                                        Kijelentkezés <FaSignOutAlt className='icon'/>
+                                    <Link to='/profile/edit' className='link-btn'>Beállítások</Link>
+                                    <button onClick={() => handleLogout()} className='border-btn'>
+                                        Kijelentkezés
                                     </button>
                                 </div>
                             </div>

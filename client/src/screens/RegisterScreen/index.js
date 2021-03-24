@@ -37,9 +37,9 @@ const RegisterScreen = ({history, location}) => {
     }
     return (
         <>
-            <div className='background'></div>
-            <div className='register-screen'>
-                <div className='register-card'>
+            <section className='background fullsize-bg'></section>
+            <div className='auth-screen'>
+                <div className='auth-card'>
                     <h1>Regisztráció</h1>
                     <Link to='/'><FaTimes className='icon'/></Link>
                     {message && <Message type='error' message={message} />}
@@ -48,7 +48,8 @@ const RegisterScreen = ({history, location}) => {
                     <form onSubmit={handleSubmit}>
                         <label className='input-group'>
                             Név
-                            <input 
+                            <input
+                                className='bar-input'
                                 type='text' 
                                 name='name' 
                                 value={name} 
@@ -58,7 +59,8 @@ const RegisterScreen = ({history, location}) => {
                         </label>
                         <label className='input-group'>
                             Email
-                            <input 
+                            <input
+                                className='bar-input'
                                 type='email' 
                                 name='email' 
                                 value={email} 
@@ -68,7 +70,8 @@ const RegisterScreen = ({history, location}) => {
                         </label>
                         <label className='input-group'>
                             Jelszó
-                            <input 
+                            <input
+                                className='bar-input'
                                 type='password' 
                                 name='password' 
                                 value={password} 
@@ -78,7 +81,8 @@ const RegisterScreen = ({history, location}) => {
                         </label>
                         <label className='input-group'>
                             Jelszó újra
-                            <input  
+                            <input 
+                                className='bar-input'
                                 type='password' 
                                 name='cpassword' 
                                 value={cpassword} 
@@ -93,7 +97,7 @@ const RegisterScreen = ({history, location}) => {
 
                         <button type='submit'>Regisztráció</button>
                     </form>
-                    <h2>Van már felhasználód? <Link to='/login'>Jelentkez be</Link></h2>
+                    <p>Van már felhasználód? <Link to='/login'>Jelentkez be</Link></p>
                 </div>
             </div>
         </>

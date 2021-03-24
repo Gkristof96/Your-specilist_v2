@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Hamburger from '../Hamburger'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import ProfileButton from '../ProfileButton'
 import { logout } from '../../actions/userActions'
 
@@ -22,10 +22,10 @@ const Navbar = ({isMenuOpen, handleOpen}) => {
             </Link>
 
             <ul>
-                <li><Link to='/'>Főoldal</Link></li>
-                <li><Link to='/providers'>Szakemberek</Link></li>
-                <li><Link to='/offer'>Ajánlatkérés</Link></li>
-                <li><Link to='/contact'>Kapcsolat</Link></li>
+                <li><NavLink activeClassName='active' exact={true} to='/'>Főoldal</NavLink></li>
+                <li><NavLink activeClassName='active' to='/providers'>Szakemberek</NavLink></li>
+                <li><NavLink activeClassName='active' to='/offer'>Ajánlatkérés</NavLink></li>
+                <li><NavLink activeClassName='active' to='/contact'>Kapcsolat</NavLink></li>
                 {userInfo ? (
                     <li>
                         <ProfileButton 
