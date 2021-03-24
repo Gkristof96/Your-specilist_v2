@@ -47,5 +47,19 @@ p {
 @media screen and(max-width: 1450px) {
   .content {
     padding: 0 25px;
+
+    .white-container {
+      padding: 0 50px;
+    }
+  }
+}
+
+@media screen and(max-width: 450px) {
+  .content {
+    padding: 0 10px;
+
+    .white-container {
+      padding: 0 50px;
+    }
   }
 }

@@ -22,19 +22,19 @@ const ContactScreen = () => {
                         <form>
                             <div className='flat-input'>
                                 <input type='text' name='name' autoComplete='off' required/>
-                                <label for='name' className='label-name'>
+                                <label htmlFor='name' className='label-name'>
                                     <span className='content-name'>Név</span>
                                 </label>
                             </div>
                             <div className='flat-input'>
                                 <input type='text' name='email' required autoComplete='off' />
-                                <label for='email' className='label-name'>
+                                <label htmlFor='email' className='label-name'>
                                     <span className='content-name'>Email</span>
                                 </label>
                             </div>
                             <div className='flat-input'>
                                 <textarea name='message' required autoComplete='off' />
-                                <label for='message' className='label-name'>
+                                <label htmlFor='message' className='label-name'>
                                     <span className='content-name'>Üzenet</span>
                                 </label>
                             </div>

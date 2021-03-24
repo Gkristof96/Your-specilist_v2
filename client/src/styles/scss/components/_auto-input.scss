@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .auto-input {
-  width: calc((100% - 75px) / 2);
+  width: 100%;
   height: 75px;
   padding-right: 12px;
   position: relative;
@@ -67,10 +67,16 @@
 @media screen and(max-width: 450px) {
   .auto-input {
     width: 100%;
-    padding: 0;
-    margin-bottom: 10px;
+    height: 50px;
+    input {
+      font-size: 14px;
+    }
     ul {
-      width: 100%;
+      top: 55px;
+      li {
+        font-size: 14px;
+        padding: 10px;
+      }
     }
   }
 }

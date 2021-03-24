@@ -55,7 +55,7 @@ const OfferScreen = () => {
                                 value={name} 
                                 onChange={(e) => setName(e.target.value)}
                             />
-                            <label for='name' className='label-name'>
+                            <label htmlFor='name' className='label-name'>
                                 <span className='content-name'>Név</span>
                             </label>
                         </div>
@@ -68,7 +68,7 @@ const OfferScreen = () => {
                                 value={email} 
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            <label className='label-name' for='email'>
+                            <label className='label-name' htmlFor='email'>
                                 <span className='content-name'>Email</span>
                             </label>
                         </div>
@@ -81,7 +81,7 @@ const OfferScreen = () => {
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
                             />
-                            <label className='label-name' for='city'>
+                            <label className='label-name' htmlFor='city'>
                                 <span className='content-name'>Város</span>
                             </label>
                         </div>
@@ -94,7 +94,7 @@ const OfferScreen = () => {
                                 value={profession} 
                                 onChange={(e) => setProfession(e.target.value)}
                             />
-                            <label className='label-name' for='profession'>
+                            <label className='label-name' htmlFor='profession'>
                                 <span className='content-name'>Szakma</span>
                             </label>
                         </div>
@@ -106,12 +106,12 @@ const OfferScreen = () => {
                                 value={description} 
                                 onChange={(e) => setDescription(e.target.value)}
                             />
-                            <label className='label-name' for='description'>
+                            <label className='label-name' htmlFor='description'>
                                 <span className='content-name'>Munka leírása</span>
                             </label>
                         </div>
-                        <label className='checkbox'>
-                            <input type='checkbox' required/>
+                        <label htmlFor='checkbox'className='checkbox'>
+                            <input name='checkbox' type='checkbox' required/>
                             <span>Elfogadom a <span>felhasználási feltételeket</span>!</span>
                         </label>
                         <button type='submit'>Küldés</button>

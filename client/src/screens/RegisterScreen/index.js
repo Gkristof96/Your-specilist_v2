@@ -90,8 +90,8 @@ const RegisterScreen = ({history, location}) => {
                                 required
                             />
                         </label>
-                        <label className='checkbox'>
-                            <input type='checkbox' required/>
+                        <label htmlFor='checkbox' className='checkbox'>
+                            <input name='checkbox' type='checkbox' required/>
                             <span>Elfogadom a <span>felhasználási feltételeket</span>!</span>
                         </label>
 

@@ -30,3 +30,18 @@
     margin-bottom: 150px;
   }
 }
+
+@media screen and(max-width: 450px) {
+  .category .transparent-container {
+    margin-top: 175px;
+
+    &__title {
+      width: 290px;
+    }
+
+    .profession-container {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 100px;
+    }
+  }
+}

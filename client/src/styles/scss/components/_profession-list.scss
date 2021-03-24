@@ -20,7 +20,7 @@
     flex-wrap: wrap;
     a {
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 18px;
       line-height: 27px;
       background: $purple;
@@ -44,6 +44,17 @@
     &:hover {
       transform: scale(1.1);
       color: $purple;
+    }
+  }
+}
+
+@media screen and(max-width: 1450px) {
+  .profession-list {
+    .professions {
+      a {
+        padding: 0.25rem 1.2rem;
+        font-size: 14px;
+      }
     }
   }
 }

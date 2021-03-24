@@ -47,22 +47,22 @@ const HomeScreen = () => {
                     <h1 className='text-container__title'>Hiába keresel nem találsz szakembert?</h1>
                     <p className='text-container__subtitle'>Tégy egy probát nálunk, garantáljuk hogy itt megtalálod azt mester akire most szükséged van</p>
                 </div>
-                    <div className='search-bar'>
-                        <AutocompleteInput
-                            setInput={setCity}
-                            items={cities}
-                            placeholder='Települések'
-                            value={city}
-                        />
-                        <AutocompleteInput
-                            setInput={setProfession}
-                            items={professions}
-                            placeholder='Szakma'
-                            value={profession}
-                        />
-                        <Link to={`/providers/search/${profession}/${city}`}>
-                            <FaSearch className='icon'/>
-                        </Link>
+                <div className='search-bar'>
+                    <AutocompleteInput
+                        setInput={setCity}
+                        items={cities}
+                        placeholder='Települések'
+                        value={city}
+                    />
+                    <AutocompleteInput
+                        setInput={setProfession}
+                        items={professions}
+                        placeholder='Szakma'
+                        value={profession}
+                    />
+                    <Link to={`/providers/search/${profession}/${city}`}>
+                        <FaSearch className='icon'/>
+                    </Link>
                 </div>
             </section>
             <section className='category content'>
