@@ -3,22 +3,41 @@
 .pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   list-style: none;
+  color: $light-text;
   margin-bottom: 50px;
+
   a {
     text-decoration: none;
     color: $light-text;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $purple;
+    margin: 0 5px;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    &:hover {
+      transform: scale(1.05);
+    }
+    &.active {
+      background: darken($purple, 10%);
+      height: 60px;
+      width: 60px;
+    }
+  }
+}
 
-    li {
-      cursor: pointer;
-      background: $purple;
-      min-width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 1rem;
-      padding: 0.5rem;
+@media screen and(max-width: 450px) {
+  .pagination a {
+    height: 40px;
+    width: 40px;
+
+    &.active {
+      height: 45px;
+      width: 45px;
     }
   }
 }

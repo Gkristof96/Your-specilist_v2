@@ -26,12 +26,13 @@ p {
 
 .content {
   width: 100%;
-  padding: 0 calc((100vw - 1400px) / 2);
 
   .white-container {
     width: 100%;
+    max-width: 1400px;
     padding: 0 100px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0 calc((100vw - 1400px) / 2);
     display: flex;
     align-items: center;
     transform: translateY(-75px);
@@ -40,6 +41,8 @@ p {
 
   .transparent-container {
     width: 100%;
+    max-width: 1400px;
+    margin: 0 calc((100vw - 1400px) / 2);
     margin-top: 175px;
   }
 }
@@ -50,6 +53,13 @@ p {
 
     .white-container {
       padding: 0 50px;
+      max-width: unset;
+      margin: 0;
+    }
+    .transparent-container {
+      max-width: unset;
+      margin: 0;
+      margin-top: 175px;
     }
   }
 }

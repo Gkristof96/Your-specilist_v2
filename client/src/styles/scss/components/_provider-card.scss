@@ -1,68 +1,116 @@
 @use '../abstracts' as *;
 
+.providers .transparent-container {
+  width: 100%;
+}
+
 .provider-card {
-  text-decoration: none;
-  margin: 50px 0;
-  width: calc(100% - 150px);
-  background: $container-background;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  display: flex;
-  align-items: center;
   transform: translateX(150px);
-  padding: 25px 0;
+  background-color: $container-background;
+  width: calc(100% - 150px);
+  height: 350px;
+  padding: 25px;
+  padding-left: 175px;
+  margin-bottom: 50px;
+  display: flex;
+  text-decoration: none;
+
   .provider-image {
     width: 300px;
-    height: 300px;
     border-radius: 50%;
-    transform: translateX(-150px);
-    border: 5px solid rgba(72, 32, 91, 0.5);
+    position: absolute;
+    border: 5px solid $input-background;
+    left: -150px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .provider-info {
-    width: 100%;
-    transform: translateX(-125px);
-
     .header {
       display: flex;
       align-items: center;
-      .rating {
-        display: flex;
-        flex-direction: row;
-        .rating-stars {
-          margin-right: 5px;
-        }
-      }
+
       h1 {
         font-weight: 500;
-        font-size: 24px;
+        font-size: clamp(18px, 2vw, 24px);
         line-height: 29px;
 
         color: $purple;
-        margin-right: 15px;
         margin-bottom: 5px;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        color: $dark-text;
+        .rating-stars {
+          margin: 0 10px;
+        }
+        span {
+          font-size: 14px;
+        }
       }
     }
     h2 {
       font-weight: 500;
       font-size: 14px;
       line-height: 17px;
-
+      color: $purple;
       .icon {
         margin-right: 5px;
+        color: $purple;
       }
       margin-bottom: 20px;
     }
-
     p {
-      font-weight: normal;
-      font-size: 16px;
+      font-weight: 300;
+      font-size: clamp(12px, 1vw, 16px);
+      color: $dark-text;
       line-height: 20px;
       text-align: justify;
+      margin-bottom: 25px;
+      max-height: 135px;
+      overflow: hidden;
     }
     .professions-bar {
       display: flex;
       flex-wrap: wrap;
-      margin: 25px 0;
     }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .providers .transparent-container {
+    padding-top: 150px;
+  }
+  .provider-card {
+    width: 100%;
+    height: auto;
+    transform: translateX(0);
+    margin-bottom: 200px;
+    padding: 25px;
+    padding-top: 175px;
+
+    .provider-image {
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .provider-info {
+      width: 100%;
+    }
+    .provider-info .header,
+    .provider-info h2 {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and(max-width: 450px) {
+  .provider-card .provider-info .header .rating {
+    flex-direction: column;
   }
 }

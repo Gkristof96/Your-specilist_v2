@@ -9,10 +9,22 @@
   &__title {
     padding: 0.5rem 2rem;
     background: $purple;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 500;
     line-height: 27px;
 
     color: $light-text;
+  }
+
+  .small {
+    font-size: 14px;
+    padding: 0.2rem 1.5rem;
+  }
+
+  .medium {
+    font-size: 18px;
+  }
+
+  .large {
+    font-size: 24px;
   }
 }

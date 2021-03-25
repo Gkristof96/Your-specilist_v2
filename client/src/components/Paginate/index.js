@@ -1,26 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Paginate = ({pages, page, keyword}) => {
   const { city, profession } = keyword
     return (
         <ul className='pagination'>
-            <li>Előző</li>
             {[...Array(pages).keys()].map((number) => (
-              <Link 
+              <NavLink
+                activeClassName='active'
+                exact={true} 
                 key={number} 
                 to={(city && profession) ? `/providers/search/${profession}/${city}/page/${number + 1}`
                 : (!city && profession) ? `/providers/search/${profession}/page/${number + 1}` 
                 : `/providers/page/${number + 1}`}
               >
-                <li
-                  className={`${page === number && "active"}`}
-                >
+                <li>
                   {number + 1}
                 </li>
-                </Link>
+                </NavLink>
               ))}
-            <li>Következő</li>
         </ul>
     )
 }

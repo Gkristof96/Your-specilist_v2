@@ -24,7 +24,7 @@ const ProviderCard = ({provider}) => {
                     }
                     <div className='professions-bar'>
                         {provider.professions.map((profession,index) => (
-                            <ProfessionBadge profession={profession} key={index} />
+                            <ProfessionBadge profession={profession} size='small' key={index} />
                         ))}
                     </div>
                 </div>

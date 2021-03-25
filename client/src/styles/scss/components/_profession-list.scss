@@ -11,6 +11,7 @@
 
   h1 {
     margin: 25px 0;
+    font-size: clamp(12px, 2vw, 24px);
     color: $dark-text;
   }
 
@@ -37,7 +38,7 @@
     position: absolute;
     top: 25px;
     left: 25px;
-    font-size: 2rem;
+    font-size: clamp(18px, 2vw, 36px);
     color: $dark-text;
     transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     cursor: pointer;
@@ -55,6 +56,10 @@
         padding: 0.25rem 1.2rem;
         font-size: 14px;
       }
+    }
+    .back-arrow {
+      left: 15px;
+      top: 20px;
     }
   }
 }
