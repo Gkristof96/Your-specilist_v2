@@ -57,9 +57,9 @@
       }
       .checkbox {
         width: 100%;
-        font-size: 18px;
         span {
           margin-left: 5px;
+          font-size: 18px;
           span {
             color: $purple;
             font-weight: 500;
@@ -104,6 +104,15 @@
         font-size: 14px;
         color: $purple;
       }
+    }
+  }
+}
+
+@media screen and(max-width: 450px) {
+  .auth-screen .auth-card {
+    width: calc(100% - 20px);
+    form .checkbox span {
+      font-size: 12px;
     }
   }
 }

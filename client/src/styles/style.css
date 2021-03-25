@@ -1212,8 +1212,6 @@ button:hover {
   margin: 10px 0;
 }
 .flat-input.text {
-  grid-column: 2/3;
-  grid-row: 3/4;
   height: 100px;
 }
 .flat-input input,
@@ -1311,6 +1309,18 @@ button:hover {
   width: 60%;
 }
 
+@media screen and (max-width: 450px) {
+  .contact .white-container {
+    padding: 50px 25px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact .white-container .leftbar,
+.contact .white-container .rightbar {
+    width: 100%;
+  }
+}
 .auth-screen {
   width: 100%;
   height: 100vh;
@@ -1365,10 +1375,10 @@ button:hover {
 }
 .auth-screen .auth-card form .checkbox {
   width: 100%;
-  font-size: 18px;
 }
 .auth-screen .auth-card form .checkbox span {
   margin-left: 5px;
+  font-size: 18px;
 }
 .auth-screen .auth-card form .checkbox span span {
   color: #49205c;
@@ -1409,6 +1419,14 @@ button:hover {
   color: #49205c;
 }
 
+@media screen and (max-width: 450px) {
+  .auth-screen .auth-card {
+    width: calc(100% - 20px);
+  }
+  .auth-screen .auth-card form .checkbox span {
+    font-size: 12px;
+  }
+}
 .offer .white-container {
   height: 750px;
   display: flex;
@@ -1433,6 +1451,10 @@ button:hover {
 .offer .white-container form .flat-input {
   width: 100%;
 }
+.offer .white-container form .flat-input.text {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
 .offer .white-container form button {
   grid-row: 4/5;
   grid-column: 2/3;
@@ -1455,6 +1477,23 @@ button:hover {
   font-weight: 600;
 }
 
+@media screen and (max-width: 450px) {
+  .offer .white-container {
+    height: auto;
+  }
+  .offer .white-container form {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 140px 1fr 1fr;
+  }
+  .offer .white-container form .flat-input.text {
+    grid-column: 1/2;
+    grid-row: 5/6;
+  }
+  .offer .white-container form button {
+    grid-column: 1/2;
+    grid-row: 7/8;
+  }
+}
 .error .white-container {
   height: 750px;
 }

@@ -23,6 +23,11 @@
 
     .flat-input {
       width: 100%;
+
+      &.text {
+        grid-column: 2/3;
+        grid-row: 3/4;
+      }
     }
     button {
       grid-row: 4/5;
@@ -45,6 +50,25 @@
           color: $purple;
           font-weight: 600;
         }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 450px) {
+  .offer .white-container {
+    height: auto;
+    form {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 140px 1fr 1fr;
+
+      .flat-input.text {
+        grid-column: 1/2;
+        grid-row: 5/6;
+      }
+      button {
+        grid-column: 1/2;
+        grid-row: 7/8;
       }
     }
   }
