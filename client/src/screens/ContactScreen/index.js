@@ -1,9 +1,40 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
+import Loader from '../../components/Loader'
+import Modal from '../../components/Modal'
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 
 const ContactScreen = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+    const [isModalOpen, setModalOpen] = useState(false)
+    const [loading, setLoading] = useState(false)
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        setLoading(true)
+        try {
+            const config = {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              }
+              await axios.post('/api/email',{name, email, message}, config)
+              setLoading(false)
+              setModalOpen(true)
+              setName('')
+              setEmail('')
+              setMessage('')
+        } catch(error) {
+            console.log(error)
+            setLoading(false)
+        }
+    }
+    const closeModal = () => setModalOpen(false)
     return (
         <>
+            <Modal isModalOpen={isModalOpen} closeModal={closeModal} />
             <section className='background small-bg'></section>
             <section className='contact content'>
                 <div className='white-container'>
@@ -19,25 +50,26 @@ const ContactScreen = () => {
                         </ul>
                     </div>
                     <div className='rightbar'>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className='flat-input'>
-                                <input type='text' name='name' autoComplete='off' required/>
+                                <input type='text' name='name' autoComplete='off' required value={name} onChange={(e) => setName(e.target.value)}/>
                                 <label htmlFor='name' className='label-name'>
                                     <span className='content-name'>Név</span>
                                 </label>
                             </div>
                             <div className='flat-input'>
-                                <input type='text' name='email' required autoComplete='off' />
+                                <input type='text' name='email' required autoComplete='off' value={email} onChange={(e) => setEmail(e.target.value)}/>
                                 <label htmlFor='email' className='label-name'>
                                     <span className='content-name'>Email</span>
                                 </label>
                             </div>
                             <div className='flat-input'>
-                                <textarea name='message' required autoComplete='off' />
+                                <textarea name='message' required autoComplete='off' value={message} onChange={(e) => setMessage(e.target.value)}/>
                                 <label htmlFor='message' className='label-name'>
                                     <span className='content-name'>Üzenet</span>
                                 </label>
                             </div>
+                            {loading && <Loader />}
                             <button type='submit'>Küldés</button>
                         </form>
                     </div>

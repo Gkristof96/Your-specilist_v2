@@ -22,6 +22,11 @@ app.use('/api/search', searchRoutes)
 app.use('/api/provider', providerRoutes)
 app.use('/api/offer', offerRoutes)
 
+app.post('/api/email', (req,res) => {
+  console.log(req.body)
+  res.send('Message received')
+})
+
 app.use(notFound)
 app.use(errorHandler)
 
