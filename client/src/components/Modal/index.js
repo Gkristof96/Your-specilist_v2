@@ -1,15 +1,14 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 
-const Modal = ({isModalOpen, closeModal}) => {
+const Modal = ({children, isModalOpen, closeModal}) => {
     return (
         <>
             {isModalOpen && <div className='modal'>
                 <div className='modal-container'>
                     <div className='content'>
                         <FaTimes className='icon' onClick={closeModal}/>
-                        <h1>Köszönjük a bizalmát!</h1>
-                        <p>Hamarosan felkeresnek a szakemberek</p>
+                        {children}
                     </div>
                 </div>
             </div>}

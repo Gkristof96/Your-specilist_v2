@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { 
     FaPhoneAlt, 
     FaEnvelope, 
-    FaMapMarkerAlt 
+    FaMapMarkerAlt,
+    FaArrowAltCircleLeft
 } from 'react-icons/fa'
 
 import Rating from '../../components/Rating'
@@ -58,30 +59,28 @@ const ProviderEditScreen = ({ match }) => {
             <section className='background medium-bg'></section>
             <section className='profile content'>
                 <div className='white-container'>
-                        <div className='leftbar'>
-                            <img src={provider.image} alt={provider.name} />
-                            <div className='data-container'>
-                                <Rating value={provider.rating} numReviews={provider.numReviews}/>
-                                <div className='contact-data'>
-                                    <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2>
-                                    <h2><FaEnvelope className='icon'/> {provider.email}</h2>
-                                </div>
-                                <div className='action-buttons'>
-                                    <Link to={`/provider/${id}`} className='link-btn'>
-                                        Vissza a szakember profiljára
-                                    </Link>
-                                </div>
-                            </div>
+                        <img  className='profile-image' src={provider.image} alt={provider.name} />
+                        <div className='button-container'>
+                            <Link to={`/provider/${id}`} className='circle-btn'>
+                                <span className='btn-text'>Vissza a szakember profiljára</span>
+                                <div className='icon-wrapper'><FaArrowAltCircleLeft className='icon'/></div>
+                            </Link>
                         </div>
-                        <div className='rightbar'>
+                        <div className='profile-header'>
                             <h1>{provider.name}</h1>
+                            <Rating value={provider.rating} numReviews={provider.numReviews} />
+                        </div>
+                        <div className='contact-info'>
                             <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
-                            <div className='professions'>
-                                    {provider.professions.map((profession,index) => (
-                                        <ProfessionBadge profession={profession} key={index} />
-                                    ))}
-                                </div>
-                            <div className='rating-card'>
+                            <h2><FaEnvelope className='icon'/>{provider.email}</h2>
+                            <h2><FaPhoneAlt className='icon'/>Hungary, {provider.tel}</h2>
+                        </div>
+                        <div className='profession-bar'>
+                            {provider.professions.map((profession,index) => (
+                                <ProfessionBadge profession={profession} key={index} />
+                            ))}
+                        </div> 
+                        <div className='rating-card'>
                                 <h3>Értékelés</h3>
                                 <form onSubmit={submitHandler}>
                                     <label>
@@ -123,9 +122,8 @@ const ProviderEditScreen = ({ match }) => {
                                     </label>
                                     <button type='submit'>Küldés</button>
                                 </form>
-                            </div>   
+                            </div> 
                         </div>
-                </div>
             </section>
         </>
     )

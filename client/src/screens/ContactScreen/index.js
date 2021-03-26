@@ -34,7 +34,9 @@ const ContactScreen = () => {
     const closeModal = () => setModalOpen(false)
     return (
         <>
-            <Modal isModalOpen={isModalOpen} closeModal={closeModal} />
+            <Modal isModalOpen={isModalOpen} closeModal={closeModal}>
+                <h1>Köszönjük az üzenetet!</h1>    
+            </Modal>
             <section className='background small-bg'></section>
             <section className='contact content'>
                 <div className='white-container'>
@@ -63,7 +65,7 @@ const ContactScreen = () => {
                                     <span className='content-name'>Email</span>
                                 </label>
                             </div>
-                            <div className='flat-input'>
+                            <div className='flat-input text'>
                                 <textarea name='message' required autoComplete='off' value={message} onChange={(e) => setMessage(e.target.value)}/>
                                 <label htmlFor='message' className='label-name'>
                                     <span className='content-name'>Üzenet</span>

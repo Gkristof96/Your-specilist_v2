@@ -4,8 +4,9 @@ import {
     FaPhoneAlt, 
     FaEnvelope, 
     FaAward,  
-    FaMapMarkerAlt 
+    FaMapMarkerAlt
 } from 'react-icons/fa'
+import { MdLocalOffer } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Rating from '../../components/Rating'
@@ -38,45 +39,43 @@ const ProviderScreen = ({match}) => {
                     {loading 
                         ? <Loader size='large'/> 
                         : <>
-                            <div className='leftbar'>
-                                <img src={provider.image} alt={provider.name} />
-                                <div className='data-container'>
-                                    <Rating 
-                                        value={provider.rating} 
-                                        numReviews={provider.numReviews}
-                                    />
-                                    <div className='contact-data'>
-                                        <h2><FaPhoneAlt className='icon'/> {provider.tel}</h2>
-                                        <h2><FaEnvelope className='icon'/> {provider.email}</h2>
-                                    </div>
-                                
-                                    <div className='action-buttons'>
-                                        <Link to={`/provider/${id}/rating`} className='link-btn'>
-                                            Értékeld a munkám <FaAward className='icon'/>
-                                        </Link>
-                                    </div>
-                                </div>
+                            <img  className='profile-image' src={provider.image} alt={provider.name} />
+                            <div className='button-container'>
+                                <Link to={`/provider/${id}/rating`} className='circle-btn'>
+                                    <span className='btn-text'>Kérj ajánlatot</span>
+                                    <div className='icon-wrapper'><MdLocalOffer className='icon'/></div>
+                                </Link>
+                                <Link to={`/provider/${id}/rating`} className='circle-btn'>
+                                    <span className='btn-text'>Értékeld a munkám</span>
+                                    <div className='icon-wrapper'><FaAward className='icon'/></div>
+                                </Link>
                             </div>
-                            <div className='rightbar'>
+                            <div className='profile-header'>
                                 <h1>{provider.name}</h1>
-                                <h2>
-                                    <FaMapMarkerAlt className='icon'/>
-                                    Hungary, {provider.city}
-                                </h2>
-                                <div className='professions'> 
-                                    {provider.professions.map((profession,index) => (
-                                        <ProfessionBadge profession={profession} key={index} />
-                                    ))}
-                                </div>
+                                <Rating value={provider.rating} numReviews={provider.numReviews} />
+                            </div>
+                            <div className='contact-info'>
+                                <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
+                                <h2><FaEnvelope className='icon'/>{provider.email}</h2>
+                                <h2><FaPhoneAlt className='icon'/>Hungary, {provider.tel}</h2>
+                            </div>
+                            <div className='profession-bar'>
+                                {provider.professions.map((profession,index) => (
+                                    <ProfessionBadge profession={profession} key={index} />
+                                ))}
+                            </div> 
+                            <div className='description'>
                                 <h3>Bemutatkozás</h3>
                                 {provider.bio 
                                     ? <p>{provider.bio}</p> 
-                                    : <p>Ez a szakember még nem töltött fel bemutatkozást</p>
+                                    : <p>Ez a szakember még nem töltött fel bemutatkozást!</p>
                                 }
+                            </div>
+                            <div className='gallery'>
                                 <h3>Galléria</h3>
                                 {provider.gallery.length > 0 
                                     ? <p>{provider.bio}</p> 
-                                    : <p>Ez a szakember még nem töltött fel bemutatkozást</p>
+                                    : <p>Ez a szakember még nem töltött fel képeket!</p>
                                 }
                             </div>
                         </>

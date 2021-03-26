@@ -21,7 +21,7 @@ const Rating = ({ value, numReviews }) => {
         {value >= 5 ? <BsStarFill color='F5D547'/> : value >= 4.5 ? <BsStarHalf color='F5D547'/> : <BsStar color='F5D547'/>}
         </span>
       </div>
-      <span>{numReviews} vélemény alapján</span>
+      <span className='rating-text'>{numReviews} vélemény alapján</span>
     </div>
   )
 }

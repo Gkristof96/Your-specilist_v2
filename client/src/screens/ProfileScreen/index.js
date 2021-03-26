@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom'
 import { 
     FaPhoneAlt, 
     FaEnvelope,
-    FaMapMarkerAlt 
+    FaMapMarkerAlt,
+    FaCog,
+    FaBriefcase,
+    FaCommentDots,
+    FaSignOutAlt
 } from 'react-icons/fa'
-
+import Message from '../../components/Message'
 import Rating from '../../components/Rating'
 import Loader from '../../components/Loader'
 import ProfessionBadge from '../../components/ProfessionBadge'
@@ -41,40 +45,43 @@ const ProfileScreen = ({history}) => {
             <section className='background medium-bg'></section>
             <section className='profile content'>
                 <div className='white-container'>
-                    {error && <h1>{error}</h1>}
-                    {loading ? <Loader /> :
+                    {error && <Message message={error} type='error'/>}
+                    {loading ? <Loader size='large'/> :
                     <>
-                        <div className='leftbar'>
-                            <img src={provider.image} alt={provider.name} />
-                            <div className='data-container'>
-                                <Rating value={provider.rating} numReviews={provider.numReviews}/>
-                                <div className='contact-data'>
-                                    {provider.tel 
-                                        ? <h2>
-                                            <FaPhoneAlt className='icon'/> {provider.tel}
-                                        </h2> 
-                                        : <h2>
-                                            <FaPhoneAlt className='icon'/> Nincs telefonszám megadva!
-                                        </h2>}
-                                    <h2><FaEnvelope className='icon'/> {provider.email}</h2>
-                                </div>
-                                
-                                <div className='action-buttons'>
-                                    <Link to='/profile/edit' className='link-btn'>Beállítások</Link>
-                                    <button onClick={() => handleLogout()} className='border-btn'>
-                                        Kijelentkezés
-                                    </button>
-                                </div>
+                        <img  className='profile-image' src={provider.image} alt={provider.name} />
+                        <div className='button-container'>
+                            <Link to='/profile/edit' className='circle-btn'>
+                                <span className='btn-text'>Ajánlat kérések</span>
+                                <div className='icon-wrapper'><FaBriefcase className='icon'/></div>
+                            </Link>
+                            <Link to='/profile/edit' className='circle-btn'>
+                                <span className='btn-text'>Értékelések</span>
+                                <div className='icon-wrapper'><FaCommentDots className='icon'/></div>
+                            </Link>
+                            <Link to='/profile/edit' className='circle-btn'>
+                                <span className='btn-text'>Beállítások</span>
+                                <div className='icon-wrapper'><FaCog className='icon'/></div>
+                            </Link>
+                            <div className='circle-btn' onClick={handleLogout}>
+                                <span className='btn-text'>Kijelentkezés</span>
+                                <div className='icon-wrapper'><FaSignOutAlt className='icon'/></div>
                             </div>
                         </div>
-                        <div className='rightbar'>
+                        <div className='profile-header'>
                             <h1>{provider.name}</h1>
+                            <Rating value={provider.rating} numReviews={provider.numReviews} />
+                        </div>
+                        <div className='contact-info'>
                             <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
-                            <div className='professions'> 
-                                {provider.professions.map((profession,index) => (
-                                    <ProfessionBadge profession={profession} key={index} />
-                                ))}
-                            </div>
+                            <h2><FaEnvelope className='icon'/>{provider.email}</h2>
+                            <h2><FaPhoneAlt className='icon'/>Hungary, {provider.tel}</h2>
+                        </div>
+                        <div className='profession-bar'>
+                            {provider.professions.map((profession,index) => (
+                                <ProfessionBadge profession={profession} key={index} />
+                            ))}
+                        </div> 
+                        <div className='description'>
                             <h3>Bemutatkozás</h3>
                             {provider.bio ? <p>{provider.bio}</p> : 
                             (<div>
@@ -84,7 +91,8 @@ const ProfileScreen = ({history}) => {
                                     hogy pótold ezt!
                                 </p>
                             </div>)}
-
+                        </div>
+                        <div className='gallery'>
                             <h3>Galléria</h3>
                             {provider.gallery.length > 0 ? <p>Galléria</p> : 
                             (<div>
@@ -92,10 +100,11 @@ const ProfileScreen = ({history}) => {
                                     Még nem töltöttél fel képeket. Kattints 
                                     <Link to='/profile/gallery/upload'> ide </Link>
                                     hogy pótold a képek hiányát!
-                                 </p>
+                                </p>
                             </div>)}
                         </div>
-                    </>}
+                    </>
+                    }
                 </div>
             </section>
         </>

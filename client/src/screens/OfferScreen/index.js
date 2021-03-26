@@ -35,7 +35,10 @@ const OfferScreen = () => {
     const closeModal = () => setModalOpen(false)
     return (
         <>
-            <Modal isModalOpen={isModalOpen} closeModal={closeModal} />
+            <Modal isModalOpen={isModalOpen} closeModal={closeModal}>
+                <h1>Köszönjük a bizalmat!</h1>
+                <p>A szakemberek hamarosan felkeresik önt.</p>
+            </Modal>
             <section className='background large-bg'>
                 <div className='text-container'>
                     <h1 className='text-container__title'>Nem akarsz keresgélni?</h1>

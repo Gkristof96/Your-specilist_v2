@@ -1,94 +1,82 @@
 @use '../abstracts' as *;
 
 .profile .white-container {
-  width: 100%;
-  min-height: 600px;
   height: auto;
-  transform: translateY(-75px);
-  background: $container-background;
-  padding: 0 50px;
+  padding: 50px;
+  align-items: flex-start;
+  flex-direction: column;
 
-  display: flex;
-  .leftbar {
-    width: 25%;
-    height: 100%;
-    img {
-      width: 100%;
-      border-radius: 50%;
-      border: 3px solid $light-text;
-      transform: translateY(-50%);
+  .profile-image {
+    width: 300px;
+    border-radius: 50%;
+    position: absolute;
+    border: 5px solid $input-background;
+    left: 50px;
+    top: -200px;
+  }
+
+  .button-container {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+  }
+
+  .profile-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h1 {
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 72px;
+
+      color: $purple;
     }
-    .data-container {
-      transform: translateY(-100px);
+    .rating {
+      margin: 0 15px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      .rating {
-        margin-bottom: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        span {
-          font-size: 18px;
-        }
-        .rating-stars {
-          span {
-            font-size: 42px;
-          }
-        }
-      }
-      .contact-data {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 15px;
-        h2 {
-          margin-bottom: 5px;
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 27px;
-        }
-      }
 
-      .action-buttons {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      .rating-stars {
+        span {
+          font-size: 32px;
+        }
+      }
+      .rating-text {
+        font-size: 14px;
+        color: $dark-text;
+        margin-left: 10px;
       }
     }
   }
-  .rightbar {
-    width: 70%;
-    height: 100%;
-    margin-left: 50px;
-    padding-top: 50px;
-    .professions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 50px;
-    }
-    h1 {
-      font-weight: 600;
-      font-size: 48px;
-      line-height: 72px;
-      margin-bottom: 5px;
-      color: $purple;
-    }
 
+  .contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
     h2 {
       font-weight: 500;
       font-size: 24px;
       line-height: 36px;
-      margin-bottom: 25px;
-      color: $purple;
+      margin-bottom: 15px;
+      margin-right: 25px;
+      color: $dark-text;
+      display: flex;
+      align-items: center;
       .icon {
+        line-height: 36px;
         font-size: 24px;
-        color: $purple;
+        margin-right: 5px;
+        color: $dark-text;
       }
     }
+  }
 
+  .description {
     h3 {
       font-weight: normal;
       font-size: 24px;
@@ -101,8 +89,38 @@
       font-weight: normal;
       font-size: 16px;
       line-height: 22px;
+      font-weight: 300;
       text-align: justify;
       margin-bottom: 50px;
     }
+  }
+
+  .gallery {
+    h3 {
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 10px;
+      color: $purple;
+    }
+    p {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 300;
+      text-align: justify;
+      margin-bottom: 50px;
+    }
+  }
+  .profession-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .profile .white-container {
   }
 }
