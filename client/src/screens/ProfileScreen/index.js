@@ -50,12 +50,12 @@ const ProfileScreen = ({history}) => {
                     <>
                         <img  className='profile-image' src={provider.image} alt={provider.name} />
                         <div className='button-container'>
-                            <Link to='/profile/edit' className='circle-btn'>
-                                <span className='btn-text'>Ajánlat kérések</span>
+                            <Link to='/profile' className='circle-btn'>
+                                <span className='btn-text'>Hamarosan!</span>
                                 <div className='icon-wrapper'><FaBriefcase className='icon'/></div>
                             </Link>
-                            <Link to='/profile/edit' className='circle-btn'>
-                                <span className='btn-text'>Értékelések</span>
+                            <Link to='/profile' className='circle-btn'>
+                                <span className='btn-text'>Hamarosan!</span>
                                 <div className='icon-wrapper'><FaCommentDots className='icon'/></div>
                             </Link>
                             <Link to='/profile/edit' className='circle-btn'>
@@ -74,7 +74,7 @@ const ProfileScreen = ({history}) => {
                         <div className='contact-info'>
                             <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
                             <h2><FaEnvelope className='icon'/>{provider.email}</h2>
-                            <h2><FaPhoneAlt className='icon'/>Hungary, {provider.tel}</h2>
+                            <h2><FaPhoneAlt className='icon'/>{provider.tel}</h2>
                         </div>
                         <div className='profession-bar'>
                             {provider.professions.map((profession,index) => (
@@ -97,9 +97,7 @@ const ProfileScreen = ({history}) => {
                             {provider.gallery.length > 0 ? <p>Galléria</p> : 
                             (<div>
                                 <p>
-                                    Még nem töltöttél fel képeket. Kattints 
-                                    <Link to='/profile/gallery/upload'> ide </Link>
-                                    hogy pótold a képek hiányát!
+                                    Még nem töltöttél fel képeket. Kattints <Link to='/profile/gallery/upload'>ide</Link> hogy pótold a képek hiányát!
                                 </p>
                             </div>)}
                         </div>

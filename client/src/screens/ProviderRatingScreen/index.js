@@ -73,7 +73,7 @@ const ProviderEditScreen = ({ match }) => {
                         <div className='contact-info'>
                             <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
                             <h2><FaEnvelope className='icon'/>{provider.email}</h2>
-                            <h2><FaPhoneAlt className='icon'/>Hungary, {provider.tel}</h2>
+                            <h2><FaPhoneAlt className='icon'/>{provider.tel}</h2>
                         </div>
                         <div className='profession-bar'>
                             {provider.professions.map((profession,index) => (

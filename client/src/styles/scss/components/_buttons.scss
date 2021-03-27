@@ -86,8 +86,10 @@ button {
       color: $light-text;
     }
   }
+}
 
-  &:hover {
+@media screen and(min-width: 769px) {
+  .circle-btn:hover {
     .btn-text {
       display: block;
       padding: 0 20px;

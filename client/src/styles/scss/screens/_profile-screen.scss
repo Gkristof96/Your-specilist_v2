@@ -31,7 +31,7 @@
 
     h1 {
       font-weight: 500;
-      font-size: 48px;
+      font-size: clamp(36px, 5vw, 48px);
       line-height: 72px;
 
       color: $purple;
@@ -55,12 +55,13 @@
   }
 
   .contact-info {
+    width: 100%;
     display: flex;
     align-items: center;
     margin-bottom: 15px;
     h2 {
       font-weight: 500;
-      font-size: 24px;
+      font-size: clamp(18px, 3vw, 24px);
       line-height: 36px;
       margin-bottom: 15px;
       margin-right: 25px;
@@ -76,25 +77,7 @@
     }
   }
 
-  .description {
-    h3 {
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 36px;
-      margin-bottom: 10px;
-      color: $purple;
-    }
-
-    p {
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 22px;
-      font-weight: 300;
-      text-align: justify;
-      margin-bottom: 50px;
-    }
-  }
-
+  .description,
   .gallery {
     h3 {
       font-weight: normal;
@@ -103,6 +86,7 @@
       margin-bottom: 10px;
       color: $purple;
     }
+
     p {
       font-weight: normal;
       font-size: 16px;
@@ -122,5 +106,46 @@
 
 @media screen and(max-width: 768px) {
   .profile .white-container {
+    align-items: center;
+    padding: 50px 25px;
+
+    .button-container {
+      justify-content: center;
+      margin-top: 75px;
+    }
+    .profile-image {
+      width: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -100px;
+    }
+
+    .profile-header {
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        text-align: center;
+      }
+      .rating {
+        flex-direction: column;
+      }
+    }
+    .contact-info {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and(max-width: 399px) {
+  .profile .white-container {
+    .profession-bar {
+      .profession-badge {
+        .medium {
+          font-size: 14px;
+          padding: 0.2rem 1rem;
+        }
+      }
+    }
   }
 }

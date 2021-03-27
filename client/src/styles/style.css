@@ -382,7 +382,8 @@ footer .footer-bottom h1 {
   transform: translateX(150px);
   background-color: #fff;
   width: calc(100% - 150px);
-  height: 350px;
+  height: auto;
+  min-height: 350px;
   padding: 25px;
   padding-left: 175px;
   margin-bottom: 50px;
@@ -395,8 +396,7 @@ footer .footer-bottom h1 {
   position: absolute;
   border: 5px solid #f7f7f7;
   left: -150px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 25px;
 }
 .provider-card .provider-info .header {
   display: flex;
@@ -450,6 +450,10 @@ footer .footer-bottom h1 {
   .providers .transparent-container {
     padding-top: 150px;
   }
+  .providers .transparent-container .message-container {
+    margin-top: -150px;
+    margin-bottom: 50px;
+  }
 
   .provider-card {
     width: 100%;
@@ -457,10 +461,11 @@ footer .footer-bottom h1 {
     transform: translateX(0);
     margin-bottom: 200px;
     padding: 25px;
-    padding-top: 175px;
+    padding-top: 125px;
   }
   .provider-card .provider-image {
-    top: -150px;
+    width: 200px;
+    top: -100px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -483,8 +488,6 @@ footer .footer-bottom h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 15px;
-  margin-bottom: 15px;
 }
 .profession-badge__title {
   padding: 0.5rem 2rem;
@@ -495,10 +498,14 @@ footer .footer-bottom h1 {
 }
 .profession-badge .small {
   font-size: 14px;
-  padding: 0.2rem 1.5rem;
+  padding: 0.2rem 1rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 .profession-badge .medium {
   font-size: 18px;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }
 .profession-badge .large {
   font-size: 24px;
@@ -819,6 +826,21 @@ footer .footer-bottom h1 {
   resize: none;
 }
 
+@media screen and (max-width: 768px) {
+  .rating-card {
+    width: 100%;
+  }
+  .rating-card form label input {
+    width: 100%;
+  }
+  .rating-card form select,
+.rating-card form textarea {
+    width: 100%;
+  }
+  .rating-card form button {
+    align-self: center;
+  }
+}
 .edit-card {
   width: 70%;
   padding-left: 50px;
@@ -1285,13 +1307,15 @@ button:hover {
   font-size: 25px;
   color: #eee;
 }
-.circle-btn:hover .btn-text {
-  display: block;
-  padding: 0 20px;
-  text-align: center;
-  color: #49205c;
-}
 
+@media screen and (min-width: 769px) {
+  .circle-btn:hover .btn-text {
+    display: block;
+    padding: 0 20px;
+    text-align: center;
+    color: #49205c;
+  }
+}
 .background {
   width: 100%;
   background: url("../images/background.jpg") center no-repeat;
@@ -1751,7 +1775,7 @@ button:hover {
 }
 .profile .white-container .profile-header h1 {
   font-weight: 500;
-  font-size: 48px;
+  font-size: clamp(36px, 5vw, 48px);
   line-height: 72px;
   color: #49205c;
 }
@@ -1769,13 +1793,14 @@ button:hover {
   margin-left: 10px;
 }
 .profile .white-container .contact-info {
+  width: 100%;
   display: flex;
   align-items: center;
   margin-bottom: 15px;
 }
 .profile .white-container .contact-info h2 {
   font-weight: 500;
-  font-size: 24px;
+  font-size: clamp(18px, 3vw, 24px);
   line-height: 36px;
   margin-bottom: 15px;
   margin-right: 25px;
@@ -1789,21 +1814,7 @@ button:hover {
   margin-right: 5px;
   color: #212121;
 }
-.profile .white-container .description h3 {
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 36px;
-  margin-bottom: 10px;
-  color: #49205c;
-}
-.profile .white-container .description p {
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 300;
-  text-align: justify;
-  margin-bottom: 50px;
-}
+.profile .white-container .description h3,
 .profile .white-container .gallery h3 {
   font-weight: normal;
   font-size: 24px;
@@ -1811,6 +1822,7 @@ button:hover {
   margin-bottom: 10px;
   color: #49205c;
 }
+.profile .white-container .description p,
 .profile .white-container .gallery p {
   font-weight: normal;
   font-size: 16px;
@@ -1826,6 +1838,42 @@ button:hover {
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .profile .white-container {
+    align-items: center;
+    padding: 50px 25px;
+  }
+  .profile .white-container .button-container {
+    justify-content: center;
+    margin-top: 75px;
+  }
+  .profile .white-container .profile-image {
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -100px;
+  }
+  .profile .white-container .profile-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile .white-container .profile-header h1 {
+    text-align: center;
+  }
+  .profile .white-container .profile-header .rating {
+    flex-direction: column;
+  }
+  .profile .white-container .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 399px) {
+  .profile .white-container .profession-bar .profession-badge .medium {
+    font-size: 14px;
+    padding: 0.2rem 1rem;
+  }
+}
 .edit .white-container {
   height: 750px;
 }

@@ -36,10 +36,10 @@ const ProfileEditScreen = ({ history }) => {
         if(!userInfo){
             history.push('/login')
         } else {
-            if(!provider || success) {
+            dispatch(getCityData())
+            if (!provider || !provider.name || success) {
                 dispatch({ type: PROVIDER_UPDATE_RESET })
                 dispatch(getUserData(userInfo._id))
-                dispatch(getCityData())
             } else {
                 setName(provider.name)
                 setTel(provider.tel)
@@ -48,6 +48,7 @@ const ProfileEditScreen = ({ history }) => {
                 setBio(provider.bio)
             }
         }
+        
     },[dispatch, userInfo, history, success, provider])
 
     const uploadFileHandler = async (e) => {

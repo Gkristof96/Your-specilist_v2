@@ -41,8 +41,8 @@ const ProviderScreen = ({match}) => {
                         : <>
                             <img  className='profile-image' src={provider.image} alt={provider.name} />
                             <div className='button-container'>
-                                <Link to={`/provider/${id}/rating`} className='circle-btn'>
-                                    <span className='btn-text'>Kérj ajánlatot</span>
+                                <Link to='' className='circle-btn'>
+                                    <span className='btn-text'>Hamarosan!</span>
                                     <div className='icon-wrapper'><MdLocalOffer className='icon'/></div>
                                 </Link>
                                 <Link to={`/provider/${id}/rating`} className='circle-btn'>
@@ -57,7 +57,7 @@ const ProviderScreen = ({match}) => {
                             <div className='contact-info'>
                                 <h2><FaMapMarkerAlt className='icon'/>Hungary, {provider.city}</h2>
                                 <h2><FaEnvelope className='icon'/>{provider.email}</h2>
-                                <h2><FaPhoneAlt className='icon'/>Hungary, {provider.tel}</h2>
+                                <h2><FaPhoneAlt className='icon'/>{provider.tel}</h2>
                             </div>
                             <div className='profession-bar'>
                                 {provider.professions.map((profession,index) => (

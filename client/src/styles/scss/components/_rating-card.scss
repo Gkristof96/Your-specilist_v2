@@ -43,3 +43,19 @@
     }
   }
 }
+
+@media screen and(max-width: 768px) {
+  .rating-card {
+    width: 100%;
+    form label input {
+      width: 100%;
+    }
+    form select,
+    form textarea {
+      width: 100%;
+    }
+    form button {
+      align-self: center;
+    }
+  }
+}
