@@ -53,10 +53,33 @@
     .auto-input {
       justify-self: center;
       width: 100%;
+      padding: 0;
+      ul {
+        top: 45px;
+        width: 70%;
+      }
     }
 
     button {
       grid-column: 2/3;
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .add-profession-card {
+    width: 100%;
+    padding: 0;
+    form {
+      width: 100%;
+      grid-template-columns: 1fr;
+
+      label {
+        justify-self: flex-start;
+      }
+      button {
+        grid-column: 1/2;
+      }
     }
   }
 }

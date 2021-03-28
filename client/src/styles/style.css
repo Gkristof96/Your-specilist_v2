@@ -781,13 +781,6 @@ footer .footer-bottom h1 {
   margin: 50px 0;
 }
 
-.edit-menu {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .rating-card h3 {
   font-weight: normal;
   font-size: 24px;
@@ -848,9 +841,18 @@ footer .footer-bottom h1 {
 .edit-card form {
   width: calc(100% - 25px);
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 30% 70%;
   grid-column-gap: 25px;
   grid-row-gap: 25px;
+}
+.edit-card form .auto-input {
+  height: 40px;
+  width: 100%;
+  padding: 0;
+}
+.edit-card form .auto-input ul {
+  width: 80%;
+  top: 45px;
 }
 .edit-card form img {
   width: 50px;
@@ -871,8 +873,9 @@ footer .footer-bottom h1 {
 .edit-card form input,
 .edit-card form textarea {
   height: 40px;
-  width: 70%;
+  width: 80%;
   border: 1px solid #aaa;
+  background: #f7f7f7;
   outline: none;
   border-radius: 5px;
   padding: 5px;
@@ -882,8 +885,8 @@ footer .footer-bottom h1 {
   height: 100px;
 }
 .edit-card form input[type=file] {
+  width: 80%;
   height: fit-content;
-  width: fit-content;
 }
 .edit-card form .picture {
   align-items: flex-start;
@@ -893,6 +896,35 @@ footer .footer-bottom h1 {
   grid-column: 2/3;
 }
 
+@media screen and (max-width: 768px) {
+  .edit-card {
+    width: 100%;
+    padding: 0;
+  }
+  .edit-card form {
+    grid-template-columns: 1fr;
+  }
+  .edit-card form .auto-input ul {
+    width: 100%;
+  }
+  .edit-card form img {
+    justify-self: flex-start;
+  }
+  .edit-card form label {
+    align-items: flex-start;
+  }
+  .edit-card form input[type=file] {
+    width: 100%;
+  }
+  .edit-card form input,
+.edit-card form textarea {
+    width: 100%;
+  }
+  .edit-card form button {
+    grid-column: 1/2;
+    justify-self: center;
+  }
+}
 .password-change-card {
   width: 70%;
   padding-left: 50px;
@@ -900,7 +932,7 @@ footer .footer-bottom h1 {
 .password-change-card form {
   width: calc(100% - 25px);
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 35% 65%;
   grid-column-gap: 25px;
   grid-row-gap: 25px;
 }
@@ -922,8 +954,9 @@ footer .footer-bottom h1 {
 }
 .password-change-card form input {
   height: 40px;
-  width: 70%;
+  width: 80%;
   border: 1px solid #aaa;
+  background: #f7f7f7;
   outline: none;
   border-radius: 5px;
   padding: 5px;
@@ -932,6 +965,30 @@ footer .footer-bottom h1 {
   grid-column: 2/3;
 }
 
+@media screen and (max-width: 768px) {
+  .password-change-card {
+    width: 100%;
+    padding-left: 0;
+  }
+  .password-change-card form {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+  }
+  .password-change-card form img {
+    justify-self: flex-start;
+  }
+  .password-change-card form label {
+    align-items: flex-start;
+  }
+  .password-change-card form input {
+    width: 100%;
+  }
+  .password-change-card form button {
+    grid-column: 1/2;
+    justify-self: center;
+  }
+}
 .delete-card {
   width: 70%;
   padding-left: 50px;
@@ -1050,11 +1107,32 @@ footer .footer-bottom h1 {
 .add-profession-card form .auto-input {
   justify-self: center;
   width: 100%;
+  padding: 0;
+}
+.add-profession-card form .auto-input ul {
+  top: 45px;
+  width: 70%;
 }
 .add-profession-card form button {
   grid-column: 2/3;
 }
 
+@media screen and (max-width: 768px) {
+  .add-profession-card {
+    width: 100%;
+    padding: 0;
+  }
+  .add-profession-card form {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  .add-profession-card form label {
+    justify-self: flex-start;
+  }
+  .add-profession-card form button {
+    grid-column: 1/2;
+  }
+}
 .message-container {
   width: 100%;
   text-align: center;
@@ -1237,11 +1315,11 @@ button:hover {
   transform: scale(1.1);
 }
 
-.link-btn,
-.border-btn {
+.link-btn {
   width: 100%;
   height: 50px;
   border: 3px solid #49205c;
+  font-size: clamp(14px, 2vw, 24px);
   border-radius: 10px;
   background: transparent;
   color: #49205c;
@@ -1250,14 +1328,12 @@ button:hover {
   margin-bottom: 15px;
   font-weight: 500;
 }
-.link-btn:hover,
-.border-btn:hover {
+.link-btn:hover {
   border: none;
   background: #49205c;
   color: #eee;
 }
-.link-btn.active,
-.border-btn.active {
+.link-btn.active {
   border: none;
   background: #49205c;
   color: #eee;
@@ -1271,11 +1347,6 @@ button:hover {
 }
 .link-btn .icon {
   margin-left: 5px;
-}
-
-.border-btn {
-  margin: 0;
-  max-width: 100%;
 }
 
 .circle-btn {
@@ -1875,10 +1946,29 @@ button:hover {
   }
 }
 .edit .white-container {
-  height: 750px;
+  height: auto;
+  min-height: 750px;
+  padding: 100px 50px;
+  align-items: flex-start;
 }
-.edit .white-container .rightbar {
-  width: 70%;
+.edit .white-container .edit-menu {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .edit .white-container {
+    flex-direction: column;
+  }
+  .edit .white-container .edit-menu {
+    width: 100%;
+    padding-bottom: 25px;
+    border-bottom: 3px solid #49205c;
+    margin-bottom: 50px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

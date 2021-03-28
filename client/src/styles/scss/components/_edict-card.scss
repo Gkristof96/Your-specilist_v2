@@ -7,10 +7,19 @@
   form {
     width: calc(100% - 25px);
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 30% 70%;
     grid-column-gap: 25px;
     grid-row-gap: 25px;
 
+    .auto-input {
+      height: 40px;
+      width: 100%;
+      padding: 0;
+      ul {
+        width: 80%;
+        top: 45px;
+      }
+    }
     img {
       width: 50px;
       border-radius: 25px;
@@ -31,8 +40,9 @@
     input,
     textarea {
       height: 40px;
-      width: 70%;
+      width: 80%;
       border: 1px solid $input-border;
+      background: $input-background;
       outline: none;
       border-radius: 5px;
       padding: 5px;
@@ -43,8 +53,8 @@
     }
 
     input[type="file"] {
+      width: 80%;
       height: fit-content;
-      width: fit-content;
     }
 
     .picture {
@@ -54,6 +64,38 @@
 
     button {
       grid-column: 2/3;
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .edit-card {
+    width: 100%;
+    padding: 0;
+    form {
+      grid-template-columns: 1fr;
+      .auto-input {
+        ul {
+          width: 100%;
+        }
+      }
+      img {
+        justify-self: flex-start;
+      }
+      label {
+        align-items: flex-start;
+      }
+      input[type="file"] {
+        width: 100%;
+      }
+      input,
+      textarea {
+        width: 100%;
+      }
+      button {
+        grid-column: 1/2;
+        justify-self: center;
+      }
     }
   }
 }

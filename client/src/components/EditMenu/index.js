@@ -19,7 +19,7 @@ const EditMenu = () => {
                 to='/profile/professions'
                 className='link-btn'
             >Szakmai adatok</NavLink>
-            <NavLink 
+            {/*<NavLink 
                 activeClassName='active'
                 to='/profile/gallery/upload'
                 className='link-btn'
@@ -28,7 +28,7 @@ const EditMenu = () => {
                 activeClassName='active'
                 to='/profile/delete'
                 className='link-btn'
-            >Felhasználó törlése</NavLink>
+            >Felhasználó törlése</NavLink>*/}
             <Link 
                 to='/profile' 
                 className='link-btn'
