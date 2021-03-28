@@ -45,10 +45,9 @@ const ProfileScreen = ({history}) => {
             <section className='background medium-bg'></section>
             <section className='profile content'>
                 <div className='white-container'>
-                    {error && <Message message={error} type='error'/>}
-                    {loading ? <Loader size='large'/> :
+                    {loading ? <Loader size='large'/> : error ? <Message message={error} type='error'/> :
                     <>
-                        <img  className='profile-image' src={provider.image} alt={provider.name} />
+                    <img  className='profile-image' src={provider.image} alt={provider.name} />
                         <div className='button-container'>
                             <Link to='/profile' className='circle-btn'>
                                 <span className='btn-text'>Hamarosan!</span>
