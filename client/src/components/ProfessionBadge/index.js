@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const ProfessionBadge = ({profession, size}) => {
-    return (
-        <div className='profession-badge'>
-            <span className={`profession-badge__title ${size}`}>
-                {profession.name}
-            </span>
-        </div>
-    )
-}
+const ProfessionBadge = ({ profession, size }) => {
+  return (
+    <div className="profession-badge">
+      <span className={`profession-badge__title ${size}`}>
+        {profession.name}
+      </span>
+    </div>
+  );
+};
 
 ProfessionBadge.defaultProps = {
-    size: 'medium',
-}
+  size: "medium",
+};
 
-export default ProfessionBadge
+export default ProfessionBadge;

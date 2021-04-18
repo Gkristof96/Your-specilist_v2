@@ -1,14 +1,14 @@
-import React from 'react'
-import { 
-    AiFillFacebook, 
-    AiFillInstagram, 
-    AiFillTwitterSquare
-} from 'react-icons/ai'
+import React from "react";
+import {
+  AiFillFacebook,
+  AiFillInstagram,
+  AiFillTwitterSquare,
+} from "react-icons/ai";
 
 const Footer = () => {
-    return (
-        <footer>
-            <div className='footer-header'>
+  return (
+    <footer>
+      {/*<div className='footer-header'>
                 <div className='logo'>
                     <img src='/images/logo.png' alt='logo' />
                     <div className='text'>
@@ -27,12 +27,12 @@ const Footer = () => {
                         <li>Kapcsolat</li>
                         <li>Bejelentkezés</li>
                     </ul>
-            </div>
-            <div className='footer-bottom'>
-                <h1>Terms of usage | CopyRight © Kristof - 2020</h1>
-            </div>
-        </footer>
-    )
-}
+            </div>*/}
+      <div className="footer-bottom">
+        <h1>Terms of usage | CopyRight © Kristof - 2020</h1>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

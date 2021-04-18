@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const Loader = ({size}) => {
-    return (
-        <div className='loader-container'>
-            <img src='/images/loader.gif' alt='loader' className={size}/>
-        </div>
-    )
-}
+const Loader = ({ size }) => {
+  return (
+    <div className="loader-container">
+      <img src="/images/loader.gif" alt="loader" className={size} />
+    </div>
+  );
+};
 
 Loader.defaultProps = {
-    size: 'small',
-}
+  size: "small",
+};
 
-export default Loader
+export default Loader;

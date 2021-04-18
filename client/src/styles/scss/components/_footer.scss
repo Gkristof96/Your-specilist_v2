@@ -57,9 +57,13 @@ footer {
   }
 
   .footer-bottom {
+    width: 100%;
+    max-width: 1400px;
     height: 25px;
     background-color: $background;
     text-align: center;
+    margin: 0 calc((100vw - 1400px) / 2);
+    border-top: 3px solid $purple;
 
     h1 {
       font-weight: normal;
@@ -68,7 +72,7 @@ footer {
 
       color: $purple;
 
-      padding: 5px 0;
+      padding: 15px 0;
     }
   }
 }

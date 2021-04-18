@@ -299,16 +299,20 @@ footer .footer-header ul li .icon {
   font-size: clamp(18px, 2vw, 36px);
 }
 footer .footer-bottom {
+  width: 100%;
+  max-width: 1400px;
   height: 25px;
   background-color: #e3e3e3;
   text-align: center;
+  margin: 0 calc((100vw - 1400px) / 2);
+  border-top: 3px solid #49205c;
 }
 footer .footer-bottom h1 {
   font-weight: normal;
   font-size: clamp(12px, 2vw, 16px);
   line-height: 21px;
   color: #49205c;
-  padding: 5px 0;
+  padding: 15px 0;
 }
 
 @media screen and (max-width: 1450px) {
@@ -1797,7 +1801,7 @@ button:hover {
 .category .transparent-container .profession-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 1450px) {
