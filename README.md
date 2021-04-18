@@ -1,11 +1,11 @@
 # Your Specialist
 > Szakember nyilvántartó webalkalmazás, alkalmazott technologóiák:
-> *React
-> *Redux
-> *Sass
-> *Node.js
-> *Express
-> *MongoDB
+ *React
+ *Redux
+ *Sass
+ *Node.js
+ *Express
+ *MongoDB
 > Fontos hogy az alkalmazás még nincs készen!
 
 Szakemberek nyilvántartását és keresését lehetővé tevő webalkalmazás, ahova a szakemberek regisztrálni tudnak, és kialakíthatnak maguknak egy profilt.
