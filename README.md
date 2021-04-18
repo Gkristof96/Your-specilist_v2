@@ -1,5 +1,5 @@
 # Your Specialist
-> Szakember nyilvántartó webalkalmazás, alkalmazott technologóiák:
+> Szakember nyilvántartó webalkalmazás, alkalmazott technológiák:
 * React
 * Redux
 * Sass
