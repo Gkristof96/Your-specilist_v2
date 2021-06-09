@@ -1,0 +1,47 @@
+@use '../../styles/abstracts' as *;
+
+.message-container {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  .error {
+    font-size: $headline;
+    color: #ff3333;
+    font-weight: 500;
+  }
+
+  .standard {
+    font-size: $headline;
+    color: #0275db;
+    font-weight: 500;
+  }
+
+  .icon {
+    font-size: $headline;
+    color: #ff3333;
+    margin-right: 5px;
+  }
+
+  .small {
+    margin: 10px 0;
+  }
+
+  .medium {
+    margin: 25px 0;
+  }
+
+  .large {
+    margin: 50px 0;
+  }
+}
+
+.standard {
+  background: #cce5ff;
+}
+
+.error {
+  background: #ffcccc;
+}
