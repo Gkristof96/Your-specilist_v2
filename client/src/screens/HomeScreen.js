@@ -9,12 +9,15 @@ import ProfessionList from "../components/Professions/ProfessionList";
 import ProfessionCategoryCard from "../components/Professions/ProfessionCategoryCard";
 import HeroText from "../components/UI/HeroText";
 import Loader from "../components/UI/Loader";
+import ErrorModal from "../components/UI/Modals/ErrorModal";
 
 import { getCategoryData } from "../actions/searchActions";
 
 const HomeScreen = () => {
   const [showList, setShowList] = useState(false);
   const [listData, setListData] = useState({});
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -33,11 +36,28 @@ const HomeScreen = () => {
   };
 
   const searchProvidersHandler = (city, profession) => {
-    history.push(`/providers?city=${city}&profession=${profession}`);
+    if (profession === "" && city === "") {
+      setErrorMessage("Kérlek ad meg a települést és a szakmát amit keresel");
+      setModalOpen(true);
+    } else if (profession === "") {
+      setErrorMessage("A szakma mező kitöltése kötelező");
+      setModalOpen(true);
+    } else {
+      history.push(`/providers?city=${city}&profession=${profession}`);
+    }
   };
+
+  const closeModalHandler = () => setModalOpen(false);
 
   return (
     <Fragment>
+      {isModalOpen && (
+        <ErrorModal onClose={closeModalHandler}>
+          <Fragment>
+            <p>{errorMessage}</p>
+          </Fragment>
+        </ErrorModal>
+      )}
       <ImageBackground className="large-bg">
         <HeroText>
           <h1 className="">Hiába keresel nem találsz szakembert?</h1>
