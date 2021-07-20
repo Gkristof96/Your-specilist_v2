@@ -4,7 +4,6 @@ import { VscError } from "react-icons/vsc";
 const Message = (props) => {
   return (
     <div className={`${style["message-container"]} ${style[`${props.type}`]}`}>
-      {props.type === "error" && <VscError className={style.icon} />}
       <span className={`${style[`${props.type}`]} ${style[`${props.margin}`]}`}>
         {props.message}
       </span>
