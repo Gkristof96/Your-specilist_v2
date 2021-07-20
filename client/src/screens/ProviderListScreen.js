@@ -30,8 +30,15 @@ const ProvidersListScreen = () => {
   const { loading, error, providers, pages, page } = providerList;
 
   useEffect(() => {
+    if (
+      location.search === "" &&
+      (keyword.city !== "" || keyword.profession !== "")
+    ) {
+      setKeyword({ city: "", profession: "" });
+    }
     dispatch(listProviders(pageNumber, keyword));
-  }, [dispatch, pageNumber, keyword]);
+    console.log(location);
+  }, [dispatch, pageNumber, keyword, location]);
 
   const searchProvidersHandler = (city, profession) => {
     setKeyword({ city: city, profession: profession });
