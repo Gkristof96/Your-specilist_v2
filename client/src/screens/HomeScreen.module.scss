@@ -6,7 +6,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 175px;
+  padding-top: 175px;
+  background: $background;
 
   .category-title {
     width: 420px;

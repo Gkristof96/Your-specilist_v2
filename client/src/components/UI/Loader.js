@@ -2,7 +2,7 @@ import style from "./Loader.module.scss";
 
 const Loader = (props) => {
   return (
-    <div className={style["loader-container"]}>
+    <div className={`${style["loader-container"]} ${style[`${props.size}`]}`}>
       <img
         src="/images/loader.webp"
         alt="loader"

@@ -3,9 +3,9 @@ import React, { Suspense } from "react";
 import "./styles/App.scss";
 
 import MainLayout from "./components/Layout/MainLayout";
-import HomeScreen from "./screens/HomeScreen";
 import Loader from "./components/UI/Loader";
 
+const HomeScreen = React.lazy(() => import("./screens/HomeScreen"));
 const ContactScreen = React.lazy(() => import("./screens/ContactScreen"));
 const OfferScreen = React.lazy(() => import("./screens/OfferScreen"));
 const ErrorScreen = React.lazy(() => import("./screens/ErrorScreen"));
@@ -27,7 +27,7 @@ const App = () => {
   return (
     <Router>
       <MainLayout>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader size="full" />}>
           <Switch>
             <Route path="/" exact>
               <HomeScreen />

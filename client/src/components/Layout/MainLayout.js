@@ -7,6 +7,7 @@ const MainLayout = (props) => {
   return (
     <Fragment>
       <Header />
+      <div className="background" />
       <main>{props.children}</main>
       <Footer />
     </Fragment>
