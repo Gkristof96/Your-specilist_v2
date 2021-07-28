@@ -2,16 +2,17 @@
 
 .message-container {
   width: 100%;
-  text-align: center;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   padding: 0 15px;
+  margin-bottom: 5px;
   .error {
-    font-size: $headline;
+    font-size: 12px;
     color: #ff3333;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .standard {

@@ -11,15 +11,53 @@ import RoundedInput from "../UI/Inputs/RoundedInput";
 
 import { register } from "../../actions/userActions";
 
+import useInput from "../../hooks/use-input";
+
 const RegisterCard = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [cpassword, setCpassword] = useState("");
+  const {
+    value: enteredName,
+    isValid: nameIsValid,
+    hasError: nameHasError,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    reset: resetNameInput,
+  } = useInput((value) => value.trim() !== "");
+  const {
+    value: enteredEmail,
+    isValid: emailIsValid,
+    hasError: emailHasError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetEmailInput,
+  } = useInput((value) => value.includes("@"));
+  const {
+    value: enteredPassword,
+    isValid: passwordIsValid,
+    hasError: passwordHasError,
+    valueChangeHandler: passwordChangeHandler,
+    inputBlurHandler: passwordBlurHandler,
+    reset: resetPasswordInput,
+  } = useInput(
+    (value) => value.trim() !== "" && value.length > 7 && value.length < 33
+  );
+  const {
+    value: enteredCPassword,
+    isValid: cPasswordIsValid,
+    hasError: cPasswordHasError,
+    valueChangeHandler: cPasswordChangeHandler,
+    inputBlurHandler: cPasswordBlurHandler,
+    reset: resetCPassowrdInput,
+  } = useInput((value) => value.trim() !== "");
   const [message, setMessage] = useState(null);
 
   const history = useHistory();
   const dispatch = useDispatch();
+
+  let formIsValid = false;
+
+  if (nameIsValid && emailIsValid && passwordIsValid && cPasswordIsValid) {
+    formIsValid = true;
+  }
 
   const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
@@ -32,12 +70,11 @@ const RegisterCard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password !== cpassword) {
-      setMessage("Passwords do not match");
-    } else {
-      dispatch(register(name, email, password));
-      setMessage("");
-    }
+
+    resetNameInput();
+    resetEmailInput();
+    resetPasswordInput();
+    resetCPassowrdInput();
   };
 
   const closeRegisterHandler = () => {
@@ -51,47 +88,61 @@ const RegisterCard = () => {
       {error && <Message type="error" message={error} />}
       {loading && <Loader />}
       <form onSubmit={handleSubmit}>
-        <RoundedInput placeholder="Név">
+        <RoundedInput placeholder="Név" icon="true">
           <input
             className="bar-input"
             type="text"
             name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
+            value={enteredName}
+            onChange={nameChangeHandler}
+            onBlur={nameBlurHandler}
           />
         </RoundedInput>
-        <RoundedInput placeholder="Email">
+        {nameHasError && (
+          <Message type="error">Kérjük az adatokat helyesen adja meg!</Message>
+        )}
+        <RoundedInput placeholder="Email" icon="true">
           <input
             className="bar-input"
             type="email"
             name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            value={enteredEmail}
+            onChange={emailChangeHandler}
+            onBlur={emailBlurHandler}
           />
         </RoundedInput>
-        <RoundedInput placeholder="Jelszó">
+        {emailHasError && (
+          <Message type="error">Kérjük az adatokat helyesen adja meg!</Message>
+        )}
+        <RoundedInput placeholder="Jelszó" icon="true">
           <input
             className="bar-input"
             type="password"
             name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+            value={enteredPassword}
+            onChange={passwordChangeHandler}
+            onBlur={passwordBlurHandler}
           />
         </RoundedInput>
+        {passwordHasError && (
+          <Message type="error">Kérjük az adatokat helyesen adja meg!</Message>
+        )}
         <RoundedInput placeholder="Jelszó ismét">
           <input
             className="bar-input"
             type="password"
             name="cpassword"
-            value={cpassword}
-            onChange={(e) => setCpassword(e.target.value)}
-            required
+            value={enteredCPassword}
+            onChange={cPasswordChangeHandler}
+            onBlur={cPasswordBlurHandler}
           />
         </RoundedInput>
-        <Button type="submit">Regisztráció</Button>
+        {cPasswordHasError && (
+          <Message type="error">Kérjük az adatokat helyesen adja meg!</Message>
+        )}
+        <Button disabled={!formIsValid} type="submit">
+          Regisztráció
+        </Button>
       </form>
       <p>
         Van már felhasználód? <Link to="/auth/login">Jelentkez be</Link>

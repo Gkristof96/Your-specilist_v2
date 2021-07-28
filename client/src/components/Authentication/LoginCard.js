@@ -14,6 +14,7 @@ import { login } from "../../actions/userActions";
 const LoginCard = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -29,7 +30,11 @@ const LoginCard = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    if (email.length < 1 || password.length < 1) {
+      setErrorMessage("Mindkét mező kitöltése kötelező");
+    } else {
+      dispatch(login(email, password));
+    }
   };
 
   const closeLoginHandler = () => {
@@ -41,6 +46,7 @@ const LoginCard = () => {
       <h1>Bejelentkezés</h1>
       <FaTimes className={style.icon} onClick={closeLoginHandler} />
       {error && <Message type="error" message={error} />}
+      {errorMessage && <Message type="error" message={errorMessage} />}
       {loading && <Loader />}
       <form onSubmit={submitHandler}>
         <RoundedInput placeholder="Email">
@@ -49,7 +55,6 @@ const LoginCard = () => {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </RoundedInput>
         <RoundedInput placeholder="Jelszó">
@@ -58,7 +63,6 @@ const LoginCard = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </RoundedInput>
         {/*<div className='login-settings'>
