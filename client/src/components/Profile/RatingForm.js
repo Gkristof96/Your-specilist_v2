@@ -2,20 +2,41 @@ import { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import style from "./RatingForm.module.scss";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
 import Button from "../UI/Buttons/Button";
-import RoundedInput from "../UI/Inputs/RoundedInput";
 import Modal from "../UI/Modal";
 import Loader from "../UI/Loader";
+import FormControl from "../Forms/FormControl";
 
 import { createProviderReview } from "../../actions/providerActions";
 
 const RatingForm = (props) => {
+  const ratingOptions = [
+    { key: "Kérlek válasz egy opciót", value: "" },
+    { key: "1 csillag", value: 1 },
+    { key: "2 csillag", value: 2 },
+    { key: "3 csillag", value: 3 },
+    { key: "4 csillag", value: 4 },
+    { key: "5 csillag", value: 5 },
+  ];
   const [isModalOpen, setModalOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [rating, setRating] = useState("");
-  const [message, setMessage] = useState("");
+  const initialValues = {
+    name: "",
+    email: "",
+    rating: "",
+    message: "",
+  };
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Kötelező kitölteni!"),
+    email: Yup.string()
+      .email("Nem megfelelő email formátum")
+      .required("Kötelező kitölteni!"),
+    rating: Yup.string().required("Kötelező kitölteni!"),
+    message: Yup.string().required("Kötelező kitölteni!"),
+  });
+  const onSubmit = (values) => console.log("Form data", values);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -27,23 +48,12 @@ const RatingForm = (props) => {
 
   useEffect(() => {
     if (success) {
-      setName("");
-      setEmail("");
-      setRating("");
-      setMessage("");
     }
   }, [dispatch, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(
-      createProviderReview(props.id, {
-        name,
-        email,
-        rating,
-        message,
-      })
-    );
+    dispatch(createProviderReview(props.id, {}));
     setModalOpen(true);
   };
   const closeModalHandler = () => {
@@ -69,44 +79,36 @@ const RatingForm = (props) => {
       )}
       <div className={style.rating}>
         <h3>Értékelés</h3>
-        <form onSubmit={submitHandler}>
-          <RoundedInput placeholder="Név">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </RoundedInput>
-          <RoundedInput placeholder="Email">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </RoundedInput>
-          <RoundedInput placeholder="Értékelés">
-            <select
-              id="cars"
-              name="cars"
-              value={rating}
-              onChange={(e) => setRating(e.target.value)}
-            >
-              <option value="1">1 csillag </option>
-              <option value="2">2 csillag </option>
-              <option value="3">3 csillag </option>
-              <option value="4">4 csillag </option>
-              <option value="5">5 csillag </option>
-            </select>
-          </RoundedInput>
-
-          <RoundedInput placeholder="Üzenet">
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </RoundedInput>
-          <Button type="submit">Küldés</Button>
-        </form>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {(formik) => (
+            <Form>
+              <FormControl
+                control="input"
+                type="text"
+                label="Teljes név"
+                name="name"
+              />
+              <FormControl
+                control="input"
+                type="email"
+                label="Email"
+                name="email"
+              />
+              <FormControl
+                control="select"
+                options={ratingOptions}
+                label="Értékelés"
+                name="rating"
+              />
+              <FormControl control="textarea" label="Üzenet" name="message" />
+              <Button type="submit">Küldés</Button>
+            </Form>
+          )}
+        </Formik>
       </div>
     </Fragment>
   );

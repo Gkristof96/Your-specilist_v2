@@ -1,6 +1,8 @@
 import { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createOffer } from "../actions/offerActions";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
 import ImageBackground from "../components/UI/ImageBackground";
 import Card from "../components/UI/Card";
@@ -8,17 +10,28 @@ import style from "./OfferScreen.module.scss";
 import Button from "../components/UI/Buttons/Button";
 import HeroText from "../components/UI/HeroText";
 import Modal from "../components/UI/Modal";
-import FlatInput from "../components/UI/FlatInput";
 import Loader from "../components/UI/Loader";
+import FormControl from "../components/Forms/FormControl";
 
 const OfferScreen = () => {
+  const initialValues = {
+    name: "",
+    email: "",
+    city: "",
+    profession: "",
+    description: "",
+  };
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Kötelező kitölteni!"),
+    email: Yup.string()
+      .email("Nem megfelelő email formátum")
+      .required("Kötelező kitölteni!"),
+    city: Yup.string().required("Kötelező kitölteni!"),
+    profession: Yup.string().required("Kötelező kitölteni!"),
+    description: Yup.string().required("Kötelező kitölteni!"),
+  });
+  const onSubmit = (values) => console.log("Form data", values);
   const [isModalOpen, SetModalOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [profession, setProfession] = useState("");
-  const [description, setDescription] = useState("");
-
   const dispatch = useDispatch();
 
   const offerCreate = useSelector((state) => state.offerCreate);
@@ -26,17 +39,12 @@ const OfferScreen = () => {
 
   useEffect(() => {
     if (success) {
-      setName("");
-      setEmail("");
-      setCity("");
-      setProfession("");
-      setDescription("");
     }
   }, [success, dispatch]);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(createOffer({ name, email, city, profession, description }));
+    dispatch(createOffer({}));
     SetModalOpen(true);
   };
 
@@ -77,58 +85,46 @@ const OfferScreen = () => {
           </p>
         </div>
         <div className={style.rightbar}>
-          <form onSubmit={submitHandler}>
-            <FlatInput placeholder="Név">
-              <input
-                type="text"
-                name="name"
-                autoComplete="off"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </FlatInput>
-            <FlatInput placeholder="Email">
-              <input
-                type="text"
-                name="email"
-                autoComplete="off"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </FlatInput>
-            <FlatInput placeholder="Város">
-              <input
-                type="text"
-                name="city"
-                autoComplete="off"
-                required
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </FlatInput>
-            <FlatInput placeholder="Szakma">
-              <input
-                type="text"
-                name="profession"
-                autoComplete="off"
-                required
-                value={profession}
-                onChange={(e) => setProfession(e.target.value)}
-              />
-            </FlatInput>
-            <FlatInput placeholder="Munka leírása" high>
-              <textarea
-                name="description"
-                autoComplete="off"
-                required
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </FlatInput>
-            <Button type="submit">Küldés</Button>
-          </form>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+          >
+            {(formik) => (
+              <Form>
+                <FormControl
+                  control="input"
+                  type="text"
+                  label="Teljes név"
+                  name="name"
+                />
+                <FormControl
+                  control="input"
+                  type="email"
+                  label="Email"
+                  name="email"
+                />
+                <FormControl
+                  control="input"
+                  type="text"
+                  label="Város"
+                  name="city"
+                />
+                <FormControl
+                  control="input"
+                  type="text"
+                  label="Szakma"
+                  name="profession"
+                />
+                <FormControl
+                  control="textarea"
+                  label="Munka leírás"
+                  name="description"
+                />
+                <Button type="submit">Küldés</Button>
+              </Form>
+            )}
+          </Formik>
         </div>
       </Card>
     </>

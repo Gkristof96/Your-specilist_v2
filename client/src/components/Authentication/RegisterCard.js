@@ -1,63 +1,39 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTimes } from "react-icons/fa";
 import { Link, useHistory } from "react-router-dom";
 import style from "./RegisterCard.module.scss";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
 import Loader from "../UI/Loader";
 import Button from "../UI/Buttons/Button";
 import Message from "../UI/Message";
-import RoundedInput from "../UI/Inputs/RoundedInput";
+import FormControl from "../Forms/FormControl";
 
 import { register } from "../../actions/userActions";
-
-import useInput from "../../hooks/use-input";
+import { oneOf } from "prop-types";
 
 const RegisterCard = () => {
-  const {
-    value: enteredName,
-    isValid: nameIsValid,
-    hasError: nameHasError,
-    valueChangeHandler: nameChangeHandler,
-    inputBlurHandler: nameBlurHandler,
-    reset: resetNameInput,
-  } = useInput((value) => value.trim() !== "");
-  const {
-    value: enteredEmail,
-    isValid: emailIsValid,
-    hasError: emailHasError,
-    valueChangeHandler: emailChangeHandler,
-    inputBlurHandler: emailBlurHandler,
-    reset: resetEmailInput,
-  } = useInput((value) => value.includes("@"));
-  const {
-    value: enteredPassword,
-    isValid: passwordIsValid,
-    hasError: passwordHasError,
-    valueChangeHandler: passwordChangeHandler,
-    inputBlurHandler: passwordBlurHandler,
-    reset: resetPasswordInput,
-  } = useInput(
-    (value) => value.trim() !== "" && value.length > 7 && value.length < 33
-  );
-  const {
-    value: enteredCPassword,
-    isValid: cPasswordIsValid,
-    hasError: cPasswordHasError,
-    valueChangeHandler: cPasswordChangeHandler,
-    inputBlurHandler: cPasswordBlurHandler,
-    reset: resetCPassowrdInput,
-  } = useInput((value) => value.trim() !== "");
-  const [message, setMessage] = useState(null);
-
+  const initialValues = {
+    name: "",
+    email: "",
+    password: "",
+    cPassword: "",
+  };
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Kötelező kitölteni!"),
+    email: Yup.string()
+      .email("Nem megfelelő email formátum")
+      .required("Kötelező kitölteni!"),
+    password: Yup.string().required("Kötelező kitölteni!"),
+    cPassword: Yup.string()
+      .oneOf([Yup.ref("password"), ""], "A két jelszó nem egyezik")
+      .required("Kötelező kitölteni!"),
+  });
+  const onSubmit = (values) => console.log("Form data", values);
   const history = useHistory();
   const dispatch = useDispatch();
-
-  let formIsValid = false;
-
-  if (nameIsValid && emailIsValid && passwordIsValid && cPasswordIsValid) {
-    formIsValid = true;
-  }
 
   const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
@@ -70,11 +46,6 @@ const RegisterCard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    resetNameInput();
-    resetEmailInput();
-    resetPasswordInput();
-    resetCPassowrdInput();
   };
 
   const closeRegisterHandler = () => {
@@ -84,66 +55,44 @@ const RegisterCard = () => {
     <div className={style["register-card"]}>
       <h1>Regisztráció</h1>
       <FaTimes className={style.icon} onClick={closeRegisterHandler} />
-      {message && <Message type="error" message={message} />}
       {error && <Message type="error" message={error} />}
       {loading && <Loader />}
-      <form onSubmit={handleSubmit}>
-        <RoundedInput placeholder="Név" icon="true">
-          <input
-            className="bar-input"
-            type="text"
-            name="name"
-            value={enteredName}
-            onChange={nameChangeHandler}
-            onBlur={nameBlurHandler}
-          />
-        </RoundedInput>
-        {nameHasError && (
-          <Message type="error">Kérjük az adatokat helyesen adja meg!</Message>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {(formik) => (
+          <Form>
+            <FormControl
+              control="input"
+              type="text"
+              label="Teljes név"
+              name="name"
+            />
+            <FormControl
+              control="input"
+              type="email"
+              label="Email"
+              name="email"
+            />
+            <FormControl
+              control="input"
+              type="password"
+              label="Jelszó"
+              name="password"
+            />
+            <FormControl
+              control="input"
+              type="password"
+              label="Jelszó ismét"
+              name="cPassword"
+            />
+
+            <Button type="submit">Küldés</Button>
+          </Form>
         )}
-        <RoundedInput placeholder="Email" icon="true">
-          <input
-            className="bar-input"
-            type="email"
-            name="email"
-            value={enteredEmail}
-            onChange={emailChangeHandler}
-            onBlur={emailBlurHandler}
-          />
-        </RoundedInput>
-        {emailHasError && (
-          <Message type="error">Kérjük az adatokat helyesen adja meg!</Message>
-        )}
-        <RoundedInput placeholder="Jelszó" icon="true">
-          <input
-            className="bar-input"
-            type="password"
-            name="password"
-            value={enteredPassword}
-            onChange={passwordChangeHandler}
-            onBlur={passwordBlurHandler}
-          />
-        </RoundedInput>
-        {passwordHasError && (
-          <Message type="error">Kérjük az adatokat helyesen adja meg!</Message>
-        )}
-        <RoundedInput placeholder="Jelszó ismét">
-          <input
-            className="bar-input"
-            type="password"
-            name="cpassword"
-            value={enteredCPassword}
-            onChange={cPasswordChangeHandler}
-            onBlur={cPasswordBlurHandler}
-          />
-        </RoundedInput>
-        {cPasswordHasError && (
-          <Message type="error">Kérjük az adatokat helyesen adja meg!</Message>
-        )}
-        <Button disabled={!formIsValid} type="submit">
-          Regisztráció
-        </Button>
-      </form>
+      </Formik>
       <p>
         Van már felhasználód? <Link to="/auth/login">Jelentkez be</Link>
       </p>
