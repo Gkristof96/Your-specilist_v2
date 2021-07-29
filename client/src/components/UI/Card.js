@@ -1,7 +1,6 @@
 import style from "./Card.module.scss";
 
 const Card = (props) => {
-  console.log(props);
   return (
     <div className={style.content}>
       <div

@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Field, ErrorMessage } from "formik";
 import TextError from "./TextError";
+import style from "./Form.module.scss";
 
 const Checkbox = (props) => {
   const { label, name, options, ...rest } = props;

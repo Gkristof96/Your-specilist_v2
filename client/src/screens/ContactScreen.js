@@ -1,19 +1,31 @@
 import { Fragment, useState } from "react";
 import axios from "axios";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import style from "./ContactScreen.module.scss";
 
-import FlatInput from "../components/UI/FlatInput";
 import Modal from "../components/UI/Modal";
 import Loader from "../components/UI/Loader";
 import ImageBackground from "../components/UI/ImageBackground";
 import Card from "../components/UI/Card";
 import Button from "../components/UI/Buttons/Button";
+import FormControl from "../components/Forms/FormControl";
 
 const ContactScreen = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const initialValues = {
+    name: "",
+    email: "",
+    message: "",
+  };
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Kötelező kitölteni!"),
+    email: Yup.string()
+      .email("Nem megfelelő email formátum")
+      .required("Kötelező kitölteni!"),
+    message: Yup.string().required("Kötelező kitölteni!"),
+  });
+  const onSubmit = (values) => console.log("Form data", values);
   const [isModalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -27,11 +39,8 @@ const ContactScreen = () => {
           "Content-Type": "application/json",
         },
       };
-      await axios.post("/api/email", { name, email, message }, config);
+      await axios.post("/api/email", {}, config);
       setLoading(false);
-      setName("");
-      setEmail("");
-      setMessage("");
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -81,39 +90,30 @@ const ContactScreen = () => {
           </ul>
         </div>
         <div className={style.rightbar}>
-          <form onSubmit={submitHandler}>
-            <FlatInput placeholder="Név">
-              <input
-                type="text"
-                name="name"
-                autoComplete="off"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </FlatInput>
-            <FlatInput placeholder="Email">
-              <input
-                type="text"
-                name="email"
-                required
-                autoComplete="off"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </FlatInput>
-            <FlatInput placeholder="Üzenet" high>
-              <textarea
-                name="message"
-                required
-                autoComplete="off"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-            </FlatInput>
-
-            <Button type="submit">Küldés</Button>
-          </form>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+          >
+            {(formik) => (
+              <Form>
+                <FormControl
+                  control="input"
+                  type="text"
+                  label="Teljes név"
+                  name="name"
+                />
+                <FormControl
+                  control="input"
+                  type="email"
+                  label="Email"
+                  name="email"
+                />
+                <FormControl control="textarea" label="Üzenet" name="message" />
+                <Button type="submit">Küldés</Button>
+              </Form>
+            )}
+          </Formik>
         </div>
       </Card>
     </Fragment>
