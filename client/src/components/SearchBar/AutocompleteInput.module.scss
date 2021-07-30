@@ -15,11 +15,13 @@
   }
   &.small {
     height: 40px;
+    width: 80%;
     padding: 0;
   }
 
   &.large {
     height: 75px;
+    width: 100%;
     padding-right: 12px;
   }
   ul {
@@ -46,7 +48,7 @@
       }
     }
     &.small {
-      width: 80%;
+      width: 100%;
       top: 45px;
     }
 

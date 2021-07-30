@@ -22,15 +22,30 @@ const OfferScreen = () => {
     description: "",
   };
   const validationSchema = Yup.object({
-    name: Yup.string().required("Kötelező kitölteni!"),
+    name: Yup.string()
+      .required("Kötelező kitölteni!")
+      .max(32, "Túllépted a karakter limitet (300)!"),
     email: Yup.string()
       .email("Nem megfelelő email formátum")
       .required("Kötelező kitölteni!"),
     city: Yup.string().required("Kötelező kitölteni!"),
     profession: Yup.string().required("Kötelező kitölteni!"),
-    description: Yup.string().required("Kötelező kitölteni!"),
+    description: Yup.string()
+      .required("Kötelező kitölteni!")
+      .max(300, "Túllépted a karakter limitet (300)!"),
   });
-  const onSubmit = (values) => console.log("Form data", values);
+  const onSubmit = (values) => {
+    dispatch(
+      createOffer(
+        values.name,
+        values.email,
+        values.city,
+        values.profession,
+        values.description
+      )
+    );
+    SetModalOpen(true);
+  };
   const [isModalOpen, SetModalOpen] = useState(false);
   const dispatch = useDispatch();
 

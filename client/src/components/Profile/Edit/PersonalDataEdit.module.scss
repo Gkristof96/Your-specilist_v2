@@ -8,15 +8,6 @@
   grid-column-gap: 25px;
   grid-row-gap: 25px;
 
-  .auto-input {
-    height: 40px;
-    width: 100%;
-    padding: 0;
-    ul {
-      width: 80%;
-      top: 45px;
-    }
-  }
   img {
     width: 50px;
     border-radius: 25px;
@@ -42,7 +33,7 @@
     border: 1px solid $input-border;
     background: $input-background;
     outline: none;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 5px;
   }
   textarea {

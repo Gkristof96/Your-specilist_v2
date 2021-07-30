@@ -6,8 +6,7 @@ const Card = (props) => {
       <div
         className={`${style.container} 
           ${style[`${props.alignment}`]} 
-          ${style[`${props.padding}`]}
-          ${props.flexstart && style.position}`}
+          ${style[`${props.padding}`]}`}
       >
         {props.children}
       </div>

@@ -29,12 +29,16 @@ const RatingForm = (props) => {
     message: "",
   };
   const validationSchema = Yup.object({
-    name: Yup.string().required("Kötelező kitölteni!"),
+    name: Yup.string()
+      .required("Kötelező kitölteni!")
+      .max(32, "Túllépted a karakter limitet (300)!"),
     email: Yup.string()
       .email("Nem megfelelő email formátum")
       .required("Kötelező kitölteni!"),
     rating: Yup.string().required("Kötelező kitölteni!"),
-    message: Yup.string().required("Kötelező kitölteni!"),
+    message: Yup.string()
+      .required("Kötelező kitölteni!")
+      .max(300, "Túllépted a karakter limitet (300)!"),
   });
   const onSubmit = (values) => console.log("Form data", values);
 

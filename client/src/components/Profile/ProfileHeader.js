@@ -6,6 +6,7 @@ import Rating from "../Provider/Rating";
 import ProfessionBadge from "../Professions/ProfessionBadge";
 
 const ProfileHeader = ({ provider }) => {
+  const doNothingHandler = () => {};
   return (
     <Fragment>
       <img
@@ -37,7 +38,11 @@ const ProfileHeader = ({ provider }) => {
       </div>
       <div className={style["profession-bar"]}>
         {provider.professions.map((profession, index) => (
-          <ProfessionBadge professionName={profession.name} key={index} />
+          <ProfessionBadge
+            onChooseProfession={doNothingHandler}
+            professionName={profession.name}
+            key={index}
+          />
         ))}
       </div>
     </Fragment>

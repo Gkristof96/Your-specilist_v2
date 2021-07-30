@@ -12,9 +12,10 @@ import Message from "../UI/Message";
 import FormControl from "../Forms/FormControl";
 
 import { register } from "../../actions/userActions";
-import { oneOf } from "prop-types";
 
 const RegisterCard = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const initialValues = {
     name: "",
     email: "",
@@ -22,18 +23,23 @@ const RegisterCard = () => {
     cPassword: "",
   };
   const validationSchema = Yup.object({
-    name: Yup.string().required("Kötelező kitölteni!"),
+    name: Yup.string()
+      .required("Kötelező kitölteni!")
+      .max(32, "Túllépted a karakter limitet (300)!"),
     email: Yup.string()
       .email("Nem megfelelő email formátum")
       .required("Kötelező kitölteni!"),
-    password: Yup.string().required("Kötelező kitölteni!"),
+    password: Yup.string()
+      .required("Kötelező kitölteni!")
+      .min(8, "Legalább 8 karakter hosszú jelszó szükséges!")
+      .max(32, "A jelszó maximális hossza 32 karakter!"),
     cPassword: Yup.string()
       .oneOf([Yup.ref("password"), ""], "A két jelszó nem egyezik")
       .required("Kötelező kitölteni!"),
   });
-  const onSubmit = (values) => console.log("Form data", values);
-  const history = useHistory();
-  const dispatch = useDispatch();
+  const onSubmit = (values) => {
+    dispatch(register(values.name, values.email, values.password));
+  };
 
   const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
@@ -43,10 +49,6 @@ const RegisterCard = () => {
       history.push("/register");
     }
   }, [history, userInfo]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
   const closeRegisterHandler = () => {
     history.replace("/");

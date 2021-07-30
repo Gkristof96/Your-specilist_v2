@@ -16,7 +16,7 @@ const ProfileEditScreen = () => {
   return (
     <Fragment>
       <ImageBackground className="small-bg" />
-      <Card padding="asimetric-padding" flexstart>
+      <Card padding="asimetric-padding">
         <div className={style["edit-menu"]}>
           <EditPageNavigation />
         </div>

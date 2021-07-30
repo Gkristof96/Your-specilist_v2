@@ -19,6 +19,7 @@ import {
   providerAddProfessionReducer,
   providerUpdateReducer,
   providerReviewCreateReducer,
+  providerDeleteProfessionReducer,
 } from "./reducers/providerReducer";
 import { offerCreateReducer } from "./reducers/offerReducer";
 
@@ -36,6 +37,7 @@ const reducer = combineReducers({
   providerUpdate: providerUpdateReducer,
   providerReviewCreate: providerReviewCreateReducer,
   providerAddProfession: providerAddProfessionReducer,
+  providerDeleteProfession: providerDeleteProfessionReducer,
   offerCreate: offerCreateReducer,
 });
 

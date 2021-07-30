@@ -6,13 +6,18 @@ import style from "./ProfessionDataEdit.module.scss";
 import AutocompleteInput from "../../SearchBar/AutocompleteInput";
 import ProfessionBadge from "../../Professions/ProfessionBadge";
 import Button from "../../UI/Buttons/Button";
+import Modal from "../../UI/Modal";
 
 import { getUserData } from "../../../actions/userActions";
-import { addProfession } from "../../../actions/providerActions";
+import {
+  addProfession,
+  deleteProfession,
+} from "../../../actions/providerActions";
 import { getProfessionData } from "../../../actions/searchActions";
 
 const ProfessionDataEdit = () => {
   const [profession, setProfession] = useState("");
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -20,7 +25,12 @@ const ProfessionDataEdit = () => {
   const providerAddProfession = useSelector(
     (state) => state.providerAddProfession
   );
-  const { success } = providerAddProfession;
+  const { success: addSuccess } = providerAddProfession;
+
+  const providerDeleteProfession = useSelector(
+    (state) => state.providerDeleteProfession
+  );
+  const { success: deleteSuccess } = providerDeleteProfession;
 
   const getProfession = useSelector((state) => state.getProfession);
   const { professions } = getProfession;
@@ -37,18 +47,38 @@ const ProfessionDataEdit = () => {
     } else {
       dispatch(getProfessionData());
       dispatch(getUserData(userInfo._id));
-      if (success) {
+      if (addSuccess || deleteSuccess) {
         setProfession("");
       }
     }
-  }, [success, dispatch, userInfo, history]);
+  }, [addSuccess, deleteSuccess, dispatch, userInfo, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(addProfession({ profession }));
   };
+
+  const deleteProfessionHandler = () => {
+    dispatch(deleteProfession({ profession }));
+    setModalOpen(false);
+  };
+
+  const openModalHandler = (profession) => {
+    setModalOpen(true);
+    setProfession(profession);
+  };
+
+  const closeModalHandler = () => setModalOpen(false);
+
   return (
     <Fragment>
+      {isModalOpen && (
+        <Modal onClose={closeModalHandler}>
+          <h1>Biztos törölni szeretnéd a szakmát?</h1>
+          <Button onClick={closeModalHandler}>Mégse</Button>
+          <Button onClick={deleteProfessionHandler}>Törlés</Button>
+        </Modal>
+      )}
       <p>
         Itt tudsz hozzáadni új szakmákat a profilodhoz, vagy törölni is tudod a
         már mentett szakmáidat ha azt szeretnéd.
@@ -56,7 +86,11 @@ const ProfessionDataEdit = () => {
       <h1>Szakmák</h1>
       <div className={style["profession-container"]}>
         {provider.professions.map((profession, index) => (
-          <ProfessionBadge professionName={profession.name} key={index} />
+          <ProfessionBadge
+            onChooseProfession={openModalHandler}
+            professionName={profession.name}
+            key={index}
+          />
         ))}
       </div>
       <form onSubmit={submitHandler}>

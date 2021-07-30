@@ -14,6 +14,9 @@ import FormControl from "../Forms/FormControl";
 import { login } from "../../actions/userActions";
 
 const LoginCard = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const initialValues = {
     email: "",
     password: "",
@@ -24,10 +27,7 @@ const LoginCard = () => {
       .required("Kötelező kitölteni!"),
     password: Yup.string().required("Kötelező kitölteni!"),
   });
-  const onSubmit = (values) => console.log("Form data", values);
-
-  const history = useHistory();
-  const dispatch = useDispatch();
+  const onSubmit = (values) => dispatch(login(values.email, values.password));
 
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
@@ -37,8 +37,6 @@ const LoginCard = () => {
       history.push("/profile");
     }
   }, [history, userInfo]);
-
-  const submitHandler = (e) => {};
 
   const closeLoginHandler = () => {
     history.replace("/");
