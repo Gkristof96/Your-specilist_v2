@@ -39,6 +39,7 @@
 @media screen and(max-width: 1450px) {
   .category-content {
     padding: 0 25px;
+    padding-top: 175px;
     .profession-container {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -47,7 +48,7 @@
 
 @media screen and(max-width: 450px) {
   .category-content {
-    margin-top: 175px;
+    padding-top: 175px;
 
     .category-title {
       width: 290px;

@@ -14,6 +14,10 @@ import Loader from "../components/UI/Loader";
 import FormControl from "../components/Forms/FormControl";
 
 const OfferScreen = () => {
+  const [isModalOpen, SetModalOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
   const initialValues = {
     name: "",
     email: "",
@@ -21,6 +25,7 @@ const OfferScreen = () => {
     profession: "",
     description: "",
   };
+
   const validationSchema = Yup.object({
     name: Yup.string()
       .required("Kötelező kitölteni!")
@@ -34,6 +39,7 @@ const OfferScreen = () => {
       .required("Kötelező kitölteni!")
       .max(300, "Túllépted a karakter limitet (300)!"),
   });
+
   const onSubmit = (values) => {
     dispatch(
       createOffer(
@@ -46,8 +52,6 @@ const OfferScreen = () => {
     );
     SetModalOpen(true);
   };
-  const [isModalOpen, SetModalOpen] = useState(false);
-  const dispatch = useDispatch();
 
   const offerCreate = useSelector((state) => state.offerCreate);
   const { success, loading } = offerCreate;
@@ -57,13 +61,8 @@ const OfferScreen = () => {
     }
   }, [success, dispatch]);
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    dispatch(createOffer({}));
-    SetModalOpen(true);
-  };
-
   const closeModalHandler = () => SetModalOpen(false);
+
   return (
     <>
       {isModalOpen && (

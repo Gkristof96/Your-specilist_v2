@@ -12,7 +12,7 @@ const FormControl = (props) => {
     case "textarea":
       return <Textarea {...rest} />;
     case "checkbox":
-      <Checkbox {...rest} />;
+      return <Checkbox {...rest} />;
     case "select":
       return <Select {...rest} />;
     default:

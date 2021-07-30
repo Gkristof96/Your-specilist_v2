@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import style from "./RatingForm.module.scss";
@@ -21,7 +21,9 @@ const RatingForm = (props) => {
     { key: "4 csillag", value: 4 },
     { key: "5 csillag", value: 5 },
   ];
+
   const [isModalOpen, setModalOpen] = useState(false);
+
   const initialValues = {
     name: "",
     email: "",
@@ -40,7 +42,19 @@ const RatingForm = (props) => {
       .required("Kötelező kitölteni!")
       .max(300, "Túllépted a karakter limitet (300)!"),
   });
-  const onSubmit = (values) => console.log("Form data", values);
+
+  const onSubmit = (values) => {
+    const { name, email, rating, message } = values;
+    dispatch(
+      createProviderReview(props.id, {
+        name,
+        email,
+        rating,
+        message,
+      })
+    );
+    setModalOpen(true);
+  };
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -48,18 +62,8 @@ const RatingForm = (props) => {
   const providerReviewCreate = useSelector(
     (state) => state.providerReviewCreate
   );
-  const { success, loading } = providerReviewCreate;
+  const { loading } = providerReviewCreate;
 
-  useEffect(() => {
-    if (success) {
-    }
-  }, [dispatch, success]);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(createProviderReview(props.id, {}));
-    setModalOpen(true);
-  };
   const closeModalHandler = () => {
     setModalOpen(false);
     history.push(`/provider/${props.id}`);

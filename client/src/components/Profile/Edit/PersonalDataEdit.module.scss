@@ -29,7 +29,7 @@
   textarea {
     font-size: 18px;
     height: 40px;
-    width: 80%;
+    width: 100%;
     border: 1px solid $input-border;
     background: $input-background;
     outline: none;
@@ -46,7 +46,7 @@
     align-items: flex-start;
     font-weight: 500;
     input[type="file"] {
-      width: 80%;
+      width: 100%;
       height: fit-content;
     }
   }

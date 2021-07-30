@@ -30,7 +30,9 @@ const PasswordEdit = () => {
       .required("Kötelező kitölteni!"),
   });
   const onSubmit = (values) => {
-    console.log("Form data", values);
+    const { password, newPassword } = values;
+    setModalOpen(true);
+    dispatch(changePassword({ password, newPassword }));
   };
 
   const history = useHistory();
@@ -75,14 +77,18 @@ const PasswordEdit = () => {
         onSubmit={onSubmit}
       >
         {(formik) => (
-          <Form>
-            <img src={provider.image} alt={provider.name} />
-            <h1>{provider.name}</h1>
-            <label>Régi Jelszó</label>
+          <Form className={style["edit-form"]}>
+            <img
+              className={style["profile-img"]}
+              src={provider.image}
+              alt={provider.name}
+            />
+            <h1 className={style.name}>{provider.name}</h1>
+            <label className={style.label}>Régi Jelszó</label>
             <FormControl control="input" type="password" name="oldPassword" />
-            <label>Új Jelszó</label>
+            <label className={style.label}>Új Jelszó</label>
             <FormControl control="input" type="password" name="newPassword" />
-            <label>Új Jelszó újra</label>
+            <label className={style.label}>Új Jelszó újra</label>
             <FormControl
               control="input"
               type="password"
