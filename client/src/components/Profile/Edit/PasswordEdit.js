@@ -1,19 +1,37 @@
 import { Fragment, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import style from "./PasswordEdit.module.scss";
 
 import Button from "../../UI/Buttons/Button";
 import Loader from "../../UI/Loader";
 import Modal from "../../UI/Modal";
+import FormControl from "../../Forms/FormControl";
 
 import { getUserData, changePassword } from "../../../actions/userActions";
 
 const PasswordEdit = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [password, setPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const initialValues = {
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  };
+  const validationSchema = Yup.object({
+    oldPassword: Yup.string().required("Kötelező kitölteni"),
+    newPassword: Yup.string()
+      .required("Kötelező kitölteni!")
+      .min(8, "Legalább 8 karakter hosszú jelszó szükséges!")
+      .max(32, "A jelszó maximális hossza 32 karakter!"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("newPassword"), ""], "A két jelszó nem egyezik")
+      .required("Kötelező kitölteni!"),
+  });
+  const onSubmit = (values) => {
+    console.log("Form data", values);
+  };
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -32,22 +50,8 @@ const PasswordEdit = () => {
       history.push("/login");
     } else {
       dispatch(getUserData(userInfo._id));
-      if (success) {
-        setPassword("");
-        setNewPassword("");
-        setConfirmPassword("");
-      }
     }
   }, [dispatch, userInfo, success, history]);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (newPassword !== confirmPassword) {
-    } else {
-      dispatch(changePassword({ password, newPassword }));
-      setModalOpen(true);
-    }
-  };
 
   const closeModalHandler = () => setModalOpen(false);
 
@@ -65,29 +69,29 @@ const PasswordEdit = () => {
           )}
         </Modal>
       )}
-      <form onSubmit={submitHandler} className={style["edit-form"]}>
-        <img src={provider.image} alt={provider.name} />
-        <h1>{provider.name}</h1>
-        <label>Régi Jelszó</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <label>Új Jelszó</label>
-        <input
-          type="password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-        />
-        <label>Új Jelszó újra</label>
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <Button type="submit">Mentés</Button>
-      </form>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {(formik) => (
+          <Form>
+            <img src={provider.image} alt={provider.name} />
+            <h1>{provider.name}</h1>
+            <label>Régi Jelszó</label>
+            <FormControl control="input" type="password" name="oldPassword" />
+            <label>Új Jelszó</label>
+            <FormControl control="input" type="password" name="newPassword" />
+            <label>Új Jelszó újra</label>
+            <FormControl
+              control="input"
+              type="password"
+              name="confirmPassword"
+            />
+            <Button type="submit">Mentés</Button>
+          </Form>
+        )}
+      </Formik>
     </Fragment>
   );
 };
