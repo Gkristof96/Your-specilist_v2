@@ -32,7 +32,7 @@ const ContactScreen = () => {
       .max(300, "Túllépted a karakter limitet (300)!"),
   });
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values, onSubmitProps) => {
     setLoading(true);
     setModalOpen(true);
     const { name, email, message } = values;
@@ -44,6 +44,7 @@ const ContactScreen = () => {
       };
       await axios.post("/api/email", { name, email, message }, config);
       setLoading(false);
+      onSubmitProps.resetForm();
     } catch (error) {
       console.log(error);
       setLoading(false);

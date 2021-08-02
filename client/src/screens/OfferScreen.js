@@ -40,7 +40,7 @@ const OfferScreen = () => {
       .max(300, "Túllépted a karakter limitet (300)!"),
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, onSubmitProps) => {
     dispatch(
       createOffer(
         values.name,
@@ -51,6 +51,7 @@ const OfferScreen = () => {
       )
     );
     SetModalOpen(true);
+    onSubmitProps.resetForm();
   };
 
   const offerCreate = useSelector((state) => state.offerCreate);

@@ -43,7 +43,7 @@ const RatingForm = (props) => {
       .max(300, "Túllépted a karakter limitet (300)!"),
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, onSubmitProps) => {
     const { name, email, rating, message } = values;
     dispatch(
       createProviderReview(props.id, {
@@ -54,6 +54,7 @@ const RatingForm = (props) => {
       })
     );
     setModalOpen(true);
+    onSubmitProps.resetForm();
   };
 
   const history = useHistory();
